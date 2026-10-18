@@ -72,6 +72,7 @@ src/
     Footer.astro
   scripts/reveal.ts      ← scroll-reveal for rows (see design.md → Motion)
   scripts/strip.ts       ← wires StripControls to a Strip
+  scripts/progress.ts    ← page-change progress line under the header
   assets/logos/          ← monochrome language logos (SVG, drawn in currentColor)
   assets/photos/         ← put photos here (optimised by astro:assets)
 public/favicon.svg
@@ -81,7 +82,7 @@ public/favicon.svg
 
 - [x] Initial landing page design (light + dark via `prefers-color-scheme`)
 - [x] `/work` and `/photos` subpages (initial design)
-- [x] Subtle motion: scroll reveal, hovers, page cross-fade
+- [x] Subtle motion: scroll reveal, hovers, page cross-fade, page-change progress line
 - [ ] Replace all `TODO` placeholders in `src/data/profile.ts` (see content.md)
 - [ ] Add real photos
 - [ ] Set `site` in `astro.config.mjs` once the domain is known
@@ -93,5 +94,5 @@ public/favicon.svg
 - Content changes → only `src/data/profile.ts`. Components must not hard-code personal text.
 - New visual block → wrap it in `<Row>`, build its inside with a `.cells` grid. See design.md.
 - No new colours or font sizes outside the tokens without updating design.md.
-- JS is limited to progressive enhancement (scroll reveal, strip buttons). The site must work fully without it — the strip still scrolls by swipe/trackpad/keyboard.
+- JS is limited to progressive enhancement (scroll reveal, strip buttons, page-change progress line). The site must work fully without it — the strip still scrolls by swipe/trackpad/keyboard.
 - Verify both themes, a 390 px wide viewport, and `prefers-reduced-motion` after visual changes.

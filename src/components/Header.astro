@@ -29,6 +29,7 @@ const path = Astro.url.pathname.replace(/\/$/, "");
       <a class="cta label" href={profile.links.email}>Contact <span class="arrow" aria-hidden="true">→</span></a>
     </nav>
   </Row>
+  <div class="nav-progress" aria-hidden="true"></div>
 </header>
 
 <style>
@@ -91,6 +92,59 @@ const path = Astro.url.pathname.replace(/\/$/, "");
 
   .cta:hover .arrow {
     transform: translateX(3px);
+  }
+
+  /* Page-change progress: an accent line laid over the header's bottom hairline.
+     Driven by html.nav-loading / html.nav-done (scripts/progress.ts). */
+  .nav-progress {
+    position: absolute;
+    inset-inline: 0;
+    bottom: -1px;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+  }
+
+  :global(.nav-loading) .nav-progress {
+    animation: nav-load 8s calc(-1 * var(--nav-elapsed, 0ms)) both;
+  }
+
+  :global(.nav-done) .nav-progress {
+    animation: nav-done 600ms var(--ease-out) both;
+  }
+
+  @keyframes nav-load {
+    0% {
+      transform: scaleX(0);
+      animation-timing-function: var(--ease-out);
+    }
+    4% {
+      transform: scaleX(0.3);
+      animation-timing-function: var(--ease-out);
+    }
+    20% {
+      transform: scaleX(0.6);
+      animation-timing-function: var(--ease-out);
+    }
+    100% {
+      transform: scaleX(0.9);
+    }
+  }
+
+  @keyframes nav-done {
+    from {
+      transform: scaleX(var(--nav-from, 0));
+    }
+    45% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+    to {
+      transform: scaleX(1);
+      opacity: 0;
+    }
   }
 
   @media (max-width: 720px) {

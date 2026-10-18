@@ -32,12 +32,28 @@ const { title, description } = Astro.props;
           if (!("revealReady" in root.dataset)) root.classList.remove("motion");
         }, 2500);
       })();
+      // Arrived via an internal link: resume the header progress line where the
+      // previous page left it (see scripts/progress.ts).
+      (function () {
+        var start;
+        try {
+          start = Number(sessionStorage.getItem("nav-start"));
+          sessionStorage.removeItem("nav-start");
+        } catch (e) {}
+        var elapsed = Date.now() - start;
+        if (!(elapsed >= 0 && elapsed < 10000)) return;
+        if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+        var root = document.documentElement;
+        root.style.setProperty("--nav-elapsed", elapsed + "ms");
+        root.classList.add("nav-loading");
+      })();
     </script>
   </head>
   <body id="top">
     <slot />
     <script>
       import "../scripts/reveal";
+      import "../scripts/progress";
     </script>
   </body>
 </html>

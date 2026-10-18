@@ -63,3 +63,13 @@ so they fit the one-accent palette instead of adding brand colours. Sources: Sim
 (CC0) where available; C# and Java come from Devicon (MIT) because Simple Icons dropped
 them; "SQL & KQL" uses a hand-drawn generic database glyph. SVGs are vendored in
 `src/assets/logos/` rather than adding an icon package dependency for six files.
+
+### 2026-10-18 — Page-change progress line, carried across pages
+
+To make switching between `/`, `/work` and `/photos` feel continuous, a 2px accent line
+runs along the header's bottom hairline while the next page loads. It sits on an existing
+grid line (motion confirms the grid) and inside the header, which the View Transition keeps still.
+The old page can't hand over its exact progress reliably (unload/sessionStorage ordering differs
+per browser), so it stores only the click time; the next page resumes the same CSS animation with
+a negative delay, then finishes it on `load`. No spinner or overlay: the cross-fade already hides
+the swap, the line just signals that something is happening. Off under `prefers-reduced-motion`.

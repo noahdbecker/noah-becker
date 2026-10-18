@@ -23,7 +23,7 @@
 | `--muted` | `#6c6c66` | `#8f8f89` | Secondary text, labels |
 | `--line` | `#d8d8d1` | `#2b2b2f` | All grid lines, tag borders |
 | `--marker` | `#8e8e86` | `#5c5c62` | "+" intersection markers |
-| `--accent` | `#2b59ff` | `#7090ff` | Contact button, hover state of "see more" buttons, hero caret. Nothing else. |
+| `--accent` | `#2b59ff` | `#7090ff` | Contact button, hover state of "see more" buttons, hero caret, page-change progress line. Nothing else. |
 | `--hatch` / `--dot` | low-alpha black/white | | Pattern ink |
 
 Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
@@ -125,6 +125,7 @@ row borders stay put; only what's *inside* cells moves. Nothing loops except the
 | Card hover | ProjectCard | dot grid drifts 8px; code badge lifts −3px onto a 3px hard block shadow (`--line`) — the only shadow on the site |
 | Photo hover | PhotoGrid, /photos | image scales 1.03 (700ms); hatch placeholders drift |
 | Page change | all navigations | native cross-document View Transition (cross-fade); header has `view-transition-name: site-header` so it stays still |
+| Progress line | header bottom hairline | 2px accent line (`.nav-progress`) on clicking a link to another page: trickles 0 → 90% (8s, ease-out segments). The next page resumes it at the same point, runs it to 100% once loaded and fades it (600ms). In-page anchors, external links and modifier-clicks don't trigger it. `src/scripts/progress.ts` |
 
 ### How the reveal works
 
@@ -138,6 +139,15 @@ row borders stay put; only what's *inside* cells moves. Nothing loops except the
 - CSS lives in `global.css` → "Motion". Component-specific reveal tweaks use
   `:global(.motion .frame[data-reveal])` / `:global(.motion .frame.is-in)`.
 - Reduced motion: no `.motion` class, and global CSS kills all transitions/animations.
+
+### How the progress line carries across pages
+
+- Click on an internal link → `html.nav-loading` + click time in `sessionStorage["nav-start"]`.
+- `Base.astro` inline head script on the next page: if that time is < 10s old, sets
+  `--nav-elapsed` and `html.nav-loading` before first paint, so the animation resumes via a
+  negative `animation-delay` exactly where the old page's line was (seamless under the View Transition).
+- `progress.ts` on `load`: reads the current scale into `--nav-from`, swaps to `html.nav-done`.
+  Back/forward-cache restores also get `nav-done`.
 - New component inside a Row gets the reveal automatically. Animate *contents*, never
   `transform` the cell itself (it would drag its outline off the grid).
 
