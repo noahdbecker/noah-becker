@@ -102,3 +102,10 @@ sits in `profile.ts` like all other content, as numbered sections in one shared 
 component. The pages stay in English like the rest of the site, with the German terms in the kicker
 so they're easy to recognise. The footer now has seven cells, so it switches to two columns at
 860px instead of 720px.
+
+### 2026-10-18 — Bicep instead of C# in the languages row
+
+Swapped at Noah's request: Bicep is the stronger skill of the two. Neither Simple Icons nor
+Devicon has a Bicep glyph, so `bicep.svg` is a monochrome redraw of the official logo from
+the MIT-licensed `Azure/bicep` repo (hexagon with the flexed arm cut out via `evenodd`, the
+two hex nuts kept, finer strokes dropped since they vanish at icon size). `csharp.svg` was removed.

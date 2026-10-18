@@ -29,7 +29,8 @@ Logos are single-colour SVGs in `src/assets/logos/`, imported at the top of `pro
 and rendered as Astro SVG components in `--fg`. To add one:
 
 1. Take the monochrome glyph from [Simple Icons](https://simpleicons.org) (CC0) or, if it's
-   missing there (C#, Java), the `plain` variant from [Devicon](https://devicon.dev) (MIT).
+   missing there (Java), the `plain` variant from [Devicon](https://devicon.dev) (MIT).
+   If neither has it (Bicep), redraw the official logo as a single `evenodd` path.
 2. Strip `<title>`, `role` and every `fill="…"` attribute so it inherits `currentColor`.
 3. If the glyph sits small inside its `viewBox`, tighten the `viewBox` to the drawing.
 4. Keep the total a multiple of 6 (one full row on desktop, rows of 3 on mobile).
@@ -42,6 +43,9 @@ Generic hand-drawn glyphs (no usable monochrome brand logo):
 | Microsoft Defender | `shield.svg` (shield + check) |
 | Microsoft Sentinel | `radar.svg` |
 | Active Directory | `directory.svg` (hierarchy) |
+
+`bicep.svg` is a one-colour redraw of Microsoft's Bicep logo (MIT, from the `Azure/bicep` repo):
+the hexagon with the arm cut out and the two hex nuts filled back in.
 
 Azure, PowerShell and Linux come from Simple Icons.
 

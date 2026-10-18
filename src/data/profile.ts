@@ -10,7 +10,7 @@ import type { SvgComponent } from "astro/types";
 import portraitImage from "../assets/noah_portrait_big.jpg";
 import typescriptLogo from "../assets/logos/typescript.svg";
 import pythonLogo from "../assets/logos/python.svg";
-import csharpLogo from "../assets/logos/csharp.svg";
+import bicepLogo from "../assets/logos/bicep.svg";
 import databaseLogo from "../assets/logos/database.svg";
 import javaLogo from "../assets/logos/java.svg";
 import rustLogo from "../assets/logos/rust.svg";
@@ -108,7 +108,7 @@ export const profile = {
 export const skills: Skill[] = [
   { name: "TypeScript", logo: typescriptLogo },
   { name: "Python", logo: pythonLogo },
-  { name: "C#", logo: csharpLogo },
+  { name: "Bicep", logo: bicepLogo },
   { name: "SQL & KQL", logo: databaseLogo },
   { name: "Java", logo: javaLogo },
   { name: "Rust", logo: rustLogo },
