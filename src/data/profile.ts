@@ -264,7 +264,7 @@ export const workProjects: WorkProject[] = [
     meta: "TSV Ehningen",
     org: "TSV Ehningen",
     period: "2025 - now",
-    role: "Website Maintenace",
+    role: "Website Maintenace & Consulting",
     website: "https://tsv-ehningen.de",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
@@ -285,7 +285,7 @@ export const workProjects: WorkProject[] = [
     meta: "BRIEM Speditions-GmbH",
     org: "BRIEM Speditions-GmbH",
     period: "2023-2024",
-    role: "Website Designer & Engineer",
+    role: "Website Designer & Engineer + Drone Pilot",
     website: "https://briem-sped.com",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
@@ -306,7 +306,7 @@ export const workProjects: WorkProject[] = [
     meta: "VGC Backwaren GmbH & Co. KG",
     org: "VGC Backwaren GmbH & Co. KG",
     period: "2023-2024",
-    role: "Website Designer & Engineer",
+    role: "Website Designer & Engineer + Photo- & Videographer",
     website: "https://vesperkult.de",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
@@ -348,7 +348,7 @@ export const workProjects: WorkProject[] = [
     meta: "Verbrauchergenossenschaft Calw eG",
     org: "Verbrauchergenossenschaft Calw eG",
     period: "2021-2022",
-    role: "Website Designer & Engineer",
+    role: "Website Designer & Engineer + Photo- & Videographer",
     website: "https://vgc-calw.de",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
