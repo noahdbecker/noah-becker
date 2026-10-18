@@ -1,0 +1,92 @@
+---
+/**
+ * Seasonal scene inside a Spacer: a few glyphs resting on the row's bottom line.
+ * All four seasons are rendered; CSS shows the one in html[data-season].
+ */
+import { glyphs, nextLayout, scenes, seasons } from "../data/seasons";
+
+const layout = nextLayout();
+---
+
+<div class="season-scene" aria-hidden="true">
+  {
+    seasons.map((season) => (
+      <div class="scene" data-for={season}>
+        {scenes[season][layout].map((item, n) => {
+          const { w, h } = glyphs[item.g];
+          return (
+            <svg
+              class="item"
+              viewBox={`0 0 ${w} ${h}`}
+              style={`--x:${item.x}%;--dx:${item.dx ?? 0};--k:${item.k};--ar:${w / h};--n:${n}`}
+            >
+              <use
+                href={`#sd-${item.g}`}
+                width={w}
+                height={h}
+                transform={item.flip ? `matrix(-1 0 0 1 ${w} 0)` : undefined}
+              />
+            </svg>
+          );
+        })}
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .season-scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden; /* glyphs grow up out of the line */
+    pointer-events: none;
+  }
+
+  /* Shown while on, and while "leaving" (switched off, sinking back into the line). */
+  .scene {
+    display: none;
+  }
+
+  :global(:root[data-season="spring"][data-seasonal]) .scene[data-for="spring"],
+  :global(:root[data-season="summer"][data-seasonal]) .scene[data-for="summer"],
+  :global(:root[data-season="autumn"][data-seasonal]) .scene[data-for="autumn"],
+  :global(:root[data-season="winter"][data-seasonal]) .scene[data-for="winter"] {
+    display: block;
+  }
+
+  .item {
+    position: absolute;
+    bottom: 0;
+    left: calc(var(--x) + var(--dx) * var(--spacer-h));
+    height: calc(var(--k) * var(--spacer-h));
+    width: calc(var(--k) * var(--spacer-h) * var(--ar));
+    overflow: visible;
+    color: var(--season);
+    /* Restarts whenever the scene is shown (toggle on, season switch). */
+    animation: season-rise 700ms var(--ease-out) both;
+    animation-delay: calc(var(--n) * 70ms);
+  }
+
+  /* Wait for the row's scroll reveal, then rise. */
+  :global(.motion .frame[data-reveal]:not(.is-in)) .item {
+    animation-play-state: paused;
+  }
+
+  /* Switched off: sink back into the line, then scripts/season.ts hides the scene. */
+  :global(:root[data-seasonal="leaving"]) .item {
+    animation: season-sink 450ms cubic-bezier(0.55, 0, 0.75, 0.2) both;
+    animation-delay: calc(var(--n) * 40ms);
+  }
+
+  @keyframes season-rise {
+    from {
+      transform: translateY(105%);
+    }
+  }
+
+  @keyframes season-sink {
+    to {
+      transform: translateY(105%);
+    }
+  }
+</style>

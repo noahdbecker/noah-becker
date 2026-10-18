@@ -1,13 +1,18 @@
 ---
 import Row from "./Row.astro";
+import SeasonScene from "./SeasonScene.astro";
 ---
 
 <Row>
-  <div class="spacer hatch" aria-hidden="true"></div>
+  <div class="spacer hatch" aria-hidden="true">
+    <SeasonScene />
+  </div>
 </Row>
 
 <style>
   .spacer {
-    height: clamp(32px, 5vw, 56px);
+    --spacer-h: clamp(32px, 5vw, 56px);
+    position: relative;
+    height: var(--spacer-h);
   }
 </style>

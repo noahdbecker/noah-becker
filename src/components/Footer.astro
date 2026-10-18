@@ -1,5 +1,6 @@
 ---
 import Row from "./Row.astro";
+import SeasonSwitcher from "./SeasonSwitcher.astro";
 import { profile } from "../data/profile";
 
 const year = new Date().getFullYear();
@@ -24,6 +25,7 @@ const legal = [
       <a class="top label" href="#top">Top <span aria-hidden="true">↑</span></a>
     </div>
   </Row>
+  {import.meta.env.DEV && <SeasonSwitcher />}
   <Row>
     <div class="tail hatch" aria-hidden="true"></div>
   </Row>

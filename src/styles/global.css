@@ -46,6 +46,21 @@
   }
 }
 
+/* Seasonal decorations (docs/design.md → Seasons). Only used by the season
+   glyphs and the header toggle, never by the layout. --season paints the main
+   shape (currentColor), --season-2 the stems, leaves and sea. */
+:root[data-season="spring"] { --season: #dc6b93; --season-2: #5b9a56; }
+:root[data-season="summer"] { --season: #eaa91c; --season-2: #2e8bbd; }
+:root[data-season="autumn"] { --season: #e46f27; --season-2: #a8742a; }
+:root[data-season="winter"] { --season: #5b8fc4; --season-2: #3c785a; }
+
+@media (prefers-color-scheme: dark) {
+  :root[data-season="spring"] { --season: #ee8cb0; --season-2: #79b874; }
+  :root[data-season="summer"] { --season: #f4c04f; --season-2: #57abd8; }
+  :root[data-season="autumn"] { --season: #f08a45; --season-2: #c99a4e; }
+  :root[data-season="winter"] { --season: #8ab4df; --season-2: #5c9d7c; }
+}
+
 /* ==========================================================================
    Base
    ========================================================================== */

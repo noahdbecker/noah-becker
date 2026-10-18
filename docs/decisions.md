@@ -123,3 +123,20 @@ the case study on `/work` shows a "Visit website ↗" button pinned to the botto
 (the facts list and the button share one `.side` cell so the button sits flush with the bottom of
 the row). It's a separate field rather than reusing `Project.href`, because `href` is the card's own
 link and work cards already override it to point at `/work#slug`.
+
+### 2026-10-19 — Seasonal decorations, picked in the browser
+
+Requested by Noah for a bit of fun: decorations that follow the season (pumpkins in autumn etc.),
+switchable from the header, with a footer switcher for development. Off by default (changed the same
+day at Noah's request): it's an extra a visitor opts into, so the vita reads plain at first sight. The season is computed in an
+inline head script from the visitor's date — the site is static, so a build-time season would go
+stale until the next deploy. Every Spacer therefore ships all four scenes and CSS shows one; that is
+~80 tiny `<use>` elements on the landing page, cheaper than client-side rendering.
+Decorations stay in places that are already decoration ("empty space is drawn"): the hatched
+spacers and the gutters outside the rails. Nothing is placed over content or moves the grid.
+The gutter particles are the one looping animation besides the caret — accepted because they sit
+outside the rails, only appear on wide screens and are off under `prefers-reduced-motion`.
+Colours get their own `--season` / `--season-2` tokens so the one-accent rule still holds for the
+UI itself. Meteorological seasons (1 Mar / Jun / Sep / Dec), northern hemisphere, since the site is German.
+The dev switcher is rendered only under `import.meta.env.DEV`; to show it in production, drop that condition in `Footer.astro`.
+

@@ -25,8 +25,9 @@
 | `--marker` | `#8e8e86` | `#5c5c62` | "+" intersection markers |
 | `--accent` | `#2b59ff` | `#7090ff` | Contact button, hover state of "see more" / "Visit website" buttons, hero caret, page-change progress line. Nothing else. |
 | `--hatch` / `--dot` | low-alpha black/white | | Pattern ink |
+| `--season` / `--season-2` | per season | per season | Seasonal glyphs and the header season toggle only (see Seasons). Never used by the layout |
 
-Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
+Theme follows `prefers-color-scheme`; there is no manual toggle (yet). Season tokens are set on `html[data-season]`.
 
 ### Type
 
@@ -81,7 +82,7 @@ Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
 
 | Component | Layout |
 | --- | --- |
-| Header | sticky; `[logo 56×56][Profile][Work][University][Photos][hatch filler][Contact (accent)]`; nav links hidden < 720px. Links go to `/#section`; on `/work` and `/photos` the matching link gets `aria-current="page"` (fg text + 2px inset bottom bar). Logo → `/` |
+| Header | sticky; `[logo 56×56][Profile][Work][University][Photos][hatch filler][Contact (accent)][season 56×56]`; nav links hidden < 720px. Links go to `/#section`; on `/work` and `/photos` the matching link gets `aria-current="page"` (fg text + 2px inset bottom bar). Logo → `/` |
 | Hero | 3 equal tracks. Row 1: intro (label, name on two lines, lede pinned to bottom) spans 2, portrait 1 — portrait stretches to the intro's height (no `aspect-ratio`, which would stop it stretching). Row 2: current position / education / based in. < 860px → 1 col, portrait becomes 1:1 |
 | Skills | one row: `label 1.5fr | 6 × logo cell`. Each cell: 36px monochrome logo (`--fg`, via `currentColor`) centred over the name as a `.label`. No skill levels. < 860px → label row on top, 3 cols. Keep the count a multiple of 6 for a full grid at every breakpoint. Used twice: Programming languages, then Technologies with `flip` (`6 × logo | label 1.5fr`, label right-aligned; label stays first in the DOM and moves via `order`; < 860px it goes back on top) |
 | SectionHead | `96px index | title | 340px note`; < 720px note drops to its own row. Optional `actions` slot adds an extra auto-width column (used for StripControls) |
@@ -93,7 +94,7 @@ Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
 | PhotoGrid | 2×2 at all sizes, 4:3 cells, caption tag bottom-left; hatch + big number when no image |
 | MoreLink | row under a section: `[hatch filler 1fr][note label][button]`. Button = inverted block (`--fg` bg, `--bg` text), mono uppercase, → arrow; hover → accent, arrow nudges right. Used under Work ("Projects in depth", note "Case studies") and Photos ("See all photos", no note — the `04 / 09` count was removed on request) |
 | Spacer | hatched row, `clamp(32px, 5vw, 56px)` tall, between every section |
-| Footer | `© | Email ↗ | GitHub ↗ | LinkedIn ↗ | Imprint → | Privacy → | Top` → 2 cols < 860px (© spans both); hatched tail row |
+| Footer | `© | Email ↗ | GitHub ↗ | LinkedIn ↗ | Imprint → | Privacy → | Top` → 2 cols < 860px (© spans both); hatched tail row. In `npm run dev` only, a season switcher row sits above the tail (see Seasons) |
 
 ## Subpages
 
@@ -117,7 +118,8 @@ Same shell as the landing page (Header, Spacer rhythm, Footer). Structure:
 ## Motion
 
 Rule of thumb: motion confirms the grid, it never moves the grid. Lines, rails and
-row borders stay put; only what's *inside* cells moves. Nothing loops except the caret.
+row borders stay put; only what's *inside* cells moves. Nothing loops except the caret
+(and the seasonal particles, which live outside the rails — see Seasons).
 
 | Effect | Where | Details |
 | --- | --- | --- |
@@ -152,6 +154,47 @@ row borders stay put; only what's *inside* cells moves. Nothing loops except the
   Back/forward-cache restores also get `nav-done`.
 - New component inside a Row gets the reveal automatically. Animate *contents*, never
   `transform` the cell itself (it would drag its outline off the grid).
+
+## Seasons
+
+Optional decorations that follow the calendar. **Off by default** — an extra the visitor switches on
+with the header toggle; the choice is remembered.
+
+- **Season** = meteorological, northern hemisphere: Mar–May spring, Jun–Aug summer,
+  Sep–Nov autumn, Dec–Feb winter. Picked in the browser, not at build time (static site).
+- **Where:** only in places that are already decoration —
+  1. **Spacer scenes** — small flat glyphs resting on each hatched Spacer's bottom line
+     (pumpkins + jack-o'-lantern + fallen leaves / firs + snowman + drifts / tulips + daisies +
+     sprouts / half sun on the line + sailboat + waves). Three layouts per season; consecutive
+     spacers cycle through them (`src/data/seasons.ts`). Glyphs grow up out of the line (700ms,
+     70ms stagger), waiting for the row's reveal. Switched off, they sink back in (450ms, 40ms
+     stagger) before the scene is hidden.
+  2. **Gutter particles** — 16 particles drifting in the area outside the rails (falling leaves /
+     snow / petals; summer sparkles twinkle in place). Only ≥ 1360px wide, never over content,
+     under the sticky header. Positions continue across page loads (`--season-t`). The layer
+     fades in (600ms) when switched on and out (450ms) when switched off — an opacity/visibility
+     transition, never `display: none` (re-showing restarts every particle animation, which Safari
+     skipped on the first switch-on). While off, particles are paused and resume where they stopped.
+- **Glyph style:** flat fills, no outlines except snow (surface fill + `--season` stroke).
+  Three inks: `currentColor` (= `--season`), `--season-2`, and `--bg` / `--surface` for
+  cut-outs and snow, so every glyph follows both theme and season. All drawn once in the
+  sprite in `components/Seasons.astro`.
+- **Header toggle:** 56×56 square at the far right, mirroring the logo square. Shows the current
+  season's icon: off (default) → grey, its colours show on hover as a hint; on → `--season`. `aria-pressed`. Hidden
+  without JS (then there are no decorations either).
+- **Dev switcher:** footer row `Dev · Season | Auto (autumn) | Spring | Summer | Autumn | Winter`,
+  rendered only by `npm run dev`. Picking a season also turns decorations on.
+- **State:** `html[data-season]` + `html[data-seasonal="on"]` (`"leaving"` for 650ms while switching off), set by the inline head script in
+  `Base.astro` before first paint (no flash). `localStorage["seasonal"]` (`"on"`, absent = off) and
+  `["season-override"]` (dev) persist them; `src/scripts/season.ts` wires the buttons.
+- Reduced motion: no particles; scene glyphs show without the rise.
+
+| Season | `--season` light / dark | `--season-2` light / dark |
+| --- | --- | --- |
+| Spring | `#dc6b93` / `#ee8cb0` (blossom) | `#5b9a56` / `#79b874` (leaf) |
+| Summer | `#eaa91c` / `#f4c04f` (sun) | `#2e8bbd` / `#57abd8` (sea) |
+| Autumn | `#e46f27` / `#f08a45` (pumpkin) | `#a8742a` / `#c99a4e` (stem, leaves) |
+| Winter | `#5b8fc4` / `#8ab4df` (ice) | `#3c785a` / `#5c9d7c` (pine) |
 
 ## Ideas not yet built
 

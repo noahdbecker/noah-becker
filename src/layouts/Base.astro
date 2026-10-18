@@ -2,6 +2,7 @@
 import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/jetbrains-mono";
 import "../styles/global.css";
+import Seasons from "../components/Seasons.astro";
 
 interface Props {
   title: string;
@@ -47,13 +48,29 @@ const { title, description } = Astro.props;
         root.style.setProperty("--nav-elapsed", elapsed + "ms");
         root.classList.add("nav-loading");
       })();
+      // Seasonal decorations (see scripts/season.ts), off unless the visitor opted in.
+      // Meteorological season from the date (northern hemisphere) unless the dev
+      // switcher overrides it.
+      (function () {
+        var root = document.documentElement;
+        var season = ["winter", "spring", "summer", "autumn"][Math.floor(((new Date().getMonth() + 1) % 12) / 3)];
+        try {
+          var override = localStorage.getItem("season-override");
+          if (/^(spring|summer|autumn|winter)$/.test(override)) season = override;
+          if (localStorage.getItem("seasonal") === "on") root.dataset.seasonal = "on";
+        } catch (e) {}
+        root.dataset.season = season;
+        root.style.setProperty("--season-t", (Date.now() % 3600000) + "ms");
+      })();
     </script>
   </head>
   <body id="top">
+    <Seasons />
     <slot />
     <script>
       import "../scripts/reveal";
       import "../scripts/progress";
+      import "../scripts/season";
     </script>
   </body>
 </html>

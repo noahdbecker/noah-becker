@@ -1,0 +1,303 @@
+---
+/**
+ * Seasonal decorations — glyph sprite + drifting particles in the side gutters.
+ * See docs/design.md → Seasons. Rendered once per page by Base.astro.
+ *
+ * Glyphs paint with three inks: currentColor (= --season), var(--season-2), and
+ * var(--surface) / var(--bg) for snow and cut-outs, so they follow theme and season.
+ */
+
+// Deterministic pseudo-random, so builds are stable.
+const rand = (i: number, salt: number) => {
+  const x = Math.sin(i * 127.1 + salt * 311.7) * 43758.5453;
+  return x - Math.floor(x);
+};
+const round = (n: number, d = 2) => Number(n.toFixed(d));
+
+const particles = Array.from({ length: 16 }, (_, i) => ({
+  side: i % 2 ? "right" : "left",
+  alt: i % 3 === 0,
+  style: [
+    `--x:${round(0.15 + rand(i, 1) * 0.5)}`,
+    `--y:${round(0.05 + rand(i, 2) * 0.85)}`,
+    `--d:${round(16 + rand(i, 3) * 14, 1)}s`,
+    `--o:${round(rand(i, 4) * 30, 1)}s`,
+    `--s:${round(10 + rand(i, 5) * 8, 1)}px`,
+    `--w:${round(2.8 + rand(i, 6) * 2.4, 1)}s`,
+  ].join(";"),
+}));
+---
+
+<svg class="sprite" aria-hidden="true" width="0" height="0">
+  <!-- Spring -->
+  <symbol id="sd-tulip" viewBox="0 0 16 36" fill="currentColor">
+    <path d="M8 14V36" fill="none" stroke-width="2" style="stroke: var(--season-2)"></path>
+    <path d="M8 35C3.5 31 2 25 2.5 20 6 23 8 28 8 35Z" style="fill: var(--season-2)"></path>
+    <path d="M2 3l3 4.5L8 2l3 5.5L14 3v8c0 3.6-2.7 5.5-6 5.5S2 14.6 2 11z"></path>
+  </symbol>
+  <symbol id="sd-daisy" viewBox="0 0 20 28" fill="currentColor">
+    <path d="M10 12V28" fill="none" stroke-width="1.8" style="stroke: var(--season-2)"></path>
+    <path d="M10 24c4-1 6-4 6-7-3.5 1-5.5 3.5-6 7Z" style="fill: var(--season-2)"></path>
+    <circle cx="14.6" cy="9.5" r="3.3"></circle>
+    <circle cx="12.3" cy="13.5" r="3.3"></circle>
+    <circle cx="7.7" cy="13.5" r="3.3"></circle>
+    <circle cx="5.4" cy="9.5" r="3.3"></circle>
+    <circle cx="7.7" cy="5.5" r="3.3"></circle>
+    <circle cx="12.3" cy="5.5" r="3.3"></circle>
+    <circle cx="10" cy="9.5" r="2.6" style="fill: var(--surface)"></circle>
+  </symbol>
+  <symbol id="sd-sprout" viewBox="0 0 16 14" style="fill: var(--season-2)">
+    <path d="M8 6.5V14" fill="none" stroke-width="1.6" style="stroke: var(--season-2)"></path>
+    <path d="M8 9C4.5 9.2 1.5 7 1 3c3.8 0 6.8 2.5 7 6Z"></path>
+    <path d="M8 7c.2-3.8 3-6.2 7-6.5 0 4-3 6.5-7 6.5Z"></path>
+  </symbol>
+
+  <!-- Summer -->
+  <symbol id="sd-sun" viewBox="0 0 40 20" fill="currentColor">
+    <path d="M8 20a12 12 0 0 1 24 0z"></path>
+    <path
+      d="M34.1 14.9l3.8-1.4M28.6 7.7l2.3-3.3M20 5V1M11.4 7.7L9.1 4.4M5.9 14.9l-3.8-1.4"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"></path>
+  </symbol>
+  <symbol id="sd-boat" viewBox="0 0 28 30" fill="currentColor">
+    <path d="M14 2V23" fill="none" stroke-width="1.4" style="stroke: var(--season-2)"></path>
+    <path d="M15.5 3L25 20.5h-9.5z"></path>
+    <path d="M12.5 7l-8 13.5h8z" stroke-width="1.2" style="fill: var(--surface); stroke: var(--season-2)"></path>
+    <path d="M1 23h26l-4 7H5z" style="fill: var(--season-2)"></path>
+  </symbol>
+  <symbol id="sd-wave" viewBox="0 0 32 8" style="fill: var(--season-2)">
+    <path d="M0 8c2-4 5-5 8-2.5C10 3 13.5 3 16 5.5 18 3 21.5 3 24 5.5 26 3 29.5 3 32 5.5V8z"></path>
+  </symbol>
+  <symbol id="sd-sunny" viewBox="0 0 24 24" fill="currentColor">
+    <circle cx="12" cy="12" r="4.5"></circle>
+    <path
+      d="M19 12h3M16.95 16.95l2.12 2.12M12 19v3M7.05 16.95l-2.12 2.12M5 12H2M7.05 7.05L4.93 4.93M12 5V2M16.95 7.05l2.12-2.12"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"></path>
+  </symbol>
+
+  <!-- Autumn -->
+  <symbol id="sd-pumpkin" viewBox="0 0 40 32" fill="currentColor">
+    <path d="M20 10c0-3.5 1-6 4.5-8" fill="none" stroke-width="2.6" stroke-linecap="round" style="stroke: var(--season-2)"></path>
+    <ellipse cx="12" cy="21" rx="10" ry="11"></ellipse>
+    <ellipse cx="28" cy="21" rx="10" ry="11"></ellipse>
+    <ellipse cx="20" cy="20.5" rx="8" ry="11.5" stroke-width="1.5" style="stroke: var(--bg)"></ellipse>
+  </symbol>
+  <symbol id="sd-lantern" viewBox="0 0 40 32" fill="currentColor">
+    <use href="#sd-pumpkin"></use>
+    <path d="M13.5 18l2.5-4 2.5 4zM21.5 18l2.5-4 2.5 4zM13 22.5h14c-1 4-3.8 6-7 6s-6-2-7-6z" style="fill: var(--bg)"></path>
+    <path d="M17 22.5h2v2h-2zM21.5 22.5h2v2h-2z"></path>
+  </symbol>
+  <symbol id="sd-leaf" viewBox="0 0 24 10" style="fill: var(--season-2)">
+    <path d="M1 9.5C5 3 14 .5 23 6.5 17 10 7 10.5 1 9.5Z"></path>
+    <path d="M2.5 9Q12 5.5 22 6.6" fill="none" stroke-width=".9" style="stroke: var(--bg)"></path>
+  </symbol>
+
+  <!-- Winter -->
+  <symbol id="sd-fir" viewBox="0 0 24 36" style="fill: var(--season-2)">
+    <path d="M12 0l7 11h-3.5l6 10H17l6.5 11H.5L7 21H2.5l6-10H5z"></path>
+    <path d="M10.5 32h3v4h-3z"></path>
+  </symbol>
+  <symbol id="sd-snowman" viewBox="0 0 28 40" fill="currentColor">
+    <circle cx="14" cy="29.5" r="9.5" stroke="currentColor" stroke-width="1.5" style="fill: var(--surface)"></circle>
+    <circle cx="14" cy="14" r="6.5" stroke="currentColor" stroke-width="1.5" style="fill: var(--surface)"></circle>
+    <path d="M8 8h12v1.5H8zM10 1h8v7h-8zM8.5 19.5h11V22h-11z" style="fill: var(--season-2)"></path>
+    <circle cx="11.8" cy="13" r="1"></circle>
+    <circle cx="16.2" cy="13" r="1"></circle>
+    <path d="M14 15l4 1-4 1z"></path>
+    <circle cx="14" cy="27" r="1"></circle>
+    <circle cx="14" cy="32" r="1"></circle>
+  </symbol>
+  <symbol id="sd-drift" viewBox="0 0 32 10">
+    <path d="M0 10C3 4 8 2 13 5c4-4 12-3 19 5z" stroke="currentColor" stroke-width="1.2" style="fill: var(--surface)"></path>
+  </symbol>
+  <symbol
+    id="sd-flake"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round">
+    <path id="sd-arm" d="M12 12V2.5M9.3 4.2L12 7l2.7-2.8"></path>
+    <use href="#sd-arm" transform="rotate(60 12 12)"></use>
+    <use href="#sd-arm" transform="rotate(120 12 12)"></use>
+    <use href="#sd-arm" transform="rotate(180 12 12)"></use>
+    <use href="#sd-arm" transform="rotate(240 12 12)"></use>
+    <use href="#sd-arm" transform="rotate(300 12 12)"></use>
+  </symbol>
+
+  <!-- Header toggle icons (spring reuses a tulip head) -->
+  <symbol id="sd-blossom" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 17v6" fill="none" stroke-width="2" style="stroke: var(--season-2)"></path>
+    <path d="M5 3l3.5 4L12 2l3.5 5L19 3v7a7 7 0 0 1-14 0z"></path>
+  </symbol>
+</svg>
+
+<div class="season-layer" aria-hidden="true">
+  {
+    particles.map((p) => (
+      <span class:list={["p", { alt: p.alt }]} data-side={p.side} style={p.style}>
+        <span class="g" />
+      </span>
+    ))
+  }
+</div>
+
+<style>
+  .sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  /* Particles only drift in the gutters outside the rails, so they never sit on
+     top of content. Below ~1360px the gutters are too narrow to bother. */
+  .season-layer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 5; /* under the sticky header (10) */
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 450ms ease,
+      visibility 0s 450ms;
+    --gutter-w: calc((100vw - var(--container)) / 2);
+  }
+
+  /* On/off is a transition, not a display switch: re-showing a display:none
+     layer restarts every particle animation, which some browsers (Safari)
+     skip on the first switch-on. */
+  @media (min-width: 1360px) and (prefers-reduced-motion: no-preference) {
+    :global(:root[data-season]) .season-layer {
+      display: block;
+    }
+    :global(:root[data-season][data-seasonal="on"]) .season-layer {
+      opacity: 1;
+      visibility: visible;
+      transition:
+        opacity 600ms ease,
+        visibility 0s;
+    }
+  }
+
+  /* Off (after the fade-out): particles freeze where they are and resume from
+     there on the next switch-on. */
+  :global(:root:not([data-seasonal])) .p,
+  :global(:root:not([data-seasonal])) .g {
+    animation-play-state: paused;
+  }
+
+  .p {
+    position: absolute;
+    top: 0;
+    width: var(--s);
+    height: var(--s);
+    color: var(--season);
+    opacity: 0.85;
+    animation: season-fall var(--d) linear infinite;
+    /* --season-t (set in Base.astro from the clock) keeps particles where they
+       were when the next page loads, so the cross-fade doesn't make them jump. */
+    animation-delay: calc(-1 * var(--season-t, 0ms) - var(--o));
+  }
+  .p[data-side="left"] {
+    left: calc(var(--gutter-w) * var(--x) - var(--s) / 2);
+  }
+  .p[data-side="right"] {
+    right: calc(var(--gutter-w) * var(--x) - var(--s) / 2);
+  }
+  .p.alt {
+    color: var(--season-2);
+  }
+  :global(:root[data-season="winter"]) .p.alt {
+    color: var(--season); /* snow stays icy, not pine green */
+  }
+
+  .g {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: currentColor;
+    -webkit-mask: var(--p1) center / contain no-repeat;
+    mask: var(--p1) center / contain no-repeat;
+    animation: season-sway var(--w) ease-in-out infinite alternate;
+    animation-delay: calc(-1 * var(--season-t, 0ms) - var(--o));
+  }
+  .alt .g {
+    -webkit-mask-image: var(--p2);
+    mask-image: var(--p2);
+  }
+
+  @keyframes season-fall {
+    from {
+      transform: translateY(-40px);
+    }
+    to {
+      transform: translateY(calc(100vh + 40px));
+    }
+  }
+
+  @keyframes season-sway {
+    from {
+      transform: translateX(calc(-1 * var(--sway))) rotate(calc(-1 * var(--spin)));
+    }
+    to {
+      transform: translateX(var(--sway)) rotate(var(--spin));
+    }
+  }
+
+  @keyframes season-twinkle {
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(0.4) rotate(0deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1) rotate(45deg);
+    }
+  }
+
+  /* Per-season particle shapes (masks) and movement. */
+  :global(:root[data-season="spring"]) .season-layer {
+    --sway: 22px;
+    --spin: 160deg;
+    --p1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3c5 3 7 9 4 15-1.5 3-6.5 3-8 0C5 12 7 6 12 3Z'/%3E%3C/svg%3E");
+    --p2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='7.5' r='3.6'/%3E%3Ccircle cx='16.3' cy='10.6' r='3.6'/%3E%3Ccircle cx='14.6' cy='15.6' r='3.6'/%3E%3Ccircle cx='9.4' cy='15.6' r='3.6'/%3E%3Ccircle cx='7.7' cy='10.6' r='3.6'/%3E%3C/svg%3E");
+  }
+  :global(:root[data-season="summer"]) .season-layer {
+    --p1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12Z'/%3E%3C/svg%3E");
+    --p2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3C/svg%3E");
+  }
+  :global(:root[data-season="autumn"]) .season-layer {
+    --sway: 26px;
+    --spin: 70deg;
+    --p1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1l2 5 4-2-1 5h5l-4 4 2 2h-6l-1 5v3h-2v-3l-1-5H4l2-2-4-4h5L6 4l4 2z'/%3E%3C/svg%3E");
+    --p2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1c7 5 9 13 0 22C3 14 5 6 12 1Z'/%3E%3C/svg%3E");
+  }
+  :global(:root[data-season="winter"]) .season-layer {
+    --sway: 12px;
+    --spin: 60deg;
+    --p1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath id='a' d='M12 12V2M9 4l3 3 3-3'/%3E%3Cuse href='%23a' transform='rotate(60 12 12)'/%3E%3Cuse href='%23a' transform='rotate(120 12 12)'/%3E%3Cuse href='%23a' transform='rotate(180 12 12)'/%3E%3Cuse href='%23a' transform='rotate(240 12 12)'/%3E%3Cuse href='%23a' transform='rotate(300 12 12)'/%3E%3C/svg%3E");
+    --p2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='6'/%3E%3C/svg%3E");
+  }
+
+  /* Summer: nothing falls — sparkles light up in place. */
+  :global(:root[data-season="summer"]) .p {
+    top: calc(var(--y) * 100%);
+    animation: none;
+  }
+  :global(:root[data-season="summer"]) .g {
+    animation: season-twinkle calc(var(--w) * 1.6) ease-in-out infinite;
+    animation-delay: calc(-1 * var(--season-t, 0ms) - var(--o));
+  }
+</style>

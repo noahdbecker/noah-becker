@@ -1,5 +1,6 @@
 ---
 import Row from "./Row.astro";
+import SeasonToggle from "./SeasonToggle.astro";
 import { profile } from "../data/profile";
 
 // Links point at landing-page sections; `page` marks the matching subpage as current.
@@ -27,6 +28,7 @@ const path = Astro.url.pathname.replace(/\/$/, "");
       }
       <div class="fill hatch" aria-hidden="true"></div>
       <a class="cta label" href={profile.links.email}>Contact <span class="arrow" aria-hidden="true">→</span></a>
+      <SeasonToggle />
     </nav>
   </Row>
   <div class="nav-progress" aria-hidden="true"></div>
@@ -42,7 +44,7 @@ const path = Astro.url.pathname.replace(/\/$/, "");
   }
 
   .bar {
-    grid-template-columns: var(--header-h) repeat(4, auto) minmax(0, 1fr) auto;
+    grid-template-columns: var(--header-h) repeat(4, auto) minmax(0, 1fr) auto auto;
     height: var(--header-h);
   }
 
@@ -149,7 +151,7 @@ const path = Astro.url.pathname.replace(/\/$/, "");
 
   @media (max-width: 720px) {
     .bar {
-      grid-template-columns: var(--header-h) minmax(0, 1fr) auto;
+      grid-template-columns: var(--header-h) minmax(0, 1fr) auto auto;
     }
     .link {
       display: none !important;

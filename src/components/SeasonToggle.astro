@@ -1,0 +1,73 @@
+---
+/**
+ * Header button: seasonal decorations on/off (scripts/season.ts). Off by default.
+ * Hidden until the inline script in Base.astro has picked a season, i.e. without JS.
+ */
+const icons = [
+  { season: "spring", id: "blossom", box: "0 0 24 24" },
+  { season: "summer", id: "sunny", box: "0 0 24 24" },
+  { season: "autumn", id: "pumpkin", box: "0 0 40 32" },
+  { season: "winter", id: "flake", box: "0 0 24 24" },
+];
+---
+
+<button class="season-toggle" type="button" data-season-toggle aria-pressed="false">
+  <span class="visually-hidden">Seasonal decorations</span>
+  {
+    icons.map((icon) => (
+      <svg class="icon" data-for={icon.season} viewBox={icon.box} aria-hidden="true">
+        <use href={`#sd-${icon.id}`} />
+      </svg>
+    ))
+  }
+</button>
+
+<style>
+  .season-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--header-h);
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--season);
+    cursor: pointer;
+    transition: background-color 120ms;
+  }
+
+  :global(:root:not([data-season])) .season-toggle {
+    display: none !important;
+  }
+
+  .season-toggle:hover {
+    background: var(--surface);
+  }
+
+  /* Off (the default): the icon waits in grey and only shows its colours on hover,
+     as a hint that there's something to switch on. */
+  :global(:root:not([data-seasonal="on"])) .season-toggle:not(:hover) {
+    --season: var(--muted);
+    --season-2: var(--muted);
+  }
+
+  .icon {
+    display: none;
+    width: 22px;
+    height: 22px;
+    overflow: visible;
+    transition: transform 200ms var(--ease-out);
+  }
+
+  :global(:root[data-season="spring"]) .icon[data-for="spring"],
+  :global(:root[data-season="summer"]) .icon[data-for="summer"],
+  :global(:root[data-season="autumn"]) .icon[data-for="autumn"],
+  :global(:root[data-season="winter"]) .icon[data-for="winter"] {
+    display: block;
+  }
+
+  .season-toggle:hover .icon {
+    transform: translateY(-3px) rotate(-8deg);
+  }
+
+</style>

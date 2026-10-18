@@ -1,0 +1,78 @@
+---
+/**
+ * Dev-only footer row to preview the seasons (scripts/season.ts).
+ * Rendered only by `npm run dev`; the production build leaves it out.
+ */
+import Row from "./Row.astro";
+import { seasons } from "../data/seasons";
+---
+
+<Row>
+  <div class="switch cells" role="group" aria-label="Preview season (dev only)">
+    <p class="title label">Dev · Season</p>
+    <button class="pick label" type="button" data-season-pick="auto">
+      Auto <span class="auto" data-season-auto></span>
+    </button>
+    {
+      seasons.map((season) => (
+        <button class="pick label" type="button" data-season-pick={season}>
+          {season}
+        </button>
+      ))
+    }
+  </div>
+</Row>
+
+<style>
+  .switch {
+    grid-template-columns: minmax(0, 1fr) repeat(5, auto);
+  }
+
+  .switch > * {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 48px;
+    padding-inline: var(--pad);
+  }
+
+  .pick {
+    justify-content: center;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    transition: background-color 120ms, color 120ms;
+  }
+
+  .pick:hover {
+    background: var(--surface);
+    color: var(--fg);
+  }
+
+  .pick[aria-pressed="true"] {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  .auto:not(:empty)::before {
+    content: "(";
+  }
+  .auto:not(:empty)::after {
+    content: ")";
+  }
+
+  @media (max-width: 720px) {
+    .switch {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+    .title {
+      grid-column: 1 / -1;
+    }
+    .pick {
+      padding-inline: 4px;
+    }
+    .auto {
+      display: none;
+    }
+  }
+</style>

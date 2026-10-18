@@ -51,6 +51,7 @@ npm run preview
 ```
 src/
   data/profile.ts        ← ALL content lives here
+  data/seasons.ts        ← seasonal scene layouts + season helpers (not content)
   styles/global.css      ← tokens + grid system (.row / .frame / .cells) + patterns
   layouts/Base.astro     ← <html>, fonts, meta
   pages/
@@ -77,9 +78,14 @@ src/
     LegalText.astro      ← numbered heading | text rows for /imprint and /privacy
     Spacer.astro         ← hatched spacer row between sections
     Footer.astro
+    Seasons.astro        ← seasonal glyph sprite + gutter particles (in Base)
+    SeasonScene.astro    ← seasonal glyphs inside each Spacer
+    SeasonToggle.astro   ← header on/off button
+    SeasonSwitcher.astro ← dev-only footer row to preview seasons
   scripts/reveal.ts      ← scroll-reveal for rows (see design.md → Motion)
   scripts/strip.ts       ← wires StripControls to a Strip
   scripts/progress.ts    ← page-change progress line under the header
+  scripts/season.ts      ← seasonal decorations toggle + dev switcher
   assets/logos/          ← monochrome logos for both logo rows (SVG, drawn in currentColor)
   assets/photos/         ← put photos here (optimised by astro:assets)
 public/favicon.svg
@@ -93,6 +99,7 @@ public/favicon.svg
 - [ ] Replace all `TODO` placeholders in `src/data/profile.ts` (see content.md)
 - [ ] Add real photos
 - [ ] Set `site` in `astro.config.mjs` once the domain is known
+- [x] Seasonal decorations (calendar-based, header toggle, dev switcher in footer)
 - [x] Imprint / privacy pages + footer links (structure only)
 - [ ] Fill in imprint / privacy text (`imprint`, `privacy` in `profile.ts`) — hosting section depends on the deployment target
 - [ ] Deployment target not chosen yet
@@ -102,5 +109,5 @@ public/favicon.svg
 - Content changes → only `src/data/profile.ts`. Components must not hard-code personal text.
 - New visual block → wrap it in `<Row>`, build its inside with a `.cells` grid. See design.md.
 - No new colours or font sizes outside the tokens without updating design.md.
-- JS is limited to progressive enhancement (scroll reveal, strip buttons, page-change progress line). The site must work fully without it — the strip still scrolls by swipe/trackpad/keyboard.
+- JS is limited to progressive enhancement (scroll reveal, strip buttons, page-change progress line, seasonal decorations). The site must work fully without it — the strip still scrolls by swipe/trackpad/keyboard.
 - Verify both themes, a 390 px wide viewport, and `prefers-reduced-motion` after visual changes.
