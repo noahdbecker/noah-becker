@@ -92,6 +92,9 @@ changed on request from an earlier version where it spanned every row). The labe
 sides album by album (left, right, left…) — the same mirroring as the Technologies row, so
 stacked albums don't read as one block. The `04 / 09` count next to "See all photos" was
 removed at Noah's request.
+Later the same day the landing grid switched from the first four photos overall to the
+first photo of each album (`albumCovers`, max four), so it previews albums rather than
+whichever album happens to be listed first. Fewer than four albums leaves those slots empty.
 
 ### 2026-10-18 — Imprint and privacy as two pages, linked from the footer
 

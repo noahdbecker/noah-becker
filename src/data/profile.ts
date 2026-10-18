@@ -270,7 +270,7 @@ export const uniProjects: Project[] = [
 ];
 
 // TODO: add photos to src/assets/photos/, import them here and group them into albums.
-// /photos shows one block per album; the landing page shows the first four photos overall.
+// /photos shows one block per album; the landing page shows the first photo of the first four albums.
 export const albums: Album[] = [
   {
     slug: "album-01",
@@ -367,7 +367,11 @@ export const albums: Album[] = [
   },
 ];
 
-export const photos: Photo[] = albums.flatMap((album) => album.photos);
+/** Landing grid: the first photo of each album, in album order, at most four. */
+export const albumCovers: Photo[] = albums
+  .filter((album) => album.photos.length > 0)
+  .slice(0, 4)
+  .map((album) => album.photos[0]);
 
 /**
  * A legal page (/imprint, /privacy): heading + paragraphs per section.

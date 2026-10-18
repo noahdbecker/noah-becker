@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import Row from "./Row.astro";
-import { photos } from "../data/profile";
+import { albumCovers } from "../data/profile";
 ---
 
 <Row>
   <div class="photos cells">
     {
-      photos.slice(0, 4).map((photo, i) => (
+      albumCovers.map((photo, i) => (
         <figure class:list={["photo", { hatch: !photo.image }]}>
           {photo.image ? (
             <Image src={photo.image} alt={photo.alt} widths={[400, 800, 1200]} sizes="(max-width: 1232px) 50vw, 600px" />

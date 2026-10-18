@@ -12,7 +12,7 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 | `workProjects` | `WorkProject[]` | Landing shows the first 2 (codes `W/01`, `W/02`); `/work` shows all as case studies |
 | `uniProjects` | `Project[]` (any number) | University strip (scrolls sideways), codes `U/01`… |
 | `albums` | `{ slug, title, note?, period?, photos: Photo[] }[]` | `/photos`: one block per album (`A/01`…), label alternates left/right. `slug` is the anchor (`/photos#album-01`) |
-| `photos` | derived: all album photos in order (`Photo` = `{ caption, alt, place?, date?, image? }`) | Landing grid shows the first 4. Don't edit — add photos to an album |
+| `albumCovers` | derived: the first photo of each album, in album order, max 4 (`Photo` = `{ caption, alt, place?, date?, image? }`) | Landing grid. Don't edit — reorder albums / photos instead |
 
 | `imprint`, `privacy` | `LegalPage` = `{ title, kicker, note?, sections: { heading, paragraphs[] }[] }` | `/imprint`, `/privacy`. `\n` inside a paragraph is a line break (addresses). Use a non-breaking space after `§` (`§\u00a05`) |
 
@@ -83,7 +83,7 @@ Everything marked `// TODO` in `profile.ts`:
 - both work projects; university projects 04–06 are placeholders
 - work case-study text (role, context, contributions, outcome)
 - imprint + privacy: address, phone, email, hosting provider, dates; review every section (structure only, not legal advice)
-- albums (title, note, period) + photos with captions, alt text, place/date (3 placeholder albums × 3 photos; the first 4 photos overall appear on the landing page)
+- albums (title, note, period) + photos with captions, alt text, place/date (3 placeholder albums × 3 photos; the first photo of each of the first 4 albums appears on the landing page)
 
 ## Writing guidelines
 
