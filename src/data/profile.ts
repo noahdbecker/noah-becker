@@ -58,48 +58,48 @@ export const profile = {
     image: undefined as ImageMetadata | undefined,
     alt: "Portrait of Noah Becker",
   },
-  location: "Germany", // TODO: city
+  location: "Ludwigsburg, Germany",
   current: {
     label: "Current position",
-    role: "Software Engineer", // TODO
-    org: "Company GmbH", // TODO
-    since: "2024", // TODO
+    role: "Corporate Student",
+    org: "TRUMPF SE + Co. KG",
+    since: "2024",
   },
   education: {
     label: "Education",
-    degree: "M.Sc. Computer Science", // TODO
-    school: "University Name", // TODO
-    status: "2022 – 2025", // TODO
+    degree: "B.Sc. Cyber Security", // TODO
+    school: "DHBW Stuttgart", // TODO
+    status: "2024 – 2027", // TODO
   },
   links: {
-    email: "mailto:you@example.com", // TODO
+    email: "mailto:hey@noah-becker.de", // TODO
     github: "https://github.com/noahdbecker", // TODO: confirm handle
-    linkedin: "#", // TODO
+    linkedin: "https://linkedin.com/in/noah-david-becker", // TODO
   },
 };
 
 // TODO: real languages + levels. Keep the count a multiple of 3 so the grid stays full.
 export const skills: Skill[] = [
-  { name: "TypeScript", level: 5, note: "Primary" },
+  { name: "TypeScript", level: 4 },
   { name: "Python", level: 4 },
-  { name: "Java", level: 4 },
-  { name: "SQL", level: 3 },
-  { name: "C / C++", level: 3 },
-  { name: "Go", level: 2 },
+  { name: "C#", level: 3 },
+  { name: "SQL & KQL", level: 3 },
+  { name: "Java", level: 2 },
+  { name: "Rust", level: 1, note: "Learning" },
 ];
 
 // TODO: real work projects. The landing page shows the first two; /work shows all.
 export const workProjects: WorkProject[] = [
   {
-    slug: "project-alpha",
-    title: "Project Alpha",
-    meta: "Company GmbH · 2025",
-    org: "Company GmbH",
+    slug: "etrucker",
+    title: "eTrucker Website",
+    meta: "ETM Elektrotrucker Media GmbH",
+    org: "ETM Elektrotrucker Media GmbH",
     period: "2025",
-    role: "Software Engineer",
+    role: "Website Designer & Engineer",
     description:
       "Placeholder — what the product is, what you owned, and the outcome. Two to three lines read best in this card.",
-    tags: ["TypeScript", "React", "PostgreSQL"],
+    tags: ["WordPress", "JavaScript", "PHP"],
     context:
       "Placeholder — where the project started: the problem, who it was for, and why it mattered. A short paragraph of three to four sentences is enough.",
     contributions: [
@@ -133,23 +133,23 @@ export const workProjects: WorkProject[] = [
 // TODO: three real university projects.
 export const uniProjects: Project[] = [
   {
-    title: "Master's Thesis",
-    meta: "University · 2025",
+    title: "Seminar Project",
+    meta: "University · 2026-2027",
     description:
       "Placeholder — research question and key finding in one or two sentences.",
-    tags: ["Research", "Python"],
+    tags: ["Research", "App-Development"],
   },
   {
-    title: "Team Software Project",
-    meta: "University · 2023",
+    title: "Security-by-Design Project",
+    meta: "University · 2026",
     description: "Placeholder — what the team built and your role in it.",
     tags: ["Java", "Scrum"],
   },
   {
-    title: "Seminar Project",
-    meta: "University · 2022",
+    title: "Rust Project",
+    meta: "University · 2026",
     description: "Placeholder — topic, method and what you learned.",
-    tags: ["C++", "Algorithms"],
+    tags: ["Rust", "Terminal", "Hashing"],
   },
 ];
 
