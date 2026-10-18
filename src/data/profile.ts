@@ -18,10 +18,10 @@ import javaLogo from "../assets/logos/java.svg";
 import rustLogo from "../assets/logos/rust.svg";
 import shieldLogo from "../assets/logos/shield.svg";
 import radarLogo from "../assets/logos/radar.svg";
-import directoryLogo from "../assets/logos/directory.svg";
 import azureLogo from "../assets/logos/azure.svg";
 import powershellLogo from "../assets/logos/powershell.svg";
 import linuxLogo from "../assets/logos/linux.svg";
+import dockerLogo from "../assets/logos/docker.svg";
 // Project images
 import etruckerImage from "../assets/projects/eTrucker__eActros_2810.png";
 import naviculaImage from "../assets/projects/Navicula__Charter_On-Tour_2.png";
@@ -134,14 +134,14 @@ export const skills: Skill[] = [
 ];
 
 // Second logo row under the languages (label on the right). Same rule: multiple of 6.
-// Defender, Sentinel and Active Directory use generic glyphs (no monochrome logo available).
+// Defender and Sentinel use generic glyphs (no monochrome logo available).
 export const technologies: Skill[] = [
   { name: "Microsoft Defender", logo: shieldLogo },
   { name: "Microsoft Sentinel", logo: radarLogo },
-  { name: "Active Directory", logo: directoryLogo },
   { name: "Azure", logo: azureLogo },
   { name: "PowerShell", logo: powershellLogo },
   { name: "Linux", logo: linuxLogo },
+  { name: "Docker", logo: dockerLogo },
 ];
 
 // TODO: real work projects. The landing page shows the first two; /work shows all.

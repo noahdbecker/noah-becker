@@ -44,12 +44,11 @@ Generic hand-drawn glyphs (no usable monochrome brand logo):
 | SQL & KQL | `database.svg` |
 | Microsoft Defender | `shield.svg` (shield + check) |
 | Microsoft Sentinel | `radar.svg` |
-| Active Directory | `directory.svg` (hierarchy) |
 
 `bicep.svg` is a one-colour redraw of Microsoft's Bicep logo (MIT, from the `Azure/bicep` repo):
 the hexagon with the arm cut out and the two hex nuts filled back in.
 
-Azure, PowerShell and Linux come from Simple Icons.
+Azure, PowerShell, Linux and Docker come from Simple Icons.
 
 ## Adding images
 

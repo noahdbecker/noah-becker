@@ -81,6 +81,9 @@ languages, reusing `Skills.astro` with a `flip` prop that moves the label cell t
 a deliberate switch-up so the two stacked rows don't read as one block. Microsoft doesn't
 publish monochrome marks for Defender, Sentinel or Active Directory and neither Simple Icons
 nor Devicon carries them, so they use generic glyphs (shield, radar, hierarchy), same as SQL & KQL.
+Later the same day Active Directory was swapped for Docker (Simple Icons) and the unused
+`directory.svg` removed; order is now Microsoft security → Azure/PowerShell → Linux → Docker,
+so on mobile the first row of 3 is Defender, Sentinel, Azure.
 
 ### 2026-10-18 — Photos grouped into albums, alternating sides
 
