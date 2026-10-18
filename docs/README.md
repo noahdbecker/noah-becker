@@ -12,13 +12,14 @@ Read this file first, then the one relevant to your task.
 ## What this is
 
 A small personal vita site for **Noah Becker**: a landing page plus two subpages.
-The landing page (`/`) has five blocks, top to bottom:
+The landing page (`/`) has six blocks, top to bottom:
 
 1. **Profile** — name, intro, portrait, then current position / education / location
 2. **Programming languages** — six languages as a row of monochrome logos
-3. **Work** — 2 project cards
-4. **University** — sideways-scrolling strip of project cards (any number)
-5. **Photos** — 2×2 grid
+3. **Technologies** — six tools/platforms, same logo row mirrored (label on the right)
+4. **Work** — 2 project cards
+5. **University** — sideways-scrolling strip of project cards (any number)
+6. **Photos** — 2×2 grid
 
 Work and Photos each end in a "see more" button row leading to a subpage:
 
@@ -58,7 +59,7 @@ src/
     Row.astro            ← full-bleed row + framed column (the grid primitive)
     Header.astro         ← sticky nav bar
     Hero.astro           ← name + portrait + facts
-    Skills.astro         ← language logo row
+    Skills.astro         ← logo row (languages, technologies; `flip` puts the label right)
     SectionHead.astro    ← "02 | Work | note" heading row
     ProjectCard.astro    ← card used for work (size lg) and uni (size sm)
     Visual.astro         ← project image area (image or dot-grid placeholder + code)
@@ -73,7 +74,7 @@ src/
   scripts/reveal.ts      ← scroll-reveal for rows (see design.md → Motion)
   scripts/strip.ts       ← wires StripControls to a Strip
   scripts/progress.ts    ← page-change progress line under the header
-  assets/logos/          ← monochrome language logos (SVG, drawn in currentColor)
+  assets/logos/          ← monochrome logos for both logo rows (SVG, drawn in currentColor)
   assets/photos/         ← put photos here (optimised by astro:assets)
 public/favicon.svg
 ```

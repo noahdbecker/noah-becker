@@ -19,7 +19,7 @@
 | --- | --- | --- | --- |
 | `--bg` | `#f6f6f3` | `#0f0f10` | Page and cell background |
 | `--surface` | `#ffffff` | `#17171a` | Hover state of cells |
-| `--fg` | `#121212` | `#ecece8` | Text, language logos, logo block |
+| `--fg` | `#121212` | `#ecece8` | Text, skill/technology logos, logo block |
 | `--muted` | `#6c6c66` | `#8f8f89` | Secondary text, labels |
 | `--line` | `#d8d8d1` | `#2b2b2f` | All grid lines, tag borders |
 | `--marker` | `#8e8e86` | `#5c5c62` | "+" intersection markers |
@@ -83,7 +83,7 @@ Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
 | --- | --- |
 | Header | sticky; `[logo 56×56][Profile][Work][University][Photos][hatch filler][Contact (accent)]`; nav links hidden < 720px. Links go to `/#section`; on `/work` and `/photos` the matching link gets `aria-current="page"` (fg text + 2px inset bottom bar). Logo → `/` |
 | Hero | 3 equal tracks. Row 1: intro (label, name on two lines, lede pinned to bottom) spans 2, portrait 1 — portrait stretches to the intro's height (no `aspect-ratio`, which would stop it stretching). Row 2: current position / education / based in. < 860px → 1 col, portrait becomes 1:1 |
-| Skills | one row: `label 1.5fr | 6 × logo cell`. Each cell: 36px monochrome logo (`--fg`, via `currentColor`) centred over the name as a `.label`. No skill levels. < 860px → label row on top, 3 cols. Keep the count a multiple of 6 for a full grid at every breakpoint |
+| Skills | one row: `label 1.5fr | 6 × logo cell`. Each cell: 36px monochrome logo (`--fg`, via `currentColor`) centred over the name as a `.label`. No skill levels. < 860px → label row on top, 3 cols. Keep the count a multiple of 6 for a full grid at every breakpoint. Used twice: Programming languages, then Technologies with `flip` (`6 × logo | label 1.5fr`, label right-aligned; label stays first in the DOM and moves via `order`; < 860px it goes back on top) |
 | SectionHead | `96px index | title | 340px note`; < 720px note drops to its own row. Optional `actions` slot adds an extra auto-width column (used for StripControls) |
 | ProjectCard | `Visual` (16:9 `lg`, 4:3 `sm`), then meta label, title, description, tags pushed to bottom. Becomes an `<a>` when an `href` is set: → for internal links, ↗ for external. Work cards link to `/work#<slug>` |
 | Visual | dot grid + centred code badge + top-left corner tag, or the image (`object-fit: cover`). Aspect ratio via prop |

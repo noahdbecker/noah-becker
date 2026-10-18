@@ -14,6 +14,12 @@ import csharpLogo from "../assets/logos/csharp.svg";
 import databaseLogo from "../assets/logos/database.svg";
 import javaLogo from "../assets/logos/java.svg";
 import rustLogo from "../assets/logos/rust.svg";
+import shieldLogo from "../assets/logos/shield.svg";
+import radarLogo from "../assets/logos/radar.svg";
+import directoryLogo from "../assets/logos/directory.svg";
+import azureLogo from "../assets/logos/azure.svg";
+import powershellLogo from "../assets/logos/powershell.svg";
+import linuxLogo from "../assets/logos/linux.svg";
 
 export interface Skill {
   name: string;
@@ -92,6 +98,17 @@ export const skills: Skill[] = [
   { name: "SQL & KQL", logo: databaseLogo },
   { name: "Java", logo: javaLogo },
   { name: "Rust", logo: rustLogo },
+];
+
+// Second logo row under the languages (label on the right). Same rule: multiple of 6.
+// Defender, Sentinel and Active Directory use generic glyphs (no monochrome logo available).
+export const technologies: Skill[] = [
+  { name: "Microsoft Defender", logo: shieldLogo },
+  { name: "Microsoft Sentinel", logo: radarLogo },
+  { name: "Active Directory", logo: directoryLogo },
+  { name: "Azure", logo: azureLogo }, // TODO: confirm
+  { name: "PowerShell", logo: powershellLogo }, // TODO: confirm
+  { name: "Linux", logo: linuxLogo }, // TODO: confirm
 ];
 
 // TODO: real work projects. The landing page shows the first two; /work shows all.

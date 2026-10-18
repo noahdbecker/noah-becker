@@ -7,7 +7,8 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 | Export | Shape | Shown in |
 | --- | --- | --- |
 | `profile` | name, intro, portrait `{ image?, alt, crop? }`, location, current position, education, links | Header, Hero, Footer, `<title>` |
-| `skills` | `{ name, logo }[]` | Skills logo row. `logo` is an imported SVG from `src/assets/logos/` |
+| `skills` | `{ name, logo }[]` | Programming languages logo row. `logo` is an imported SVG from `src/assets/logos/` |
+| `technologies` | `{ name, logo }[]` (same `Skill` type) | Technologies logo row under the languages |
 | `workProjects` | `WorkProject[]` | Landing shows the first 2 (codes `W/01`, `W/02`); `/work` shows all as case studies |
 | `uniProjects` | `Project[]` (any number) | University strip (scrolls sideways), codes `U/01`… |
 | `photos` | `{ caption, alt, place?, date?, image? }[]` | Landing grid shows the first 4; `/photos` shows all |
@@ -19,7 +20,7 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 `slug` is the anchor on `/work` (`/work#project-alpha`) — keep it URL-safe and stable.
 For work projects `meta` duplicates `org · period`; keep both in sync.
 
-## Language logos
+## Logos (languages + technologies)
 
 Logos are single-colour SVGs in `src/assets/logos/`, imported at the top of `profile.ts`
 and rendered as Astro SVG components in `--fg`. To add one:
@@ -30,7 +31,16 @@ and rendered as Astro SVG components in `--fg`. To add one:
 3. If the glyph sits small inside its `viewBox`, tighten the `viewBox` to the drawing.
 4. Keep the total a multiple of 6 (one full row on desktop, rows of 3 on mobile).
 
-"SQL & KQL" has no official logo and uses a generic database glyph (`database.svg`).
+Generic hand-drawn glyphs (no usable monochrome brand logo):
+
+| Entry | File |
+| --- | --- |
+| SQL & KQL | `database.svg` |
+| Microsoft Defender | `shield.svg` (shield + check) |
+| Microsoft Sentinel | `radar.svg` |
+| Active Directory | `directory.svg` (hierarchy) |
+
+Azure, PowerShell and Linux come from Simple Icons.
 
 ## Adding images
 
@@ -62,6 +72,7 @@ Everything marked `// TODO` in `profile.ts`:
 - degree, university, years
 - email (`mailto:`), LinkedIn URL; confirm GitHub handle
 - all six languages
+- technologies: Azure, PowerShell, Linux were filled in as suggestions — confirm or swap
 - both work projects; university projects 04–06 are placeholders
 - work case-study text (role, context, contributions, outcome)
 - photos + captions + alt text + place/date (9 placeholders; first 4 appear on the landing page)

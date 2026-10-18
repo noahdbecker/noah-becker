@@ -1,16 +1,26 @@
 ---
 import Row from "./Row.astro";
-import { skills } from "../data/profile";
+import type { Skill } from "../data/profile";
+
+interface Props {
+  title: string;
+  id: string;
+  items: Skill[];
+  /** Put the label cell on the right instead of the left (desktop only). */
+  flip?: boolean;
+}
+
+const { title, id, items, flip = false } = Astro.props;
 ---
 
 <Row>
-  <div class="skills cells">
+  <div class:list={["skills cells", { flip }]}>
     <div class="intro">
-      <h2 class="label" id="skills-title">Programming languages</h2>
+      <h2 class="label" id={id}>{title}</h2>
     </div>
 
     {
-      skills.map(({ name, logo: Logo }) => (
+      items.map(({ name, logo: Logo }) => (
         <div class="skill">
           <Logo class="logo" fill="currentColor" aria-hidden="true" />
           <h3 class="label">{name}</h3>
@@ -27,6 +37,16 @@ import { skills } from "../data/profile";
 
   .intro {
     padding: var(--pad);
+  }
+
+  .flip {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) minmax(0, 1.5fr);
+  }
+
+  /* Label stays first in the DOM (heading before its items), only moves visually. */
+  .flip .intro {
+    order: 1;
+    text-align: right;
   }
 
   .skill {
@@ -59,6 +79,10 @@ import { skills } from "../data/profile";
     }
     .intro {
       grid-column: 1 / -1;
+    }
+    .flip .intro {
+      order: 0;
+      text-align: left;
     }
   }
 </style>

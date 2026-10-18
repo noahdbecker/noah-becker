@@ -12,7 +12,7 @@ import StripControls from "../components/StripControls.astro";
 import PhotoGrid from "../components/PhotoGrid.astro";
 import MoreLink from "../components/MoreLink.astro";
 import Footer from "../components/Footer.astro";
-import { profile, workProjects, uniProjects, photos } from "../data/profile";
+import { profile, skills, technologies, workProjects, uniProjects, photos } from "../data/profile";
 
 const fullName = `${profile.name.first} ${profile.name.last}`;
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -24,7 +24,8 @@ const pad = (n: number) => String(n).padStart(2, "0");
   <main>
     <section id="profile" aria-labelledby="profile-title">
       <Hero />
-      <Skills />
+      <Skills title="Programming languages" id="skills-title" items={skills} />
+      <Skills title="Technologies" id="tech-title" items={technologies} flip />
     </section>
 
     <Spacer />

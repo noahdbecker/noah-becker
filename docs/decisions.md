@@ -73,3 +73,11 @@ The old page can't hand over its exact progress reliably (unload/sessionStorage 
 per browser), so it stores only the click time; the next page resumes the same CSS animation with
 a negative delay, then finishes it on `load`. No spinner or overlay: the cross-fade already hides
 the swap, the line just signals that something is happening. Off under `prefers-reduced-motion`.
+
+### 2026-10-18 — Technologies as a second, mirrored logo row
+
+Tools/platforms (Defender, Sentinel, Active Directory, …) get their own row under the
+languages, reusing `Skills.astro` with a `flip` prop that moves the label cell to the right —
+a deliberate switch-up so the two stacked rows don't read as one block. Microsoft doesn't
+publish monochrome marks for Defender, Sentinel or Active Directory and neither Simple Icons
+nor Devicon carries them, so they use generic glyphs (shield, radar, hierarchy), same as SQL & KQL.
