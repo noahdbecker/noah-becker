@@ -272,9 +272,10 @@ export const uniProjects: Project[] = [
 // TODO: add photos to src/assets/photos/, import them here and group them into albums.
 // /photos shows one block per album; the landing page shows the first photo of the first four albums.
 export const albums: Album[] = [
+  // Netherlands 2025-01
   {
-    slug: "album-01",
-    title: "Album 01",
+    slug: "netherlands-2025-01",
+    title: "Netherlands",
     note: "Placeholder — one line about where or what this album is.",
     period: "2025",
     photos: [
@@ -283,20 +284,106 @@ export const albums: Album[] = [
       { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
     ],
   },
+  // Lago Maggiore 2024-01
   {
-    slug: "album-02",
-    title: "Album 02",
+    slug: "lagomaggiore-2024-01",
+    title: "Lago Maggiore, Swiss/Italy",
     note: "Placeholder — one line about where or what this album is.",
     period: "2024",
+    photos: [
+      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+    ],
+  },
+  // Berlin 2024-01
+  {
+    slug: "berlin-2024-01",
+    title: "Berlin, Germany",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2024",
+    photos: [
+      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+    ],
+  },
+  // Crotia 2024-01
+  {
+    slug: "crotia-2024-01",
+    title: "Croatia",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2024",
+    photos: [
+      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+    ],
+  },
+  // Hamburg 2023-02
+  {
+    slug: "hamburg-2023-02",
+    title: "Hamburg, Germany (Autumn)",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2023",
+    photos: [
+      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+    ],
+  },
+  // South Tirol 2023-01
+  {
+    slug: "southtirol-2023-01",
+    title: "South Tirol, Italy",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2023",
+    photos: [
+      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+    ],
+  },
+  // Hamburg 2023-01
+  {
+    slug: "hamburg-2023-01",
+    title: "Hamburg, Germany (Summer)",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2023",
+    photos: [
+      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+    ],
+  },
+  // Crete 2022-01
+  {
+    slug: "crete-2022-01",
+    title: "Crete, Greece",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2022",
+    photos: [
+      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+    ],
+  },
+  // Ludwigsburg 2021-01
+  {
+    slug: "ludwigsburg-2021-01",
+    title: "Ludwigsburg, Germany",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2021",
     photos: [
       { caption: "Photo 04", alt: "", place: "Place", date: "2024" },
       { caption: "Photo 05", alt: "", place: "Place", date: "2024" },
       { caption: "Photo 06", alt: "", place: "Place", date: "2024" },
     ],
   },
+  // Munich 2021-01
   {
     slug: "munich-2021-01",
-    title: "Munich",
+    title: "Munich, Germany",
     note: "Placeholder — one line about where or what this album is.",
     period: "2021",
     photos: [
