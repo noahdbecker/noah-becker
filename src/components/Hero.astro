@@ -9,10 +9,15 @@ const { name, intro, portrait, current, education, location } = profile;
 <Row>
   <div class="hero cells">
     <div class="intro">
-      <p class="label">01 — Profile<span class="caret" aria-hidden="true"></span></p>
+      <p class="label">
+        01 — Profile<span class="caret" aria-hidden="true"></span>
+      </p>
       <h1 id="profile-title">
         <span>{name.first}</span>
-        <span>{name.last}</span>
+        <span
+          style="background: var(--accent); color: var(--bg);width: fit-content; padding-right: 20px;"
+          >{name.last}</span
+        >
       </h1>
       <p class="lede">{intro}</p>
     </div>
@@ -20,7 +25,10 @@ const { name, intro, portrait, current, education, location } = profile;
     <figure class:list={["portrait", { hatch: !portrait.image }]}>
       {
         portrait.image ? (
-          <div class="crop" style={`--zoom: ${portrait.crop?.zoom ?? 1}; --origin: ${portrait.crop?.origin ?? "50% 50%"}`}>
+          <div
+            class="crop"
+            style={`--zoom: ${portrait.crop?.zoom ?? 1}; --origin: ${portrait.crop?.origin ?? "50% 50%"}`}
+          >
             <Image
               src={portrait.image}
               alt={portrait.alt}
@@ -31,7 +39,8 @@ const { name, intro, portrait, current, education, location } = profile;
           </div>
         ) : (
           <span class="initials mono" aria-hidden="true">
-            {name.first[0]}{name.last[0]}
+            {name.first[0]}
+            {name.last[0]}
           </span>
         )
       }
