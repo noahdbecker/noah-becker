@@ -26,6 +26,17 @@ import linuxLogo from "../assets/logos/linux.svg";
 import etruckerImage from "../assets/projects/eTrucker__eActros_2810.png";
 import naviculaImage from "../assets/projects/Navicula__Charter_On-Tour_2.png";
 import briemImage from "../assets/projects/BRIEM.jpg";
+// Photo albums
+// Munich-2021-01
+import munich2021_01_01 from "../assets/photos/munich-2021-01/Munich-2021-01-1.jpg";
+import munich2021_01_02 from "../assets/photos/munich-2021-01/munich-2021-01-2.jpg";
+import munich2021_01_03 from "../assets/photos/munich-2021-01/munich-2021-01-3.jpg";
+import munich2021_01_04 from "../assets/photos/munich-2021-01/munich-2021-01-4.jpg";
+import munich2021_01_05 from "../assets/photos/munich-2021-01/munich-2021-01-5.jpg";
+import munich2021_01_06 from "../assets/photos/munich-2021-01/munich-2021-01-6.jpg";
+import munich2021_01_07 from "../assets/photos/munich-2021-01/munich-2021-01-7.jpg";
+import munich2021_01_08 from "../assets/photos/munich-2021-01/munich-2021-01-8.jpg";
+import munich2021_01_09 from "../assets/photos/munich-2021-01/munich-2021-01-9.jpg";
 
 export interface Skill {
   name: string;
@@ -284,14 +295,74 @@ export const albums: Album[] = [
     ],
   },
   {
-    slug: "album-03",
-    title: "Album 03",
+    slug: "munich-2021-01",
+    title: "Munich",
     note: "Placeholder — one line about where or what this album is.",
-    period: "2023",
+    period: "2021",
     photos: [
-      { caption: "Photo 07", alt: "", place: "Place", date: "2023" },
-      { caption: "Photo 08", alt: "", place: "Place", date: "2023" },
-      { caption: "Photo 09", alt: "", place: "Place", date: "2023" },
+      {
+        caption: "Munich 01",
+        alt: "",
+        place: "Munich",
+        date: "2021",
+        image: munich2021_01_01 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Munich 02",
+        alt: "",
+        place: "Munich",
+        date: "2021",
+        image: munich2021_01_02 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Munich 03",
+        alt: "",
+        place: "Munich",
+        date: "2021",
+        image: munich2021_01_03 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Munich 04",
+        alt: "",
+        place: "Munich",
+        date: "2021",
+        image: munich2021_01_04 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Munich 05",
+        alt: "",
+        place: "Munich",
+        date: "2021",
+        image: munich2021_01_05 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Munich 06",
+        alt: "",
+        place: "Munich",
+        date: "2021",
+        image: munich2021_01_06 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Munich 07",
+        alt: "",
+        place: "Munich",
+        date: "2021",
+        image: munich2021_01_07 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Munich 08",
+        alt: "",
+        place: "Munich",
+        date: "2021",
+        image: munich2021_01_08 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Munich 09",
+        alt: "",
+        place: "Munich",
+        date: "2021",
+        image: munich2021_01_09 as ImageMetadata | undefined,
+      },
     ],
   },
 ];
