@@ -12,18 +12,28 @@ import StripControls from "../components/StripControls.astro";
 import PhotoGrid from "../components/PhotoGrid.astro";
 import MoreLink from "../components/MoreLink.astro";
 import Footer from "../components/Footer.astro";
-import { profile, skills, technologies, workProjects, uniProjects } from "../data/profile";
+import {
+  profile,
+  skills,
+  technologies,
+  workProjects,
+  uniProjects,
+} from "../data/profile";
 
 const fullName = `${profile.name.first} ${profile.name.last}`;
 const pad = (n: number) => String(n).padStart(2, "0");
 ---
 
-<Base title={`${fullName} — Vita`} description={`${fullName}: ${profile.current.role}. Profile, projects and more.`}>
+<Base
+  title={`${fullName} — Vita`}
+  description={`${fullName}: ${profile.current.role}. Profile, projects and more.`}
+>
   <Header />
 
   <main>
     <section id="profile" aria-labelledby="profile-title">
       <Hero />
+      <Spacer />
       <Skills title="Programming languages" id="skills-title" items={skills} />
       <Skills title="Technologies" id="tech-title" items={technologies} flip />
     </section>
@@ -31,13 +41,24 @@ const pad = (n: number) => String(n).padStart(2, "0");
     <Spacer />
 
     <section id="work" aria-labelledby="work-title">
-      <SectionHead index="02" id="work-title" title="Work" note="Selected projects from my professional work." />
+      <SectionHead
+        index="02"
+        id="work-title"
+        title="Work"
+        note="Selected projects from my professional work."
+      />
       <Row>
         <div class="grid-2 cells">
           {
             workProjects
               .slice(0, 2)
-              .map((p, i) => <ProjectCard project={p} code={`W/${pad(i + 1)}`} href={`/work#${p.slug}`} />)
+              .map((p, i) => (
+                <ProjectCard
+                  project={p}
+                  code={`W/${pad(i + 1)}`}
+                  href={`/work#${p.slug}`}
+                />
+              ))
           }
         </div>
       </Row>
@@ -47,18 +68,40 @@ const pad = (n: number) => String(n).padStart(2, "0");
     <Spacer />
 
     <section id="university" aria-labelledby="university-title">
-      <SectionHead index="03" id="university-title" title="University" note="Projects from my studies.">
-        <StripControls slot="actions" target="uni-strip" label="university projects" />
+      <SectionHead
+        index="03"
+        id="university-title"
+        title="University"
+        note="Projects from my studies."
+      >
+        <StripControls
+          slot="actions"
+          target="uni-strip"
+          label="university projects"
+        />
       </SectionHead>
-      <Strip id="uni-strip" label="University projects" count={uniProjects.length}>
-        {uniProjects.map((p, i) => <ProjectCard project={p} code={`U/${pad(i + 1)}`} size="sm" />)}
+      <Strip
+        id="uni-strip"
+        label="University projects"
+        count={uniProjects.length}
+      >
+        {
+          uniProjects.map((p, i) => (
+            <ProjectCard project={p} code={`U/${pad(i + 1)}`} size="sm" />
+          ))
+        }
       </Strip>
     </section>
 
     <Spacer />
 
     <section id="photos" aria-labelledby="photos-title">
-      <SectionHead index="04" id="photos-title" title="Photos" note="A few moments away from the keyboard." />
+      <SectionHead
+        index="04"
+        id="photos-title"
+        title="Photos"
+        note="A few moments away from the keyboard."
+      />
       <PhotoGrid />
       <MoreLink href="/photos" label="See all photos" />
     </section>
