@@ -248,3 +248,83 @@ export const albums: Album[] = [
 ];
 
 export const photos: Photo[] = albums.flatMap((album) => album.photos);
+
+/**
+ * A legal page (/imprint, /privacy): heading + paragraphs per section.
+ * Line breaks inside a paragraph ("\n") are kept, e.g. for an address.
+ */
+export interface LegalPage {
+  title: string;
+  /** Small mono line above the title. */
+  kicker: string;
+  note?: string;
+  sections: { heading: string; paragraphs: string[] }[];
+}
+
+// TODO: fill in all placeholders. Impressum under § 5 DDG (formerly § 5 TMG).
+export const imprint: LegalPage = {
+  title: "Imprint",
+  kicker: "Legal — Impressum",
+  note: "Provider information under German law. Last updated: TODO.",
+  sections: [
+    {
+      heading: "Information according to §\u00a05 DDG",
+      paragraphs: ["Noah Becker\nTODO Street and number\nTODO Postcode City\nGermany"],
+    },
+    {
+      heading: "Contact",
+      paragraphs: ["Email: TODO\nPhone: TODO"],
+    },
+    {
+      heading: "Responsible for content",
+      paragraphs: [
+        "Responsible according to §\u00a018 (2) MStV:\nNoah Becker\nTODO address (as above)",
+      ],
+    },
+  ],
+};
+
+// TODO: fill in all placeholders. Datenschutzerklärung under Art. 13 GDPR.
+export const privacy: LegalPage = {
+  title: "Privacy",
+  kicker: "Legal — Datenschutzerklärung",
+  note: "How this site handles personal data. Last updated: TODO.",
+  sections: [
+    {
+      heading: "Controller",
+      paragraphs: ["Noah Becker\nTODO Street and number\nTODO Postcode City\nGermany\nEmail: TODO"],
+    },
+    {
+      heading: "Overview",
+      paragraphs: ["TODO: short summary of what data this site processes and why."],
+    },
+    {
+      heading: "Hosting and server logs",
+      paragraphs: [
+        "TODO: hosting provider, what the server logs (IP address, time, requested page, browser), legal basis, retention period, data processing agreement.",
+      ],
+    },
+    {
+      heading: "Cookies, tracking and fonts",
+      paragraphs: [
+        "TODO: confirm. This site sets no cookies, uses no analytics and loads no third-party resources; fonts are hosted on this server. A single timestamp is kept in your browser's session storage to animate page changes and is deleted when you close the tab.",
+      ],
+    },
+    {
+      heading: "Contact by email",
+      paragraphs: ["TODO: what happens with data you send by email, legal basis, how long it's kept."],
+    },
+    {
+      heading: "External links",
+      paragraphs: [
+        "TODO: links to GitHub and LinkedIn lead to third-party sites; their privacy policies apply once you follow them.",
+      ],
+    },
+    {
+      heading: "Your rights",
+      paragraphs: [
+        "TODO: access, rectification, erasure, restriction, data portability and objection (Art. 15–21 GDPR), and the right to lodge a complaint with a supervisory authority (e.g. LfDI Baden-Württemberg).",
+      ],
+    },
+  ],
+};

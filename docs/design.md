@@ -93,7 +93,7 @@ Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
 | PhotoGrid | 2×2 at all sizes, 4:3 cells, caption tag bottom-left; hatch + big number when no image |
 | MoreLink | row under a section: `[hatch filler 1fr][note label][button]`. Button = inverted block (`--fg` bg, `--bg` text), mono uppercase, → arrow; hover → accent, arrow nudges right. Used under Work ("Projects in depth", note "Case studies") and Photos ("See all photos", no note — the `04 / 09` count was removed on request) |
 | Spacer | hatched row, `clamp(32px, 5vw, 56px)` tall, between every section |
-| Footer | `© | Email | GitHub | LinkedIn | Top` → 2 cols on mobile; hatched tail row |
+| Footer | `© | Email ↗ | GitHub ↗ | LinkedIn ↗ | Imprint → | Privacy → | Top` → 2 cols < 860px (© spans both); hatched tail row |
 
 ## Subpages
 
@@ -104,6 +104,8 @@ Same shell as the landing page (Header, Spacer rhythm, Footer). Structure:
 
 - **WorkDetail** (`/work`): title row `code | h2 | org · period`, then body grid `1fr | 2fr` — left: facts list (Role, Company, Period, Stack) with internal hairlines, spanning 2 rows; right: Visual 16:9, then text cell (Context / What I did / Outcome, max 62ch, square bullets). < 860px: 1 col, facts become a 2×2 block.
 - **Album** (`/photos`): one Row per album, Spacer between albums. Grid `4 × 1fr`: label cell (`A/01`, h2 title, muted note, `03 PHOTOS · 2025`) takes one slot of the first row — 3 photos beside it, then further photos continue underneath in rows of 4 (the label keeps the height of one photo row). Albums alternate sides — odd ones label left, even ones label right (`flip`, same idea as the Technologies row; label stays first in the DOM). Hatch filler cells complete the last photo row. < 860px: label becomes a full-width row on top, photos 2 cols; < 520px 1 col. Each figure: 4:3 image (hatch + number placeholder, numbered per album) over a caption strip `caption …… PLACE · DATE`.
+
+- **LegalText** (`/imprint`, `/privacy`): back link goes to `/`. One Row, grid `1fr | 2fr`, one grid row per section — left: `§ 01` label + h2 (20–26px); right: paragraphs (17px, max 62ch, `white-space: pre-line` so `\n` breaks lines in addresses). < 720px: 1 col, heading cell above its text.
 
 ## Interaction
 

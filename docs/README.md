@@ -11,7 +11,8 @@ Read this file first, then the one relevant to your task.
 
 ## What this is
 
-A small personal vita site for **Noah Becker**: a landing page plus two subpages.
+A small personal vita site for **Noah Becker**: a landing page plus two subpages
+(and two legal pages linked from the footer).
 The landing page (`/`) has six blocks, top to bottom:
 
 1. **Profile** — name, intro, portrait, then current position / education / location
@@ -24,6 +25,7 @@ The landing page (`/`) has six blocks, top to bottom:
 Work and Photos each end in a "see more" button row leading to a subpage:
 
 - **`/work`** — one case study per work project (role, company, period, stack, visual, context, what I did, outcome). Landing cards link to `/work#<slug>`.
+- **`/imprint`**, **`/privacy`** — Impressum and Datenschutzerklärung (required in Germany), linked from the footer on every page. Text lives in `imprint` / `privacy` in `profile.ts`, still all `TODO`.
 - **`/photos`** — photos grouped into albums; each album is a label cell (name, note, count) in the first row of a 4-column grid (3 photos beside it, rows of 4 below), label alternating left/right. Caption + place · date under each photo.
 
 Visual direction: blocky, visible-grid layout inspired by the *structure* of
@@ -55,6 +57,8 @@ src/
     index.astro          ← landing page composition (order of sections)
     work.astro           ← /work case studies
     photos.astro         ← /photos albums
+    imprint.astro        ← /imprint (Impressum)
+    privacy.astro        ← /privacy (Datenschutzerklärung)
   components/
     Row.astro            ← full-bleed row + framed column (the grid primitive)
     Header.astro         ← sticky nav bar
@@ -70,6 +74,7 @@ src/
     StripControls.astro  ← ← → buttons for a Strip
     PhotoGrid.astro      ← 2×2 photos
     Album.astro          ← one album block on /photos (label cell + photo grid, `flip` puts the label right)
+    LegalText.astro      ← numbered heading | text rows for /imprint and /privacy
     Spacer.astro         ← hatched spacer row between sections
     Footer.astro
   scripts/reveal.ts      ← scroll-reveal for rows (see design.md → Motion)
@@ -88,7 +93,8 @@ public/favicon.svg
 - [ ] Replace all `TODO` placeholders in `src/data/profile.ts` (see content.md)
 - [ ] Add real photos
 - [ ] Set `site` in `astro.config.mjs` once the domain is known
-- [ ] Imprint / privacy page (required for a personal site hosted in Germany — "Impressum", "Datenschutzerklärung")
+- [x] Imprint / privacy pages + footer links (structure only)
+- [ ] Fill in imprint / privacy text (`imprint`, `privacy` in `profile.ts`) — hosting section depends on the deployment target
 - [ ] Deployment target not chosen yet
 
 ## Working conventions

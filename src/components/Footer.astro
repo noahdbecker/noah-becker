@@ -8,6 +8,11 @@ const links = [
   { href: profile.links.github, label: "GitHub" },
   { href: profile.links.linkedin, label: "LinkedIn" },
 ];
+// Legally required in Germany (Impressum, Datenschutzerklärung): linked from every page.
+const legal = [
+  { href: "/imprint", label: "Imprint" },
+  { href: "/privacy", label: "Privacy" },
+];
 ---
 
 <footer>
@@ -15,6 +20,7 @@ const links = [
     <div class="foot cells">
       <p class="copy label">© {year} {profile.name.first} {profile.name.last}</p>
       {links.map((link) => <a class="link label" href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}
+      {legal.map((link) => <a class="link label" href={link.href}>{link.label} <span aria-hidden="true">→</span></a>)}
       <a class="top label" href="#top">Top <span aria-hidden="true">↑</span></a>
     </div>
   </Row>
@@ -25,7 +31,7 @@ const links = [
 
 <style>
   .foot {
-    grid-template-columns: minmax(0, 1fr) repeat(3, auto) auto;
+    grid-template-columns: minmax(0, 1fr) repeat(5, auto) auto;
   }
 
   .foot > * {
@@ -51,7 +57,7 @@ const links = [
     height: 96px;
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 860px) {
     .foot {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }

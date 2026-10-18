@@ -92,3 +92,13 @@ changed on request from an earlier version where it spanned every row). The labe
 sides album by album (left, right, left…) — the same mirroring as the Technologies row, so
 stacked albums don't read as one block. The `04 / 09` count next to "See all photos" was
 removed at Noah's request.
+
+### 2026-10-18 — Imprint and privacy as two pages, linked from the footer
+
+German law requires an Impressum (§ 5 DDG) that is reachable from every page, and a
+Datenschutzerklärung (Art. 13 GDPR). Both are their own routes (`/imprint`, `/privacy`) linked
+in the footer, which appears on every page, rather than sections on the landing page. Their text
+sits in `profile.ts` like all other content, as numbered sections in one shared `LegalText`
+component. The pages stay in English like the rest of the site, with the German terms in the kicker
+so they're easy to recognise. The footer now has seven cells, so it switches to two columns at
+860px instead of 720px.

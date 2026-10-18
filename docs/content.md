@@ -14,6 +14,8 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 | `albums` | `{ slug, title, note?, period?, photos: Photo[] }[]` | `/photos`: one block per album (`A/01`…), label alternates left/right. `slug` is the anchor (`/photos#album-01`) |
 | `photos` | derived: all album photos in order (`Photo` = `{ caption, alt, place?, date?, image? }`) | Landing grid shows the first 4. Don't edit — add photos to an album |
 
+| `imprint`, `privacy` | `LegalPage` = `{ title, kicker, note?, sections: { heading, paragraphs[] }[] }` | `/imprint`, `/privacy`. `\n` inside a paragraph is a line break (addresses). Use a non-breaking space after `§` (`§\u00a05`) |
+
 `Project` = `{ title, meta, description, tags[], href?, image? }`.
 `meta` is the small mono line above the title — keep it `Org · Year`.
 
@@ -76,6 +78,7 @@ Everything marked `// TODO` in `profile.ts`:
 - technologies: Azure, PowerShell, Linux were filled in as suggestions — confirm or swap
 - both work projects; university projects 04–06 are placeholders
 - work case-study text (role, context, contributions, outcome)
+- imprint + privacy: address, phone, email, hosting provider, dates; review every section (structure only, not legal advice)
 - albums (title, note, period) + photos with captions, alt text, place/date (3 placeholder albums × 3 photos; the first 4 photos overall appear on the landing page)
 
 ## Writing guidelines

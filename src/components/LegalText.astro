@@ -1,0 +1,71 @@
+---
+/** Body of a legal page (/imprint, /privacy): one row per section, heading | text. */
+import Row from "./Row.astro";
+import type { LegalPage } from "../data/profile";
+
+interface Props {
+  sections: LegalPage["sections"];
+}
+
+const { sections } = Astro.props;
+const pad = (n: number) => String(n).padStart(2, "0");
+---
+
+<Row>
+  <div class="legal cells">
+    {
+      sections.map((section, i) => (
+        <Fragment>
+          <div class="heading">
+            <p class="label">§ {pad(i + 1)}</p>
+            <h2>{section.heading}</h2>
+          </div>
+          <div class="text">
+            {section.paragraphs.map((p) => <p>{p}</p>)}
+          </div>
+        </Fragment>
+      ))
+    }
+  </div>
+</Row>
+
+<style>
+  .legal {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+
+  .heading,
+  .text {
+    display: flex;
+    flex-direction: column;
+    padding: var(--pad);
+  }
+
+  .heading {
+    gap: 12px;
+  }
+
+  h2 {
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .text {
+    gap: 14px;
+  }
+
+  .text p {
+    max-width: 62ch;
+    font-size: 17px;
+    line-height: 1.55;
+    white-space: pre-line;
+  }
+
+  @media (max-width: 720px) {
+    .legal {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
