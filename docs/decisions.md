@@ -81,3 +81,14 @@ languages, reusing `Skills.astro` with a `flip` prop that moves the label cell t
 a deliberate switch-up so the two stacked rows don't read as one block. Microsoft doesn't
 publish monochrome marks for Defender, Sentinel or Active Directory and neither Simple Icons
 nor Devicon carries them, so they use generic glyphs (shield, radar, hierarchy), same as SQL & KQL.
+
+### 2026-10-18 — Photos grouped into albums, alternating sides
+
+`/photos` was one flat 3-column gallery; it now groups photos into albums (`albums` in
+`profile.ts`, `photos` is derived from it so the landing grid is unchanged). Each album is
+one row: a 4-column grid where the label cell takes one slot of the first row and photos
+fill the rest (3 beside the label, then rows of 4 underneath — the label box stays one photo row tall,
+changed on request from an earlier version where it spanned every row). The label switches
+sides album by album (left, right, left…) — the same mirroring as the Technologies row, so
+stacked albums don't read as one block. The `04 / 09` count next to "See all photos" was
+removed at Noah's request.

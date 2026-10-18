@@ -58,6 +58,18 @@ export interface Photo {
   image?: ImageMetadata;
 }
 
+/** A group of photos on /photos, e.g. one trip or one theme. */
+export interface Album {
+  /** URL fragment on /photos, e.g. /photos#japan. */
+  slug: string;
+  title: string;
+  /** One short line under the album title. */
+  note?: string;
+  /** Shown next to the photo count, e.g. "2025" or "2023 – 2025". */
+  period?: string;
+  photos: Photo[];
+}
+
 export const profile = {
   name: { first: "Noah", last: "Becker" },
   // TODO: replace with a real one-liner.
@@ -68,7 +80,9 @@ export const profile = {
     alt: "Portrait of Noah Becker",
     // Tighter framing: zoom in, anchored at the bottom-right so the top/left
     // background drops out. Re-tune when the photo changes.
-    crop: { zoom: 1.22, origin: "100% 100%" } as { zoom: number; origin: string } | undefined,
+    crop: { zoom: 1.22, origin: "100% 100%" } as
+      | { zoom: number; origin: string }
+      | undefined,
   },
   location: "Ludwigsburg, Germany",
   current: {
@@ -195,16 +209,42 @@ export const uniProjects: Project[] = [
   },
 ];
 
-// TODO: add photos to src/assets/photos/ and import them here.
-// The landing page shows the first four; /photos shows all.
-export const photos: Photo[] = [
-  { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
-  { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
-  { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
-  { caption: "Photo 04", alt: "", place: "Place", date: "2024" },
-  { caption: "Photo 05", alt: "", place: "Place", date: "2024" },
-  { caption: "Photo 06", alt: "", place: "Place", date: "2024" },
-  { caption: "Photo 07", alt: "", place: "Place", date: "2023" },
-  { caption: "Photo 08", alt: "", place: "Place", date: "2023" },
-  { caption: "Photo 09", alt: "", place: "Place", date: "2023" },
+// TODO: add photos to src/assets/photos/, import them here and group them into albums.
+// /photos shows one block per album; the landing page shows the first four photos overall.
+export const albums: Album[] = [
+  {
+    slug: "album-01",
+    title: "Album 01",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2025",
+    photos: [
+      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
+      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+    ],
+  },
+  {
+    slug: "album-02",
+    title: "Album 02",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2024",
+    photos: [
+      { caption: "Photo 04", alt: "", place: "Place", date: "2024" },
+      { caption: "Photo 05", alt: "", place: "Place", date: "2024" },
+      { caption: "Photo 06", alt: "", place: "Place", date: "2024" },
+    ],
+  },
+  {
+    slug: "album-03",
+    title: "Album 03",
+    note: "Placeholder — one line about where or what this album is.",
+    period: "2023",
+    photos: [
+      { caption: "Photo 07", alt: "", place: "Place", date: "2023" },
+      { caption: "Photo 08", alt: "", place: "Place", date: "2023" },
+      { caption: "Photo 09", alt: "", place: "Place", date: "2023" },
+    ],
+  },
 ];
+
+export const photos: Photo[] = albums.flatMap((album) => album.photos);

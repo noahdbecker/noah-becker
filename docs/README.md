@@ -24,7 +24,7 @@ The landing page (`/`) has six blocks, top to bottom:
 Work and Photos each end in a "see more" button row leading to a subpage:
 
 - **`/work`** — one case study per work project (role, company, period, stack, visual, context, what I did, outcome). Landing cards link to `/work#<slug>`.
-- **`/photos`** — full gallery, 3 columns, caption + place · date under each photo.
+- **`/photos`** — photos grouped into albums; each album is a label cell (name, note, count) in the first row of a 4-column grid (3 photos beside it, rows of 4 below), label alternating left/right. Caption + place · date under each photo.
 
 Visual direction: blocky, visible-grid layout inspired by the *structure* of
 [zed.dev](https://zed.dev) (hairline rails, full-width row lines, "+" markers
@@ -54,7 +54,7 @@ src/
   pages/
     index.astro          ← landing page composition (order of sections)
     work.astro           ← /work case studies
-    photos.astro         ← /photos gallery
+    photos.astro         ← /photos albums
   components/
     Row.astro            ← full-bleed row + framed column (the grid primitive)
     Header.astro         ← sticky nav bar
@@ -69,6 +69,7 @@ src/
     Strip.astro          ← sideways-scrolling card row (University)
     StripControls.astro  ← ← → buttons for a Strip
     PhotoGrid.astro      ← 2×2 photos
+    Album.astro          ← one album block on /photos (label cell + photo grid, `flip` puts the label right)
     Spacer.astro         ← hatched spacer row between sections
     Footer.astro
   scripts/reveal.ts      ← scroll-reveal for rows (see design.md → Motion)

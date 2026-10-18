@@ -12,7 +12,7 @@ import StripControls from "../components/StripControls.astro";
 import PhotoGrid from "../components/PhotoGrid.astro";
 import MoreLink from "../components/MoreLink.astro";
 import Footer from "../components/Footer.astro";
-import { profile, skills, technologies, workProjects, uniProjects, photos } from "../data/profile";
+import { profile, skills, technologies, workProjects, uniProjects } from "../data/profile";
 
 const fullName = `${profile.name.first} ${profile.name.last}`;
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -60,7 +60,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
     <section id="photos" aria-labelledby="photos-title">
       <SectionHead index="04" id="photos-title" title="Photos" note="A few moments away from the keyboard." />
       <PhotoGrid />
-      <MoreLink href="/photos" label="See all photos" note={`${pad(Math.min(4, photos.length))} / ${pad(photos.length)}`} />
+      <MoreLink href="/photos" label="See all photos" />
     </section>
 
     <Spacer />

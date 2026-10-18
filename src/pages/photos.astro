@@ -1,12 +1,11 @@
 ---
-import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import PageHead from "../components/PageHead.astro";
-import Row from "../components/Row.astro";
+import Album from "../components/Album.astro";
 import Spacer from "../components/Spacer.astro";
 import Footer from "../components/Footer.astro";
-import { profile, photos } from "../data/profile";
+import { profile, albums } from "../data/profile";
 
 const fullName = `${profile.name.first} ${profile.name.last}`;
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -25,107 +24,15 @@ const pad = (n: number) => String(n).padStart(2, "0");
 
     <Spacer />
 
-    <Row>
-      <div class="gallery cells">
-        {
-          photos.map((photo, i) => (
-            <figure>
-              <div class:list={["shot", { hatch: !photo.image }]}>
-                {photo.image ? (
-                  <Image
-                    src={photo.image}
-                    alt={photo.alt}
-                    widths={[400, 800, 1200]}
-                    sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 400px"
-                  />
-                ) : (
-                  <span class="empty mono" aria-hidden="true">{pad(i + 1)}</span>
-                )}
-              </div>
-              <figcaption>
-                <span class="caption">{photo.caption}</span>
-                {(photo.place || photo.date) && (
-                  <span class="label">{[photo.place, photo.date].filter(Boolean).join(" · ")}</span>
-                )}
-              </figcaption>
-            </figure>
-          ))
-        }
-      </div>
-    </Row>
-
-    <Spacer />
+    {
+      albums.map((album, i) => (
+        <>
+          <Album album={album} code={`A/${pad(i + 1)}`} flip={i % 2 === 1} />
+          <Spacer />
+        </>
+      ))
+    }
   </main>
 
   <Footer />
 </Base>
-
-<style>
-  .gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  figure {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-  }
-
-  .shot {
-    position: relative;
-    display: grid;
-    place-items: center;
-    aspect-ratio: 4 / 3;
-    border-bottom: 1px solid var(--line);
-    overflow: hidden;
-  }
-
-  .shot :global(img) {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 700ms var(--ease-out);
-  }
-
-  figure:hover .shot :global(img) {
-    transform: scale(1.03);
-  }
-
-  figure:hover .shot.hatch {
-    background-position: 10px 0;
-  }
-
-  .empty {
-    font-size: clamp(32px, 5vw, 56px);
-    font-weight: 500;
-    letter-spacing: -0.04em;
-    color: var(--line);
-  }
-
-  figcaption {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 4px 12px;
-    padding: 14px var(--pad);
-  }
-
-  .caption {
-    font-weight: 500;
-  }
-
-  @media (max-width: 860px) {
-    .gallery {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 520px) {
-    .gallery {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-</style>

@@ -1,0 +1,190 @@
+---
+/** One album on /photos: a label cell (code, title, note, count) in the first row, photos fill a 4-column grid around it. */
+import { Image } from "astro:assets";
+import Row from "./Row.astro";
+import type { Album } from "../data/profile";
+
+interface Props {
+  album: Album;
+  code: string;
+  /** Put the label cell on the right instead of the left (desktop only). */
+  flip?: boolean;
+}
+
+const { album, code, flip = false } = Astro.props;
+const titleId = `${album.slug}-title`;
+const pad = (n: number) => String(n).padStart(2, "0");
+
+const count = album.photos.length;
+// Hatch cells that complete the last row. Desktop: the label takes one slot of the
+// first row (3 photos), every row after holds 4. Below 860px: 2 photos per row.
+const fill4 = count <= 3 ? 3 - count : (4 - ((count - 3) % 4)) % 4;
+const fill2 = (2 - (count % 2)) % 2;
+const fillers = Array.from({ length: Math.max(fill4, fill2) }, (_, i) => ({
+  wide: i < fill4,
+  narrow: i < fill2,
+}));
+const countLabel = `${pad(count)} ${count === 1 ? "photo" : "photos"}`;
+---
+
+<section id={album.slug} aria-labelledby={titleId}>
+  <Row>
+    <div class:list={["album cells", { flip }]}>
+      <div class="intro">
+        <p class="label">{code}</p>
+        <h2 id={titleId}>{album.title}</h2>
+        {album.note && <p class="note">{album.note}</p>}
+        <p class="count label">{[countLabel, album.period].filter(Boolean).join(" · ")}</p>
+      </div>
+
+      {
+        album.photos.map((photo, i) => (
+          <figure>
+            <div class:list={["shot", { hatch: !photo.image }]}>
+              {photo.image ? (
+                <Image
+                  src={photo.image}
+                  alt={photo.alt}
+                  widths={[400, 800, 1200]}
+                  sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 300px"
+                />
+              ) : (
+                <span class="empty mono" aria-hidden="true">{pad(i + 1)}</span>
+              )}
+            </div>
+            <figcaption>
+              <span class="caption">{photo.caption}</span>
+              {(photo.place || photo.date) && (
+                <span class="label">{[photo.place, photo.date].filter(Boolean).join(" · ")}</span>
+              )}
+            </figcaption>
+          </figure>
+        ))
+      }
+
+      {fillers.map(({ wide, narrow }) => <div class:list={["filler hatch", { wide, narrow }]} aria-hidden="true" />)}
+    </div>
+  </Row>
+</section>
+
+<style>
+  .album {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* The label cell takes one slot of the first row; photos auto-place around it
+     (3 next to it, then rows of 4 underneath). */
+  .intro {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: var(--pad);
+  }
+
+  /* Label stays first in the DOM (heading before its photos), only moves visually. */
+  .flip .intro {
+    grid-column: 4;
+    text-align: right;
+  }
+
+  h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .note {
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .count {
+    margin-top: 8px;
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .shot {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 3;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .shot :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 700ms var(--ease-out);
+  }
+
+  figure:hover .shot :global(img) {
+    transform: scale(1.03);
+  }
+
+  figure:hover .shot.hatch {
+    background-position: 10px 0;
+  }
+
+  .empty {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: var(--line);
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 12px;
+    padding: 14px var(--pad);
+  }
+
+  .caption {
+    font-weight: 500;
+  }
+
+  .filler:not(.wide) {
+    display: none;
+  }
+
+  @media (max-width: 860px) {
+    .album {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .intro,
+    .flip .intro {
+      grid-column: 1 / -1;
+      grid-row: auto;
+      text-align: left;
+    }
+    .filler.wide {
+      display: none;
+    }
+    .filler.narrow {
+      display: block;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .album {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .filler.narrow {
+      display: none;
+    }
+  }
+</style>

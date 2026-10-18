@@ -91,7 +91,7 @@ Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
 | University strip | `Strip`: sideways-scrolling row with scroll snap, any number of cards. Visible cards = `min(count, 3.25)` desktop / `min(count, 2.25)` < 860px / `min(count, 1.15)` < 560px — the fractional part is the "peek" that signals more. Scrollbar hidden; region is focusable (arrow keys scroll). Cells get `overflow: hidden` so the reveal's rise can't cause a vertical scrollbar |
 | StripControls | ← → buttons (56px wide, divider between) in the section head's `actions` slot; hover inverts to `--fg`; disabled at the ends (`--line` colour). Hidden until JS confirms the strip overflows. < 720px: own row, buttons right, hatch fill left. No counter (removed on request) |
 | PhotoGrid | 2×2 at all sizes, 4:3 cells, caption tag bottom-left; hatch + big number when no image |
-| MoreLink | row under a section: `[hatch filler 1fr][note label][button]`. Button = inverted block (`--fg` bg, `--bg` text), mono uppercase, → arrow; hover → accent, arrow nudges right. Used under Work ("Projects in depth") and Photos ("See all photos", note `04 / 09`) |
+| MoreLink | row under a section: `[hatch filler 1fr][note label][button]`. Button = inverted block (`--fg` bg, `--bg` text), mono uppercase, → arrow; hover → accent, arrow nudges right. Used under Work ("Projects in depth", note "Case studies") and Photos ("See all photos", no note — the `04 / 09` count was removed on request) |
 | Spacer | hatched row, `clamp(32px, 5vw, 56px)` tall, between every section |
 | Footer | `© | Email | GitHub | LinkedIn | Top` → 2 cols on mobile; hatched tail row |
 
@@ -103,7 +103,7 @@ Same shell as the landing page (Header, Spacer rhythm, Footer). Structure:
 2. Spacer, then content rows, Spacer between items.
 
 - **WorkDetail** (`/work`): title row `code | h2 | org · period`, then body grid `1fr | 2fr` — left: facts list (Role, Company, Period, Stack) with internal hairlines, spanning 2 rows; right: Visual 16:9, then text cell (Context / What I did / Outcome, max 62ch, square bullets). < 860px: 1 col, facts become a 2×2 block.
-- **Gallery** (`/photos`): 3 cols → 2 < 860px → 1 < 520px. Each figure: 4:3 image (hatch + number placeholder) over a caption strip `caption …… PLACE · DATE`.
+- **Album** (`/photos`): one Row per album, Spacer between albums. Grid `4 × 1fr`: label cell (`A/01`, h2 title, muted note, `03 PHOTOS · 2025`) takes one slot of the first row — 3 photos beside it, then further photos continue underneath in rows of 4 (the label keeps the height of one photo row). Albums alternate sides — odd ones label left, even ones label right (`flip`, same idea as the Technologies row; label stays first in the DOM). Hatch filler cells complete the last photo row. < 860px: label becomes a full-width row on top, photos 2 cols; < 520px 1 col. Each figure: 4:3 image (hatch + number placeholder, numbered per album) over a caption strip `caption …… PLACE · DATE`.
 
 ## Interaction
 
