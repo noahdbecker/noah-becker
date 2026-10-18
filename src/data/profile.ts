@@ -6,6 +6,7 @@
  * Entries marked `TODO` are placeholders and still need real content.
  */
 import type { ImageMetadata } from "astro";
+import portraitImage from "../assets/noah_portrait_big.jpg";
 
 export type SkillLevel = 1 | 2 | 3 | 4 | 5;
 
@@ -53,10 +54,12 @@ export const profile = {
   // TODO: replace with a real one-liner.
   intro:
     "Software developer building thoughtful, reliable products. This is a placeholder intro — two short sentences about what you do and what you care about work best.",
-  // TODO: add a portrait (4:5 works best) to src/assets/ and import it here.
   portrait: {
-    image: undefined as ImageMetadata | undefined,
+    image: portraitImage as ImageMetadata | undefined,
     alt: "Portrait of Noah Becker",
+    // Tighter framing: zoom in, anchored at the bottom-right so the top/left
+    // background drops out. Re-tune when the photo changes.
+    crop: { zoom: 1.22, origin: "100% 100%" } as { zoom: number; origin: string } | undefined,
   },
   location: "Ludwigsburg, Germany",
   current: {

@@ -6,7 +6,7 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 
 | Export | Shape | Shown in |
 | --- | --- | --- |
-| `profile` | name, intro, portrait `{ image?, alt }`, location, current position, education, links | Header, Hero, Footer, `<title>` |
+| `profile` | name, intro, portrait `{ image?, alt, crop? }`, location, current position, education, links | Header, Hero, Footer, `<title>` |
 | `skills` | `{ name, level 1–5, note? }[]` | Skills grid. `note` replaces the level word (e.g. "Primary") |
 | `workProjects` | `WorkProject[]` | Landing shows the first 2 (codes `W/01`, `W/02`); `/work` shows all as case studies |
 | `uniProjects` | `Project[]` (any number) | University strip (scrolls sideways), codes `U/01`… |
@@ -34,12 +34,19 @@ import beach from "../assets/photos/beach.jpg";
 
 Astro then generates responsive, optimised versions. Don't use `public/` for these.
 
+## Portrait framing
+
+`profile.portrait.crop = { zoom, origin }` tightens the framing in CSS (no file edits):
+the image is cropped with `object-fit: cover` (~0.7 ratio on desktop, square on phones),
+then scaled by `zoom` around `origin` (a CSS `transform-origin`, e.g. `"100% 100%"`
+keeps the bottom-right fixed so the top/left background drops out). Current photo:
+`zoom: 1.22, origin: "100% 100%"`. Check both desktop and a 390px viewport after changing it.
+
 ## Placeholders still to replace
 
 Everything marked `// TODO` in `profile.ts`:
 
 - intro sentence, city
-- portrait photo (`profile.portrait.image`; roughly 4:5, it's cropped with `object-fit: cover` — 4:5-ish on desktop, square on mobile)
 - current role, company, start year
 - degree, university, years
 - email (`mailto:`), LinkedIn URL; confirm GitHub handle
