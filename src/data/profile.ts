@@ -7,7 +7,9 @@
  */
 import type { ImageMetadata } from "astro";
 import type { SvgComponent } from "astro/types";
+// Portrait
 import portraitImage from "../assets/noah_portrait_big.jpg";
+// Logos for skills and technologies
 import typescriptLogo from "../assets/logos/typescript.svg";
 import pythonLogo from "../assets/logos/python.svg";
 import bicepLogo from "../assets/logos/bicep.svg";
@@ -20,6 +22,10 @@ import directoryLogo from "../assets/logos/directory.svg";
 import azureLogo from "../assets/logos/azure.svg";
 import powershellLogo from "../assets/logos/powershell.svg";
 import linuxLogo from "../assets/logos/linux.svg";
+// Project images
+import etruckerImage from "../assets/projects/eTrucker__eActros_2810.png";
+import naviculaImage from "../assets/projects/Navicula__Charter_On-Tour_2.png";
+import briemImage from "../assets/projects/BRIEM.jpg";
 
 export interface Skill {
   name: string;
@@ -120,16 +126,18 @@ export const technologies: Skill[] = [
   { name: "Microsoft Defender", logo: shieldLogo },
   { name: "Microsoft Sentinel", logo: radarLogo },
   { name: "Active Directory", logo: directoryLogo },
-  { name: "Azure", logo: azureLogo }, // TODO: confirm
-  { name: "PowerShell", logo: powershellLogo }, // TODO: confirm
-  { name: "Linux", logo: linuxLogo }, // TODO: confirm
+  { name: "Azure", logo: azureLogo },
+  { name: "PowerShell", logo: powershellLogo },
+  { name: "Linux", logo: linuxLogo },
 ];
 
 // TODO: real work projects. The landing page shows the first two; /work shows all.
 export const workProjects: WorkProject[] = [
+  // eTrucker
   {
     slug: "etrucker",
-    title: "eTrucker Website",
+    title: "eTrucker — Website",
+    image: etruckerImage,
     meta: "ETM Elektrotrucker Media GmbH",
     org: "ETM Elektrotrucker Media GmbH",
     period: "2025",
@@ -147,16 +155,38 @@ export const workProjects: WorkProject[] = [
     outcome:
       "Placeholder — the result. Numbers work well here: performance, adoption, time saved, errors reduced.",
   },
+  // Navicula
   {
-    slug: "project-beta",
-    title: "Project Beta",
-    meta: "Company GmbH · 2024",
-    org: "Company GmbH",
-    period: "2024",
-    role: "Software Engineer",
+    slug: "navicula",
+    title: "Navicula Logistica — Website",
+    image: naviculaImage,
+    meta: "Navicula Logistica d.o.o.",
+    org: "Navicula Logistica d.o.o.",
+    period: "2025-2026",
+    role: "Website Designer & Engineer",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
-    tags: ["Python", "AWS", "Docker"],
+    tags: ["Node.js", "Astro", "PHP Composer"],
+    context:
+      "Placeholder — the starting point of the project and the constraints you worked within.",
+    contributions: [
+      "Placeholder — a concrete thing you designed, built or decided.",
+      "Placeholder — a second contribution, ideally with a technical detail.",
+    ],
+    outcome: "Placeholder — what changed because of the project.",
+  },
+  // BRIEM
+  {
+    slug: "briem",
+    title: "BRIEM Speditions-GmbH — Website",
+    image: briemImage,
+    meta: "BRIEM Speditions-GmbH",
+    org: "BRIEM Speditions-GmbH",
+    period: "2023-2024",
+    role: "Website Designer & Engineer",
+    description:
+      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+    tags: ["WordPress", "JavaScript", "PHP"],
     context:
       "Placeholder — the starting point of the project and the constraints you worked within.",
     contributions: [
@@ -269,7 +299,9 @@ export const imprint: LegalPage = {
   sections: [
     {
       heading: "Information according to §\u00a05 DDG",
-      paragraphs: ["Noah Becker\nTODO Street and number\nTODO Postcode City\nGermany"],
+      paragraphs: [
+        "Noah Becker\nTODO Street and number\nTODO Postcode City\nGermany",
+      ],
     },
     {
       heading: "Contact",
@@ -292,11 +324,15 @@ export const privacy: LegalPage = {
   sections: [
     {
       heading: "Controller",
-      paragraphs: ["Noah Becker\nTODO Street and number\nTODO Postcode City\nGermany\nEmail: TODO"],
+      paragraphs: [
+        "Noah Becker\nTODO Street and number\nTODO Postcode City\nGermany\nEmail: TODO",
+      ],
     },
     {
       heading: "Overview",
-      paragraphs: ["TODO: short summary of what data this site processes and why."],
+      paragraphs: [
+        "TODO: short summary of what data this site processes and why.",
+      ],
     },
     {
       heading: "Hosting and server logs",
@@ -312,7 +348,9 @@ export const privacy: LegalPage = {
     },
     {
       heading: "Contact by email",
-      paragraphs: ["TODO: what happens with data you send by email, legal basis, how long it's kept."],
+      paragraphs: [
+        "TODO: what happens with data you send by email, legal basis, how long it's kept.",
+      ],
     },
     {
       heading: "External links",
