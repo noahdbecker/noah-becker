@@ -14,7 +14,7 @@ import typescriptLogo from "../assets/logos/typescript.svg";
 import pythonLogo from "../assets/logos/python.svg";
 import bicepLogo from "../assets/logos/bicep.svg";
 import databaseLogo from "../assets/logos/database.svg";
-import javaLogo from "../assets/logos/java.svg";
+import flutterLogo from "../assets/logos/flutter.svg";
 import rustLogo from "../assets/logos/rust.svg";
 import shieldLogo from "../assets/logos/shield.svg";
 import radarLogo from "../assets/logos/radar.svg";
@@ -129,7 +129,7 @@ export const skills: Skill[] = [
   { name: "Python", logo: pythonLogo },
   { name: "Bicep", logo: bicepLogo },
   { name: "SQL & KQL", logo: databaseLogo },
-  { name: "Java", logo: javaLogo },
+  { name: "Flutter", logo: flutterLogo },
   { name: "Rust", logo: rustLogo },
 ];
 
