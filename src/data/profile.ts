@@ -6,16 +6,19 @@
  * Entries marked `TODO` are placeholders and still need real content.
  */
 import type { ImageMetadata } from "astro";
+import type { SvgComponent } from "astro/types";
 import portraitImage from "../assets/noah_portrait_big.jpg";
-
-export type SkillLevel = 1 | 2 | 3 | 4 | 5;
+import typescriptLogo from "../assets/logos/typescript.svg";
+import pythonLogo from "../assets/logos/python.svg";
+import csharpLogo from "../assets/logos/csharp.svg";
+import databaseLogo from "../assets/logos/database.svg";
+import javaLogo from "../assets/logos/java.svg";
+import rustLogo from "../assets/logos/rust.svg";
 
 export interface Skill {
   name: string;
-  /** 1 = basics … 5 = expert. Rendered as a 5-block meter. */
-  level: SkillLevel;
-  /** Optional short note shown under the name, e.g. "4 yrs". */
-  note?: string;
+  /** Monochrome SVG from src/assets/logos, drawn in the text colour. */
+  logo: SvgComponent;
 }
 
 export interface Project {
@@ -81,14 +84,14 @@ export const profile = {
   },
 };
 
-// TODO: real languages + levels. Keep the count a multiple of 3 so the grid stays full.
+// Shown as a row of logos. Keep the count a multiple of 6 so the grid stays full.
 export const skills: Skill[] = [
-  { name: "TypeScript", level: 4 },
-  { name: "Python", level: 4 },
-  { name: "C#", level: 3 },
-  { name: "SQL & KQL", level: 3 },
-  { name: "Java", level: 2 },
-  { name: "Rust", level: 1, note: "Learning" },
+  { name: "TypeScript", logo: typescriptLogo },
+  { name: "Python", logo: pythonLogo },
+  { name: "C#", logo: csharpLogo },
+  { name: "SQL & KQL", logo: databaseLogo },
+  { name: "Java", logo: javaLogo },
+  { name: "Rust", logo: rustLogo },
 ];
 
 // TODO: real work projects. The landing page shows the first two; /work shows all.

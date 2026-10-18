@@ -15,7 +15,7 @@ A small personal vita site for **Noah Becker**: a landing page plus two subpages
 The landing page (`/`) has five blocks, top to bottom:
 
 1. **Profile** — name, intro, portrait, then current position / education / location
-2. **Programming languages** — six skills with a 5-block level meter
+2. **Programming languages** — six languages as a row of monochrome logos
 3. **Work** — 2 project cards
 4. **University** — sideways-scrolling strip of project cards (any number)
 5. **Photos** — 2×2 grid
@@ -58,7 +58,7 @@ src/
     Row.astro            ← full-bleed row + framed column (the grid primitive)
     Header.astro         ← sticky nav bar
     Hero.astro           ← name + portrait + facts
-    Skills.astro         ← language grid with block meters
+    Skills.astro         ← language logo row
     SectionHead.astro    ← "02 | Work | note" heading row
     ProjectCard.astro    ← card used for work (size lg) and uni (size sm)
     Visual.astro         ← project image area (image or dot-grid placeholder + code)
@@ -72,6 +72,7 @@ src/
     Footer.astro
   scripts/reveal.ts      ← scroll-reveal for rows (see design.md → Motion)
   scripts/strip.ts       ← wires StripControls to a Strip
+  assets/logos/          ← monochrome language logos (SVG, drawn in currentColor)
   assets/photos/         ← put photos here (optimised by astro:assets)
 public/favicon.svg
 ```
@@ -80,7 +81,7 @@ public/favicon.svg
 
 - [x] Initial landing page design (light + dark via `prefers-color-scheme`)
 - [x] `/work` and `/photos` subpages (initial design)
-- [x] Subtle motion: scroll reveal, meter fill, hovers, page cross-fade
+- [x] Subtle motion: scroll reveal, hovers, page cross-fade
 - [ ] Replace all `TODO` placeholders in `src/data/profile.ts` (see content.md)
 - [ ] Add real photos
 - [ ] Set `site` in `astro.config.mjs` once the domain is known

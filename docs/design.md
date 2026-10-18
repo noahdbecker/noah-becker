@@ -19,7 +19,7 @@
 | --- | --- | --- | --- |
 | `--bg` | `#f6f6f3` | `#0f0f10` | Page and cell background |
 | `--surface` | `#ffffff` | `#17171a` | Hover state of cells |
-| `--fg` | `#121212` | `#ecece8` | Text, filled meter blocks, logo block |
+| `--fg` | `#121212` | `#ecece8` | Text, language logos, logo block |
 | `--muted` | `#6c6c66` | `#8f8f89` | Secondary text, labels |
 | `--line` | `#d8d8d1` | `#2b2b2f` | All grid lines, tag borders |
 | `--marker` | `#8e8e86` | `#5c5c62` | "+" intersection markers |
@@ -76,7 +76,6 @@ Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
 - `.dots` — 16px dot grid. Project card visuals.
 - **Corner tag** — small mono label boxed into the top-left (or bottom-left) of a visual with right + bottom borders (`W/01`, `PHOTO 01`, `PORTRAIT`).
 - **Image placeholder** — hatch or dots + a centred bordered mono badge (`NB`, `W/01`, `01`) until a real image is set.
-- **Block meter** — 5 equal rectangles, filled `--fg` for the level, outlined otherwise.
 
 ## Components
 
@@ -84,7 +83,7 @@ Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
 | --- | --- |
 | Header | sticky; `[logo 56×56][Profile][Work][University][Photos][hatch filler][Contact (accent)]`; nav links hidden < 720px. Links go to `/#section`; on `/work` and `/photos` the matching link gets `aria-current="page"` (fg text + 2px inset bottom bar). Logo → `/` |
 | Hero | 3 equal tracks. Row 1: intro (label, name on two lines, lede pinned to bottom) spans 2, portrait 1 — portrait stretches to the intro's height (no `aspect-ratio`, which would stop it stretching). Row 2: current position / education / based in. < 860px → 1 col, portrait becomes 1:1 |
-| Skills | `label (spans 2 rows) | 3 × skill`; meters pinned to cell bottom; < 860px → 2 cols, label row on top. Keep skill count a multiple of 6 for a full grid at every breakpoint (3 and 2 columns) |
+| Skills | one row: `label 1.5fr | 6 × logo cell`. Each cell: 36px monochrome logo (`--fg`, via `currentColor`) centred over the name as a `.label`. No skill levels. < 860px → label row on top, 3 cols. Keep the count a multiple of 6 for a full grid at every breakpoint |
 | SectionHead | `96px index | title | 340px note`; < 720px note drops to its own row. Optional `actions` slot adds an extra auto-width column (used for StripControls) |
 | ProjectCard | `Visual` (16:9 `lg`, 4:3 `sm`), then meta label, title, description, tags pushed to bottom. Becomes an `<a>` when an `href` is set: → for internal links, ↗ for external. Work cards link to `/work#<slug>` |
 | Visual | dot grid + centred code badge + top-left corner tag, or the image (`object-fit: cover`). Aspect ratio via prop |
@@ -122,7 +121,6 @@ row borders stay put; only what's *inside* cells moves. Nothing loops except the
 | --- | --- | --- |
 | Row reveal | every `<Row>` (except header) | On entering the viewport (40px offset): cells fade in 600ms, their direct children rise 14px over 800ms; staggered 70ms per cell (max 6 steps). Non-grid rows (spacers, back link) just fade |
 | Marker lock-in | "+" markers | rotate 45° → 0° (× becomes +) and fade in with the row |
-| Meter fill | Skills | filled blocks light up one by one, 80ms apart, after the cell appears |
 | Caret | hero "01 — Profile" | 7×12 accent block, blinks (steps, 1.1s) |
 | Card hover | ProjectCard | dot grid drifts 8px; code badge lifts −3px onto a 3px hard block shadow (`--line`) — the only shadow on the site |
 | Photo hover | PhotoGrid, /photos | image scales 1.03 (700ms); hatch placeholders drift |
@@ -138,7 +136,7 @@ row borders stay put; only what's *inside* cells moves. Nothing loops except the
   then **removes `data-reveal`** after the animation so component hover transitions
   aren't overridden by the reveal rules.
 - CSS lives in `global.css` → "Motion". Component-specific reveal tweaks use
-  `:global(.motion .frame[data-reveal])` / `:global(.motion .frame.is-in)` (see Skills meter).
+  `:global(.motion .frame[data-reveal])` / `:global(.motion .frame.is-in)`.
 - Reduced motion: no `.motion` class, and global CSS kills all transitions/animations.
 - New component inside a Row gets the reveal automatically. Animate *contents*, never
   `transform` the cell itself (it would drag its outline off the grid).

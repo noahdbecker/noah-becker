@@ -7,7 +7,7 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 | Export | Shape | Shown in |
 | --- | --- | --- |
 | `profile` | name, intro, portrait `{ image?, alt, crop? }`, location, current position, education, links | Header, Hero, Footer, `<title>` |
-| `skills` | `{ name, level 1–5, note? }[]` | Skills grid. `note` replaces the level word (e.g. "Primary") |
+| `skills` | `{ name, logo }[]` | Skills logo row. `logo` is an imported SVG from `src/assets/logos/` |
 | `workProjects` | `WorkProject[]` | Landing shows the first 2 (codes `W/01`, `W/02`); `/work` shows all as case studies |
 | `uniProjects` | `Project[]` (any number) | University strip (scrolls sideways), codes `U/01`… |
 | `photos` | `{ caption, alt, place?, date?, image? }[]` | Landing grid shows the first 4; `/photos` shows all |
@@ -19,7 +19,18 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 `slug` is the anchor on `/work` (`/work#project-alpha`) — keep it URL-safe and stable.
 For work projects `meta` duplicates `org · period`; keep both in sync.
 
-Level words: 1 Basics · 2 Working · 3 Solid · 4 Advanced · 5 Expert.
+## Language logos
+
+Logos are single-colour SVGs in `src/assets/logos/`, imported at the top of `profile.ts`
+and rendered as Astro SVG components in `--fg`. To add one:
+
+1. Take the monochrome glyph from [Simple Icons](https://simpleicons.org) (CC0) or, if it's
+   missing there (C#, Java), the `plain` variant from [Devicon](https://devicon.dev) (MIT).
+2. Strip `<title>`, `role` and every `fill="…"` attribute so it inherits `currentColor`.
+3. If the glyph sits small inside its `viewBox`, tighten the `viewBox` to the drawing.
+4. Keep the total a multiple of 6 (one full row on desktop, rows of 3 on mobile).
+
+"SQL & KQL" has no official logo and uses a generic database glyph (`database.svg`).
 
 ## Adding images
 
@@ -50,7 +61,7 @@ Everything marked `// TODO` in `profile.ts`:
 - current role, company, start year
 - degree, university, years
 - email (`mailto:`), LinkedIn URL; confirm GitHub handle
-- all six skills and levels
+- all six languages
 - both work projects; university projects 04–06 are placeholders
 - work case-study text (role, context, contributions, outcome)
 - photos + captions + alt text + place/date (9 placeholders; first 4 appear on the landing page)

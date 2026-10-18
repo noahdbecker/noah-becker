@@ -1,8 +1,6 @@
 ---
 import Row from "./Row.astro";
 import { skills } from "../data/profile";
-
-const levelNames = ["", "Basics", "Working", "Solid", "Advanced", "Expert"];
 ---
 
 <Row>
@@ -12,17 +10,10 @@ const levelNames = ["", "Basics", "Working", "Solid", "Advanced", "Expert"];
     </div>
 
     {
-      skills.map((skill) => (
+      skills.map(({ name, logo: Logo }) => (
         <div class="skill">
-          <div class="top">
-            <h3>{skill.name}</h3>
-            <span class="label">{skill.note ?? levelNames[skill.level]}</span>
-          </div>
-          <div class="meter" role="img" aria-label={`${levelNames[skill.level]}: ${skill.level} of 5`}>
-            {Array.from({ length: 5 }, (_, i) => (
-              <span class:list={{ on: i < skill.level }} style={`--b: ${i}`} />
-            ))}
-          </div>
+          <Logo class="logo" fill="currentColor" aria-hidden="true" />
+          <h3 class="label">{name}</h3>
         </div>
       ))
     }
@@ -31,19 +22,20 @@ const levelNames = ["", "Basics", "Working", "Solid", "Advanced", "Expert"];
 
 <style>
   .skills {
-    grid-template-columns: minmax(0, 1fr) repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.5fr) repeat(6, minmax(0, 1fr));
   }
 
   .intro {
-    grid-row: span 2;
     padding: var(--pad);
   }
 
   .skill {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: var(--pad);
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: var(--pad) 8px;
     transition: background-color 120ms;
   }
 
@@ -51,59 +43,22 @@ const levelNames = ["", "Basics", "Working", "Solid", "Advanced", "Expert"];
     background: var(--surface);
   }
 
-  .top {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 4px 12px;
+  .logo {
+    width: 36px;
+    height: 36px;
+    color: var(--fg);
   }
 
   h3 {
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-  }
-
-  .meter {
-    display: flex;
-    gap: 4px;
-    margin-top: auto;
-  }
-
-  .meter span {
-    flex: 1;
-    height: 10px;
-    border: 1px solid var(--line);
-  }
-
-  .meter span.on {
-    background: var(--fg);
-    border-color: var(--fg);
-  }
-
-  /* While the row reveals, filled blocks light up one by one. */
-  :global(.motion .frame[data-reveal]) .meter span.on {
-    background: transparent;
-    border-color: var(--line);
-    transition:
-      background-color 200ms,
-      border-color 200ms;
-    transition-delay: calc(var(--i, 0) * 70ms + 300ms + var(--b) * 80ms);
-  }
-
-  :global(.motion .frame.is-in) .meter span.on {
-    background: var(--fg);
-    border-color: var(--fg);
+    text-align: center;
   }
 
   @media (max-width: 860px) {
     .skills {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .intro {
       grid-column: 1 / -1;
-      grid-row: auto;
     }
   }
 </style>

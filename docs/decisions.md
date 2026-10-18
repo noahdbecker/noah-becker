@@ -54,3 +54,12 @@ as the hint, ← → buttons in the section head). A position counter ("01–03 
 built and then removed at Noah's request — keep the controls to arrows only.
 Testing note: headless Chrome with `--virtual-time-budget` doesn't fire scroll events
 or rAF, so test the strip in real time (e.g. CDP), not with virtual time.
+
+### 2026-10-18 — Languages as logos, no skill levels
+
+The 5-block level meter was removed at Noah's request; the Programming languages
+row now shows each language's logo with its name. Logos are monochrome (`currentColor`)
+so they fit the one-accent palette instead of adding brand colours. Sources: Simple Icons
+(CC0) where available; C# and Java come from Devicon (MIT) because Simple Icons dropped
+them; "SQL & KQL" uses a hand-drawn generic database glyph. SVGs are vendored in
+`src/assets/logos/` rather than adding an icon package dependency for six files.
