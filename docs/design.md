@@ -85,11 +85,12 @@ Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
 | Header | sticky; `[logo 56×56][Profile][Work][University][Photos][hatch filler][Contact (accent)]`; nav links hidden < 720px. Links go to `/#section`; on `/work` and `/photos` the matching link gets `aria-current="page"` (fg text + 2px inset bottom bar). Logo → `/` |
 | Hero | 3 equal tracks. Row 1: intro (label, name on two lines, lede pinned to bottom) spans 2, portrait 1 — portrait stretches to the intro's height (no `aspect-ratio`, which would stop it stretching). Row 2: current position / education / based in. < 860px → 1 col, portrait becomes 1:1 |
 | Skills | `label (spans 2 rows) | 3 × skill`; meters pinned to cell bottom; < 860px → 2 cols, label row on top. Keep skill count a multiple of 6 for a full grid at every breakpoint (3 and 2 columns) |
-| SectionHead | `96px index | title | 340px note`; < 720px note drops to its own row |
+| SectionHead | `96px index | title | 340px note`; < 720px note drops to its own row. Optional `actions` slot adds an extra auto-width column (used for StripControls) |
 | ProjectCard | `Visual` (16:9 `lg`, 4:3 `sm`), then meta label, title, description, tags pushed to bottom. Becomes an `<a>` when an `href` is set: → for internal links, ↗ for external. Work cards link to `/work#<slug>` |
 | Visual | dot grid + centred code badge + top-left corner tag, or the image (`object-fit: cover`). Aspect ratio via prop |
 | Work grid | 2 cols → 1 col < 720px |
-| University grid | 3 cols → 1 col < 860px |
+| University strip | `Strip`: sideways-scrolling row with scroll snap, any number of cards. Visible cards = `min(count, 3.25)` desktop / `min(count, 2.25)` < 860px / `min(count, 1.15)` < 560px — the fractional part is the "peek" that signals more. Scrollbar hidden; region is focusable (arrow keys scroll). Cells get `overflow: hidden` so the reveal's rise can't cause a vertical scrollbar |
+| StripControls | ← → buttons (56px wide, divider between) in the section head's `actions` slot; hover inverts to `--fg`; disabled at the ends (`--line` colour). Hidden until JS confirms the strip overflows. < 720px: own row, buttons right, hatch fill left. No counter (removed on request) |
 | PhotoGrid | 2×2 at all sizes, 4:3 cells, caption tag bottom-left; hatch + big number when no image |
 | MoreLink | row under a section: `[hatch filler 1fr][note label][button]`. Button = inverted block (`--fg` bg, `--bg` text), mono uppercase, → arrow; hover → accent, arrow nudges right. Used under Work ("Projects in depth") and Photos ("See all photos", note `04 / 09`) |
 | Spacer | hatched row, `clamp(32px, 5vw, 56px)` tall, between every section |

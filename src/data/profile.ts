@@ -130,7 +130,7 @@ export const workProjects: WorkProject[] = [
   },
 ];
 
-// TODO: three real university projects.
+// University projects — shown as a sideways-scrolling strip, so any number works.
 export const uniProjects: Project[] = [
   {
     title: "Seminar Project",
@@ -150,6 +150,25 @@ export const uniProjects: Project[] = [
     meta: "University · 2026",
     description: "Placeholder — topic, method and what you learned.",
     tags: ["Rust", "Terminal", "Hashing"],
+  },
+  // TODO: placeholders — replace or delete. Any number works; the strip scrolls.
+  {
+    title: "University Project 04",
+    meta: "University · Year",
+    description: "Placeholder — one or two sentences on topic and outcome.",
+    tags: ["Tag"],
+  },
+  {
+    title: "University Project 05",
+    meta: "University · Year",
+    description: "Placeholder — one or two sentences on topic and outcome.",
+    tags: ["Tag"],
+  },
+  {
+    title: "University Project 06",
+    meta: "University · Year",
+    description: "Placeholder — one or two sentences on topic and outcome.",
+    tags: ["Tag"],
   },
 ];
 

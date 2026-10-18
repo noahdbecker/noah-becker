@@ -17,7 +17,7 @@ The landing page (`/`) has five blocks, top to bottom:
 1. **Profile** — name, intro, portrait, then current position / education / location
 2. **Programming languages** — six skills with a 5-block level meter
 3. **Work** — 2 project cards
-4. **University** — 3 project cards
+4. **University** — sideways-scrolling strip of project cards (any number)
 5. **Photos** — 2×2 grid
 
 Work and Photos each end in a "see more" button row leading to a subpage:
@@ -65,10 +65,13 @@ src/
     MoreLink.astro       ← "see more" button row under a section
     PageHead.astro       ← subpage title row with back link
     WorkDetail.astro     ← one case study on /work
+    Strip.astro          ← sideways-scrolling card row (University)
+    StripControls.astro  ← ← → buttons for a Strip
     PhotoGrid.astro      ← 2×2 photos
     Spacer.astro         ← hatched spacer row between sections
     Footer.astro
   scripts/reveal.ts      ← scroll-reveal for rows (see design.md → Motion)
+  scripts/strip.ts       ← wires StripControls to a Strip
   assets/photos/         ← put photos here (optimised by astro:assets)
 public/favicon.svg
 ```
@@ -89,5 +92,5 @@ public/favicon.svg
 - Content changes → only `src/data/profile.ts`. Components must not hard-code personal text.
 - New visual block → wrap it in `<Row>`, build its inside with a `.cells` grid. See design.md.
 - No new colours or font sizes outside the tokens without updating design.md.
-- JS is limited to progressive enhancement (currently only the scroll reveal). The site must work fully without it.
+- JS is limited to progressive enhancement (scroll reveal, strip buttons). The site must work fully without it — the strip still scrolls by swipe/trackpad/keyboard.
 - Verify both themes, a 390 px wide viewport, and `prefers-reduced-motion` after visual changes.

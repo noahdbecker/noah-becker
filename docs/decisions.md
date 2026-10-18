@@ -45,3 +45,12 @@ cross-document View Transitions (`@view-transition`) cover page changes with zer
 Browsers without support just navigate normally. Everything is off under
 `prefers-reduced-motion`, and a 2.5s fallback ensures content never stays hidden if JS fails.
 Astro's `<ClientRouter />` was not used — it would turn the site into a SPA for one cross-fade.
+
+### 2026-10-18 — University projects as a sideways strip
+
+To show more than three university projects without making the page longer or
+adding a subpage, they scroll horizontally (CSS scroll snap, a peek of the next card
+as the hint, ← → buttons in the section head). A position counter ("01–03 / 06") was
+built and then removed at Noah's request — keep the controls to arrows only.
+Testing note: headless Chrome with `--virtual-time-budget` doesn't fire scroll events
+or rAF, so test the strip in real time (e.g. CDP), not with virtual time.

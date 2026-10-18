@@ -9,7 +9,7 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 | `profile` | name, intro, portrait `{ image?, alt }`, location, current position, education, links | Header, Hero, Footer, `<title>` |
 | `skills` | `{ name, level 1–5, note? }[]` | Skills grid. `note` replaces the level word (e.g. "Primary") |
 | `workProjects` | `WorkProject[]` | Landing shows the first 2 (codes `W/01`, `W/02`); `/work` shows all as case studies |
-| `uniProjects` | `Project[]` (3) | University section, codes `U/01`… |
+| `uniProjects` | `Project[]` (any number) | University strip (scrolls sideways), codes `U/01`… |
 | `photos` | `{ caption, alt, place?, date?, image? }[]` | Landing grid shows the first 4; `/photos` shows all |
 
 `Project` = `{ title, meta, description, tags[], href?, image? }`.
@@ -44,7 +44,7 @@ Everything marked `// TODO` in `profile.ts`:
 - degree, university, years
 - email (`mailto:`), LinkedIn URL; confirm GitHub handle
 - all six skills and levels
-- both work projects, all three uni projects
+- both work projects; university projects 04–06 are placeholders
 - work case-study text (role, context, contributions, outcome)
 - photos + captions + alt text + place/date (9 placeholders; first 4 appear on the landing page)
 

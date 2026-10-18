@@ -1,0 +1,80 @@
+---
+/**
+ * Prev/next buttons for a <Strip>. Rendered hidden; the strip script shows
+ * them only when the strip actually overflows (and JS is running).
+ */
+interface Props {
+  /** id of the <Strip> to control. */
+  target: string;
+  /** Used in button labels, e.g. "university projects". */
+  label: string;
+}
+
+const { target, label } = Astro.props;
+---
+
+<div class="controls" data-strip-controls={target} hidden>
+  <button type="button" class="nav" data-strip-prev aria-controls={target} aria-label={`Previous ${label}`}>
+    <span aria-hidden="true">←</span>
+  </button>
+  <button type="button" class="nav" data-strip-next aria-controls={target} aria-label={`Next ${label}`}>
+    <span aria-hidden="true">→</span>
+  </button>
+</div>
+
+<style>
+  .controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    min-height: 56px;
+  }
+
+  .controls[hidden] {
+    display: none;
+  }
+
+  .nav {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--fg);
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition:
+      background-color 120ms,
+      color 120ms;
+  }
+
+  .nav + .nav {
+    border-left: 1px solid var(--line);
+  }
+
+  .nav:hover:not(:disabled) {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  .nav:disabled {
+    color: var(--line);
+    cursor: default;
+  }
+
+  @media (max-width: 720px) {
+    /* Own full-width row on phones: hatch fills the space left of the buttons. */
+    .controls {
+      grid-column: 1 / -1;
+      background-image: repeating-linear-gradient(-45deg, var(--hatch) 0 1px, transparent 1px 7px);
+    }
+    .nav {
+      background: var(--bg);
+    }
+    .nav:first-child {
+      border-left: 1px solid var(--line);
+    }
+  }
+</style>

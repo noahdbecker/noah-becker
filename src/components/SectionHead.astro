@@ -18,12 +18,16 @@ const { index, title, id, note } = Astro.props;
     <div class="index label">{index}</div>
     <h2 id={id}>{title}</h2>
     {note && <p class="note">{note}</p>}
+    <slot name="actions" />
   </div>
 </Row>
 
 <style>
+  /* An optional "actions" slot (e.g. StripControls) becomes an extra auto-width column. */
   .head {
     grid-template-columns: 96px minmax(0, 1fr) minmax(0, 340px);
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
   }
 
   .head > * {
@@ -52,6 +56,7 @@ const { index, title, id, note } = Astro.props;
   @media (max-width: 720px) {
     .head {
       grid-template-columns: 64px minmax(0, 1fr);
+      grid-auto-flow: row;
     }
     .note {
       grid-column: 1 / -1;

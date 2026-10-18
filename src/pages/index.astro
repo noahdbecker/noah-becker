@@ -7,6 +7,8 @@ import Spacer from "../components/Spacer.astro";
 import SectionHead from "../components/SectionHead.astro";
 import Row from "../components/Row.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import Strip from "../components/Strip.astro";
+import StripControls from "../components/StripControls.astro";
 import PhotoGrid from "../components/PhotoGrid.astro";
 import MoreLink from "../components/MoreLink.astro";
 import Footer from "../components/Footer.astro";
@@ -44,12 +46,12 @@ const pad = (n: number) => String(n).padStart(2, "0");
     <Spacer />
 
     <section id="university" aria-labelledby="university-title">
-      <SectionHead index="03" id="university-title" title="University" note="Projects from my studies." />
-      <Row>
-        <div class="grid-3 cells">
-          {uniProjects.map((p, i) => <ProjectCard project={p} code={`U/${pad(i + 1)}`} size="sm" />)}
-        </div>
-      </Row>
+      <SectionHead index="03" id="university-title" title="University" note="Projects from my studies.">
+        <StripControls slot="actions" target="uni-strip" label="university projects" />
+      </SectionHead>
+      <Strip id="uni-strip" label="University projects" count={uniProjects.length}>
+        {uniProjects.map((p, i) => <ProjectCard project={p} code={`U/${pad(i + 1)}`} size="sm" />)}
+      </Strip>
     </section>
 
     <Spacer />
@@ -69,16 +71,6 @@ const pad = (n: number) => String(n).padStart(2, "0");
 <style>
   .grid-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .grid-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  @media (max-width: 860px) {
-    .grid-3 {
-      grid-template-columns: minmax(0, 1fr);
-    }
   }
 
   @media (max-width: 720px) {

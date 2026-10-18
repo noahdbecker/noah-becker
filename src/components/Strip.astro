@@ -1,0 +1,64 @@
+---
+/**
+ * Sideways-scrolling row of cells with scroll snap. Shows 3 cells on desktop
+ * (+ a peek of the next one when there are more), ~2 on tablet, ~1 on phones.
+ * Pair with <StripControls target={id}> for arrow buttons + counter.
+ */
+import Row from "./Row.astro";
+
+interface Props {
+  id: string;
+  /** Accessible name for the scroll region. */
+  label: string;
+  /** Number of items — decides whether to leave room for a peek. */
+  count: number;
+}
+
+const { id, label, count } = Astro.props;
+---
+
+<Row>
+  <div id={id} class="strip cells" style={`--n: ${count}`} role="region" aria-label={label} tabindex="0">
+    <slot />
+  </div>
+</Row>
+
+<script>
+  import "../scripts/strip";
+</script>
+
+<style>
+  /* Visible columns = min(item count, 3.25): exactly 3 when there are ≤ 3 items,
+     otherwise a quarter of the 4th card peeks in as a scroll hint. */
+  .strip {
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 3px) / min(var(--n), 3.25));
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* overflow: hidden keeps the reveal's 14px rise from creating a scrollbar. */
+  .strip > :global(*) {
+    scroll-snap-align: start;
+    overflow: hidden;
+  }
+
+  @media (max-width: 860px) {
+    .strip {
+      grid-auto-columns: calc((100% - 2px) / min(var(--n), 2.25));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .strip {
+      grid-auto-columns: calc(100% / min(var(--n), 1.15));
+    }
+  }
+</style>
