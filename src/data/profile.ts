@@ -64,6 +64,8 @@ export interface WorkProject extends Project {
   context: string;
   contributions: string[];
   outcome: string;
+  /** Live site built for the client. Adds a "Visit website" button on /work when set. */
+  website?: string;
 }
 
 export interface Photo {
@@ -153,6 +155,7 @@ export const workProjects: WorkProject[] = [
     org: "ETM Elektrotrucker Media GmbH",
     period: "2025",
     role: "Website Designer & Engineer",
+    website: "https://etrucker.io",
     description:
       "Placeholder — what the product is, what you owned, and the outcome. Two to three lines read best in this card.",
     tags: ["WordPress", "JavaScript", "PHP"],
@@ -175,6 +178,7 @@ export const workProjects: WorkProject[] = [
     org: "Navicula Logistica d.o.o.",
     period: "2025-2026",
     role: "Website Designer & Engineer",
+    website: "https://navicula-logistica.com",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
     tags: ["Node.js", "Astro", "PHP Composer"],
@@ -195,6 +199,7 @@ export const workProjects: WorkProject[] = [
     org: "BRIEM Speditions-GmbH",
     period: "2023-2024",
     role: "Website Designer & Engineer",
+    website: "https://briem-sped.com",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
     tags: ["WordPress", "JavaScript", "PHP"],

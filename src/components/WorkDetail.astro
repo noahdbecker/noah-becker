@@ -24,28 +24,36 @@ const titleId = `${project.slug}-title`;
 
   <Row>
     <div class="body cells">
-      <dl class="facts">
-        <div>
-          <dt class="label">Role</dt>
-          <dd>{project.role}</dd>
-        </div>
-        <div>
-          <dt class="label">Company</dt>
-          <dd>{project.org}</dd>
-        </div>
-        <div>
-          <dt class="label">Period</dt>
-          <dd>{project.period}</dd>
-        </div>
-        <div>
-          <dt class="label">Stack</dt>
-          <dd>
-            <ul class="tags">
-              {project.tags.map((tag) => <li class="tag">{tag}</li>)}
-            </ul>
-          </dd>
-        </div>
-      </dl>
+      <div class="side">
+        <dl class="facts">
+          <div>
+            <dt class="label">Role</dt>
+            <dd>{project.role}</dd>
+          </div>
+          <div>
+            <dt class="label">Company</dt>
+            <dd>{project.org}</dd>
+          </div>
+          <div>
+            <dt class="label">Period</dt>
+            <dd>{project.period}</dd>
+          </div>
+          <div>
+            <dt class="label">Stack</dt>
+            <dd>
+              <ul class="tags">
+                {project.tags.map((tag) => <li class="tag">{tag}</li>)}
+              </ul>
+            </dd>
+          </div>
+        </dl>
+        {project.website && (
+          <a class="site" href={project.website} target="_blank" rel="noopener">
+            <span>Visit website</span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        )}
+      </div>
 
       <Visual code={code} image={project.image} alt={project.title} />
 
@@ -91,9 +99,46 @@ const titleId = `${project.slug}-title`;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   }
 
-  .facts {
+  /* Facts on top, website button pinned to the bottom of the column. */
+  .side {
     grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .facts {
     margin: 0;
+  }
+
+  .site {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 56px;
+    margin-top: auto;
+    padding-inline: var(--pad);
+    background: var(--fg);
+    color: var(--bg);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background-color 120ms, color 120ms;
+  }
+
+  .site:hover {
+    background: var(--accent);
+    color: var(--accent-fg);
+  }
+
+  .site .arrow {
+    transition: transform 120ms;
+  }
+
+  .site:hover .arrow {
+    transform: translate(3px, -3px);
   }
 
   .facts > div {
@@ -174,8 +219,10 @@ const titleId = `${project.slug}-title`;
     .body {
       grid-template-columns: minmax(0, 1fr);
     }
-    .facts {
+    .side {
       grid-row: auto;
+    }
+    .facts {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }

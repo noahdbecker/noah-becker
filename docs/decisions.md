@@ -112,3 +112,11 @@ Swapped at Noah's request: Bicep is the stronger skill of the two. Neither Simpl
 Devicon has a Bicep glyph, so `bicep.svg` is a monochrome redraw of the official logo from
 the MIT-licensed `Azure/bicep` repo (hexagon with the flexed arm cut out via `evenodd`, the
 two hex nuts kept, finer strokes dropped since they vanish at icon size). `csharp.svg` was removed.
+
+### 2026-10-18 — Optional "Visit website" button on work case studies
+
+Most work projects are client websites, so `WorkProject` got an optional `website` URL. When set,
+the case study on `/work` shows a "Visit website ↗" button pinned to the bottom of the facts column
+(the facts list and the button share one `.side` cell so the button sits flush with the bottom of
+the row). It's a separate field rather than reusing `Project.href`, because `href` is the card's own
+link and work cards already override it to point at `/work#slug`.

@@ -23,7 +23,7 @@
 | `--muted` | `#6c6c66` | `#8f8f89` | Secondary text, labels |
 | `--line` | `#d8d8d1` | `#2b2b2f` | All grid lines, tag borders |
 | `--marker` | `#8e8e86` | `#5c5c62` | "+" intersection markers |
-| `--accent` | `#2b59ff` | `#7090ff` | Contact button, hover state of "see more" buttons, hero caret, page-change progress line. Nothing else. |
+| `--accent` | `#2b59ff` | `#7090ff` | Contact button, hover state of "see more" / "Visit website" buttons, hero caret, page-change progress line. Nothing else. |
 | `--hatch` / `--dot` | low-alpha black/white | | Pattern ink |
 
 Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
@@ -102,7 +102,7 @@ Same shell as the landing page (Header, Spacer rhythm, Footer). Structure:
 1. **PageHead** — two rows. Row 1: full-width back link ("← Back to overview", 56px tall, whole row clickable, hover → `--surface`, arrow nudges left); goes to the matching landing section (`/#work`). Row 2: `kicker + h1 (56–112px) | 340px note`; < 720px the note drops below.
 2. Spacer, then content rows, Spacer between items.
 
-- **WorkDetail** (`/work`): title row `code | h2 | org · period`, then body grid `1fr | 2fr` — left: facts list (Role, Company, Period, Stack) with internal hairlines, spanning 2 rows; right: Visual 16:9, then text cell (Context / What I did / Outcome, max 62ch, square bullets). < 860px: 1 col, facts become a 2×2 block.
+- **WorkDetail** (`/work`): title row `code | h2 | org · period`, then body grid `1fr | 2fr` — left: facts list (Role, Company, Period, Stack) with internal hairlines, spanning 2 rows, plus — only when `website` is set — a "Visit website ↗" button pinned to the bottom of that column (same inverted block as MoreLink, hover → accent, opens in a new tab); right: Visual 16:9, then text cell (Context / What I did / Outcome, max 62ch, square bullets). < 860px: 1 col, facts become a 2×2 block with the button full-width underneath.
 - **Album** (`/photos`): one Row per album, Spacer between albums. Grid `4 × 1fr`: label cell (`A/01`, h2 title, muted note, `03 PHOTOS · 2025`) takes one slot of the first row — 3 photos beside it, then further photos continue underneath in rows of 4 (the label keeps the height of one photo row). Albums alternate sides — odd ones label left, even ones label right (`flip`, same idea as the Technologies row; label stays first in the DOM). Hatch filler cells complete the last photo row. < 860px: label becomes a full-width row on top, photos 2 cols; < 520px 1 col. Each figure: 4:3 image (hatch + number placeholder, numbered per album) over a caption strip `caption …… PLACE · DATE`.
 
 - **LegalText** (`/imprint`, `/privacy`): back link goes to `/`. One Row, grid `1fr | 2fr`, one grid row per section — left: `§ 01` label + h2 (20–26px); right: paragraphs (17px, max 62ch, `white-space: pre-line` so `\n` breaks lines in addresses). < 720px: 1 col, heading cell above its text.

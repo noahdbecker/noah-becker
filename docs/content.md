@@ -19,7 +19,9 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 `Project` = `{ title, meta, description, tags[], href?, image? }`.
 `meta` is the small mono line above the title — keep it `Org · Year`.
 
-`WorkProject` = `Project` + `{ slug, role, org, period, context, contributions[], outcome }`.
+`WorkProject` = `Project` + `{ slug, role, org, period, context, contributions[], outcome, website? }`.
+`website` is the live site built for the client (full `https://` URL); when set, `/work` shows a
+"Visit website ↗" button at the bottom of the facts column. Leave it out and the button disappears.
 `slug` is the anchor on `/work` (`/work#project-alpha`) — keep it URL-safe and stable.
 For work projects `meta` duplicates `org · period`; keep both in sync.
 
