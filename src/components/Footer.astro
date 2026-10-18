@@ -1,0 +1,62 @@
+---
+import Row from "./Row.astro";
+import { profile } from "../data/profile";
+
+const year = new Date().getFullYear();
+const links = [
+  { href: profile.links.email, label: "Email" },
+  { href: profile.links.github, label: "GitHub" },
+  { href: profile.links.linkedin, label: "LinkedIn" },
+];
+---
+
+<footer>
+  <Row>
+    <div class="foot cells">
+      <p class="copy label">© {year} {profile.name.first} {profile.name.last}</p>
+      {links.map((link) => <a class="link label" href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}
+      <a class="top label" href="#top">Top <span aria-hidden="true">↑</span></a>
+    </div>
+  </Row>
+  <Row>
+    <div class="tail hatch" aria-hidden="true"></div>
+  </Row>
+</footer>
+
+<style>
+  .foot {
+    grid-template-columns: minmax(0, 1fr) repeat(3, auto) auto;
+  }
+
+  .foot > * {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 64px;
+    padding-inline: var(--pad);
+  }
+
+  .link,
+  .top {
+    transition: background-color 120ms, color 120ms;
+  }
+
+  .link:hover,
+  .top:hover {
+    background: var(--surface);
+    color: var(--fg);
+  }
+
+  .tail {
+    height: 96px;
+  }
+
+  @media (max-width: 720px) {
+    .foot {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .copy {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

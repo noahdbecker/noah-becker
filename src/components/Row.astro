@@ -1,0 +1,21 @@
+---
+/**
+ * Full-bleed horizontal band + centred framed column.
+ * Every visual block on the page lives inside one of these.
+ */
+interface Props {
+  /** Draw "+" markers where the rails meet the line above. */
+  markers?: boolean;
+  /** Fade the row's cells in when it scrolls into view. */
+  reveal?: boolean;
+  class?: string;
+}
+
+const { markers = true, reveal = true, class: className } = Astro.props;
+---
+
+<div class:list={["row", className]}>
+  <div class:list={["frame", { "has-markers": markers }]} data-reveal={reveal ? "" : undefined}>
+    <slot />
+  </div>
+</div>

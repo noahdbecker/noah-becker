@@ -1,0 +1,180 @@
+---
+import { Image } from "astro:assets";
+import Row from "./Row.astro";
+import { profile } from "../data/profile";
+
+const { name, intro, portrait, current, education, location } = profile;
+---
+
+<Row>
+  <div class="hero cells">
+    <div class="intro">
+      <p class="label">01 — Profile<span class="caret" aria-hidden="true"></span></p>
+      <h1 id="profile-title">
+        <span>{name.first}</span>
+        <span>{name.last}</span>
+      </h1>
+      <p class="lede">{intro}</p>
+    </div>
+
+    <figure class:list={["portrait", { hatch: !portrait.image }]}>
+      {
+        portrait.image ? (
+          <Image
+            src={portrait.image}
+            alt={portrait.alt}
+            widths={[400, 800]}
+            sizes="(max-width: 860px) 100vw, 400px"
+            loading="eager"
+          />
+        ) : (
+          <span class="initials mono" aria-hidden="true">
+            {name.first[0]}{name.last[0]}
+          </span>
+        )
+      }
+      <figcaption class="label">Portrait</figcaption>
+    </figure>
+
+    <div class="fact">
+      <p class="label">{current.label}</p>
+      <p class="value">{current.role}</p>
+      <p class="sub">{current.org} · since {current.since}</p>
+    </div>
+
+    <div class="fact">
+      <p class="label">{education.label}</p>
+      <p class="value">{education.degree}</p>
+      <p class="sub">{education.school} · {education.status}</p>
+    </div>
+
+    <div class="fact">
+      <p class="label">Based in</p>
+      <p class="value">{location}</p>
+    </div>
+  </div>
+</Row>
+
+<style>
+  /* Three equal tracks: intro spans two, portrait one; the facts row below
+     reuses the same tracks so the portrait lines up with the last fact. */
+  .hero {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .intro {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: var(--pad);
+    padding-block: clamp(32px, 6vw, 72px);
+  }
+
+  /* Editor-style block cursor. */
+  .caret {
+    display: inline-block;
+    width: 7px;
+    height: 12px;
+    margin-left: 8px;
+    vertical-align: -1px;
+    background: var(--accent);
+    animation: blink 1.1s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  h1 {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(64px, 12vw, 152px);
+    font-weight: 600;
+    line-height: 0.88;
+    letter-spacing: -0.055em;
+  }
+
+  .lede {
+    max-width: 46ch;
+    margin-top: auto;
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.45;
+    color: var(--muted);
+  }
+
+  .portrait {
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    min-height: 320px; /* desktop: stretches to the intro's height */
+    overflow: hidden;
+  }
+
+  .portrait :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .initials {
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+  }
+
+  figcaption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 6px 10px;
+    border-top: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    background: var(--bg);
+  }
+
+  .fact {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: var(--pad);
+  }
+
+  .fact .label {
+    margin-bottom: auto;
+    padding-bottom: 20px;
+  }
+
+  .value {
+    font-size: clamp(20px, 2vw, 26px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .sub {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .intro {
+      grid-column: auto;
+    }
+    .portrait {
+      aspect-ratio: 1 / 1;
+    }
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/jetbrains-mono";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <script is:inline>
+      // Enable motion before first paint so revealed rows don't flash.
+      // If the reveal script never runs, show everything after 2.5s.
+      (function () {
+        var root = document.documentElement;
+        if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+        if (!("IntersectionObserver" in window)) return;
+        root.classList.add("motion");
+        setTimeout(function () {
+          if (!("revealReady" in root.dataset)) root.classList.remove("motion");
+        }, 2500);
+      })();
+    </script>
+  </head>
+  <body id="top">
+    <slot />
+    <script>
+      import "../scripts/reveal";
+    </script>
+  </body>
+</html>

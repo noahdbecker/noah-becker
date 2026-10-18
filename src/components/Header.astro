@@ -1,0 +1,104 @@
+---
+import Row from "./Row.astro";
+import { profile } from "../data/profile";
+
+// Links point at landing-page sections; `page` marks the matching subpage as current.
+const nav = [
+  { href: "/#profile", label: "Profile" },
+  { href: "/#work", label: "Work", page: "/work" },
+  { href: "/#university", label: "University" },
+  { href: "/#photos", label: "Photos", page: "/photos" },
+];
+const path = Astro.url.pathname.replace(/\/$/, "");
+---
+
+<header class="header">
+  <Row markers={false} reveal={false}>
+    <nav class="bar cells" aria-label="Main">
+      <a class="logo mono" href="/" aria-label={`${profile.name.first} ${profile.name.last} — home`}>
+        {profile.name.first[0]}{profile.name.last[0]}
+      </a>
+      {
+        nav.map((item) => (
+          <a class="link label" href={item.href} aria-current={item.page === path ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+      <div class="fill hatch" aria-hidden="true"></div>
+      <a class="cta label" href={profile.links.email}>Contact <span class="arrow" aria-hidden="true">→</span></a>
+    </nav>
+  </Row>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    view-transition-name: site-header;
+  }
+
+  .bar {
+    grid-template-columns: var(--header-h) repeat(4, auto) minmax(0, 1fr) auto;
+    height: var(--header-h);
+  }
+
+  .bar > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    background: var(--fg);
+    color: var(--bg);
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .link,
+  .cta {
+    padding-inline: 20px;
+    transition: background-color 120ms, color 120ms;
+  }
+
+  .link:hover {
+    background: var(--surface);
+    color: var(--fg);
+  }
+
+  .link[aria-current="page"] {
+    color: var(--fg);
+    box-shadow: inset 0 -2px 0 var(--fg);
+  }
+
+  .cta {
+    gap: 8px;
+    background: var(--accent);
+    color: var(--accent-fg);
+  }
+
+  .cta:hover {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  .arrow {
+    transition: transform 120ms;
+  }
+
+  .cta:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 720px) {
+    .bar {
+      grid-template-columns: var(--header-h) minmax(0, 1fr) auto;
+    }
+    .link {
+      display: none !important;
+    }
+  }
+</style>

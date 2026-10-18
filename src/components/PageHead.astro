@@ -1,0 +1,89 @@
+---
+/** Subpage header: a full-width back row, then kicker + h1 and an optional note. */
+import Row from "./Row.astro";
+
+interface Props {
+  title: string;
+  /** Small mono line above the title, e.g. "02 — Work". */
+  kicker: string;
+  /** Where "Back" goes, usually the matching section on the landing page. */
+  back: string;
+  note?: string;
+}
+
+const { title, kicker, back, note } = Astro.props;
+---
+
+<Row>
+  <a class="back label" href={back}>
+    <span class="arrow" aria-hidden="true">←</span>
+    <span>Back to overview</span>
+  </a>
+</Row>
+
+<Row>
+  <div class="head cells">
+    <div class="titles">
+      <p class="label">{kicker}</p>
+      <h1>{title}</h1>
+    </div>
+    {note && <p class="note">{note}</p>}
+  </div>
+</Row>
+
+<style>
+  .back {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 56px;
+    padding-inline: var(--pad);
+    transition: background-color 120ms, color 120ms;
+  }
+
+  .back:hover {
+    background: var(--surface);
+    color: var(--fg);
+  }
+
+  .arrow {
+    transition: transform 120ms;
+  }
+
+  .back:hover .arrow {
+    transform: translateX(-3px);
+  }
+
+  .head {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  }
+
+  .titles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: var(--pad);
+    padding-block: clamp(32px, 5vw, 64px);
+  }
+
+  h1 {
+    font-size: clamp(56px, 9vw, 112px);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+  }
+
+  .note {
+    display: flex;
+    align-items: flex-end;
+    padding: var(--pad);
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  @media (max-width: 720px) {
+    .head {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

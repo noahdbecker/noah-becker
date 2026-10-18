@@ -1,0 +1,60 @@
+---
+import Row from "./Row.astro";
+
+interface Props {
+  /** Two-digit section number, e.g. "02". */
+  index: string;
+  title: string;
+  /** id for the <h2>, referenced by the section's aria-labelledby. */
+  id: string;
+  note?: string;
+}
+
+const { index, title, id, note } = Astro.props;
+---
+
+<Row>
+  <div class="head cells">
+    <div class="index label">{index}</div>
+    <h2 id={id}>{title}</h2>
+    {note && <p class="note">{note}</p>}
+  </div>
+</Row>
+
+<style>
+  .head {
+    grid-template-columns: 96px minmax(0, 1fr) minmax(0, 340px);
+  }
+
+  .head > * {
+    padding: var(--pad);
+  }
+
+  .index {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .note {
+    display: flex;
+    align-items: flex-end;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  @media (max-width: 720px) {
+    .head {
+      grid-template-columns: 64px minmax(0, 1fr);
+    }
+    .note {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

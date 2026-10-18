@@ -1,0 +1,201 @@
+---
+/** One case study on /work: title row + facts / visual / text grid. */
+import Row from "./Row.astro";
+import Visual from "./Visual.astro";
+import type { WorkProject } from "../data/profile";
+
+interface Props {
+  project: WorkProject;
+  code: string;
+}
+
+const { project, code } = Astro.props;
+const titleId = `${project.slug}-title`;
+---
+
+<article id={project.slug} aria-labelledby={titleId}>
+  <Row>
+    <div class="head cells">
+      <p class="code label">{code}</p>
+      <h2 id={titleId}>{project.title}</h2>
+      <p class="meta label">{project.org} · {project.period}</p>
+    </div>
+  </Row>
+
+  <Row>
+    <div class="body cells">
+      <dl class="facts">
+        <div>
+          <dt class="label">Role</dt>
+          <dd>{project.role}</dd>
+        </div>
+        <div>
+          <dt class="label">Company</dt>
+          <dd>{project.org}</dd>
+        </div>
+        <div>
+          <dt class="label">Period</dt>
+          <dd>{project.period}</dd>
+        </div>
+        <div>
+          <dt class="label">Stack</dt>
+          <dd>
+            <ul class="tags">
+              {project.tags.map((tag) => <li class="tag">{tag}</li>)}
+            </ul>
+          </dd>
+        </div>
+      </dl>
+
+      <Visual code={code} image={project.image} alt={project.title} />
+
+      <div class="text">
+        <section>
+          <h3 class="label">Context</h3>
+          <p>{project.context}</p>
+        </section>
+        <section>
+          <h3 class="label">What I did</h3>
+          <ul class="list">
+            {project.contributions.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+        <section>
+          <h3 class="label">Outcome</h3>
+          <p>{project.outcome}</p>
+        </section>
+      </div>
+    </div>
+  </Row>
+</article>
+
+<style>
+  .head {
+    grid-template-columns: 96px minmax(0, 1fr) auto;
+  }
+
+  .head > * {
+    display: flex;
+    align-items: center;
+    padding: var(--pad);
+  }
+
+  h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .body {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+
+  .facts {
+    grid-row: span 2;
+    margin: 0;
+  }
+
+  .facts > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: var(--pad);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .facts > div:last-child {
+    border-bottom: 0;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: var(--pad);
+    padding-block: clamp(24px, 4vw, 48px);
+  }
+
+  .text section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 62ch;
+  }
+
+  .text p,
+  .list {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .list li {
+    position: relative;
+    padding-left: 22px;
+  }
+
+  /* Square bullet, in keeping with the blocks. */
+  .list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 7px;
+    height: 7px;
+    background: var(--fg);
+  }
+
+  @media (max-width: 860px) {
+    .body {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .facts {
+      grid-row: auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .facts > div {
+      border-bottom: 0;
+    }
+    .facts > div:nth-child(odd) {
+      border-right: 1px solid var(--line);
+    }
+    .facts > div:nth-child(-n + 2) {
+      border-bottom: 1px solid var(--line);
+    }
+  }
+
+  @media (max-width: 720px) {
+    .head {
+      grid-template-columns: 64px minmax(0, 1fr);
+    }
+    .meta {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

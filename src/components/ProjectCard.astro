@@ -1,0 +1,121 @@
+---
+import Visual from "./Visual.astro";
+import type { Project } from "../data/profile";
+
+interface Props {
+  project: Project;
+  /** Short code shown in the visual, e.g. "W/01". */
+  code: string;
+  /** "lg" for work projects (wide visual), "sm" for university projects. */
+  size?: "lg" | "sm";
+  /** Overrides project.href, e.g. to link a card to its case study. */
+  href?: string;
+}
+
+const { project, code, size = "lg", href = project.href } = Astro.props;
+const Tag = href ? "a" : "article";
+const external = href ? /^https?:/.test(href) : false;
+---
+
+<Tag class:list={["card", size]} href={href}>
+  <div class="visual-wrap">
+    <Visual
+      code={code}
+      image={project.image}
+      ratio={size === "sm" ? "4 / 3" : "16 / 9"}
+      sizes={size === "sm" ? "(max-width: 860px) 100vw, 400px" : "(max-width: 720px) 100vw, 600px"}
+    />
+  </div>
+
+  <div class="body">
+    <p class="label">{project.meta}</p>
+    <h3>
+      {project.title}
+      {href && <span class="arrow" aria-hidden="true">{external ? "↗" : "→"}</span>}
+    </h3>
+    <p class="desc">{project.description}</p>
+    <ul class="tags" aria-label="Technologies">
+      {project.tags.map((tag) => <li class="tag">{tag}</li>)}
+    </ul>
+  </div>
+</Tag>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    transition: background-color 120ms;
+  }
+
+  .card:hover {
+    background: var(--surface);
+  }
+
+  .visual-wrap {
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Hover: dot grid drifts half a step, code badge lifts onto a block shadow. */
+  .card :global(.visual) {
+    transition: background-position 700ms var(--ease-out);
+  }
+
+  .card:hover :global(.visual) {
+    background-position: 8px 0;
+  }
+
+  .card :global(.code) {
+    transition:
+      transform 200ms var(--ease-out),
+      box-shadow 200ms var(--ease-out);
+  }
+
+  .card:hover :global(.code) {
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px 0 var(--line);
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    padding: var(--pad);
+  }
+
+  h3 {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+
+  .sm h3 {
+    font-size: clamp(20px, 1.8vw, 22px);
+  }
+
+  .arrow {
+    transition: transform 120ms;
+  }
+
+  .card:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  .desc {
+    color: var(--muted);
+    max-width: 52ch;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: auto 0 0;
+    padding: 12px 0 0;
+    list-style: none;
+  }
+</style>

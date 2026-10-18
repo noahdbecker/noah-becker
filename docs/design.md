@@ -1,0 +1,149 @@
+# Design system
+
+## Principles
+
+1. **The grid is the decoration.** Structure is shown, not hidden: 1px hairlines
+   divide every block, vertical rails frame the column, horizontal lines run edge to edge.
+2. **Blocks, not cards.** No rounded corners, no shadows, no gradients for depth.
+   Everything is a rectangle that shares its borders with its neighbours.
+3. **Quiet surfaces, loud type.** Big, tight sans headlines; small uppercase mono labels.
+   One accent colour, used sparingly.
+4. **Empty space is drawn, not left blank.** Unused cells and spacers get a diagonal
+   hatch; visual placeholders get a dot grid.
+
+## Tokens (`src/styles/global.css`)
+
+### Colour
+
+| Token | Light | Dark | Use |
+| --- | --- | --- | --- |
+| `--bg` | `#f6f6f3` | `#0f0f10` | Page and cell background |
+| `--surface` | `#ffffff` | `#17171a` | Hover state of cells |
+| `--fg` | `#121212` | `#ecece8` | Text, filled meter blocks, logo block |
+| `--muted` | `#6c6c66` | `#8f8f89` | Secondary text, labels |
+| `--line` | `#d8d8d1` | `#2b2b2f` | All grid lines, tag borders |
+| `--marker` | `#8e8e86` | `#5c5c62` | "+" intersection markers |
+| `--accent` | `#2b59ff` | `#7090ff` | Contact button, hover state of "see more" buttons, hero caret. Nothing else. |
+| `--hatch` / `--dot` | low-alpha black/white | | Pattern ink |
+
+Theme follows `prefers-color-scheme`; there is no manual toggle (yet).
+
+### Type
+
+| Role | Font | Size | Notes |
+| --- | --- | --- | --- |
+| Name (h1) | Space Grotesk 600 | `clamp(64px, 12vw, 152px)` | line-height .88, tracking −0.055em |
+| Section title (h2) | Space Grotesk 600 | `clamp(28px, 4vw, 44px)` | tracking −0.03em |
+| Card title (h3) | Space Grotesk 600 | 20–30px | |
+| Body | Space Grotesk 400 | 16px (lede 17–20px) | muted colour for descriptions |
+| `.label` | JetBrains Mono 500 | 11px uppercase, +0.08em | section indices, field labels, nav |
+| `.tag` | JetBrains Mono | 11px, bordered | tech tags |
+
+### Spacing / layout
+
+- `--container: 1200px` — max width of the framed column
+- `--gutter: 16px` — minimum space between rail and viewport edge
+- `--pad: clamp(16px, 2.6vw, 32px)` — standard cell padding
+- `--header-h: 56px` — header height, also the size of the logo square
+- `--ease-out: cubic-bezier(0.22, 1, 0.36, 1)` — easing for all movement
+- Breakpoints (in component CSS): **860px** (hero/skills/uni collapse), **720px** (header, work, section heads, footer collapse)
+
+## Grid primitives
+
+```
+ ─────────┼──────────────────────────────┼─────────   ← .row border-bottom (full viewport width)
+          │  .frame (rails left + right) │
+          │ ┌──────────┬───────────────┐ │
+          │ │  cell    │  cell         │ │            ← .cells children, outlined
+          │ └──────────┴───────────────┘ │
+ ─────────┼──────────────────────────────┼─────────
+          +  ← .has-markers draws "+" at rail × line
+```
+
+- **`<Row>`** (`components/Row.astro`) = `.row > .frame`. Every block on the page sits in one.
+  `markers={false}` only for the first row (header) where there is no line above.
+- **`.cells`** = CSS grid with `gap: 1px`; each child gets `outline: 1px solid var(--line)`.
+  The outlines fall into the 1px gaps and onto the rails / row lines, so all neighbours
+  share a single hairline. Empty grid slots stay clean (no coloured gap showing).
+  Children need `min-width: 0` (already set) so long text can't blow out columns.
+- **Never** put `overflow: hidden` on a `.row`, `.frame` or `.cells` container — it clips outlines and markers.
+- A cell must stretch to the full track size for its outline to align. Don't use
+  `align-self`/`justify-self` on cells; align their *content* with flex instead.
+
+## Patterns
+
+- `.hatch` — 45° diagonal lines, 7px pitch. Spacer rows, header filler, empty photo cells, footer tail.
+- `.dots` — 16px dot grid. Project card visuals.
+- **Corner tag** — small mono label boxed into the top-left (or bottom-left) of a visual with right + bottom borders (`W/01`, `PHOTO 01`, `PORTRAIT`).
+- **Image placeholder** — hatch or dots + a centred bordered mono badge (`NB`, `W/01`, `01`) until a real image is set.
+- **Block meter** — 5 equal rectangles, filled `--fg` for the level, outlined otherwise.
+
+## Components
+
+| Component | Layout |
+| --- | --- |
+| Header | sticky; `[logo 56×56][Profile][Work][University][Photos][hatch filler][Contact (accent)]`; nav links hidden < 720px. Links go to `/#section`; on `/work` and `/photos` the matching link gets `aria-current="page"` (fg text + 2px inset bottom bar). Logo → `/` |
+| Hero | 3 equal tracks. Row 1: intro (label, name on two lines, lede pinned to bottom) spans 2, portrait 1 — portrait stretches to the intro's height (no `aspect-ratio`, which would stop it stretching). Row 2: current position / education / based in. < 860px → 1 col, portrait becomes 1:1 |
+| Skills | `label (spans 2 rows) | 3 × skill`; meters pinned to cell bottom; < 860px → 2 cols, label row on top. Keep skill count a multiple of 6 for a full grid at every breakpoint (3 and 2 columns) |
+| SectionHead | `96px index | title | 340px note`; < 720px note drops to its own row |
+| ProjectCard | `Visual` (16:9 `lg`, 4:3 `sm`), then meta label, title, description, tags pushed to bottom. Becomes an `<a>` when an `href` is set: → for internal links, ↗ for external. Work cards link to `/work#<slug>` |
+| Visual | dot grid + centred code badge + top-left corner tag, or the image (`object-fit: cover`). Aspect ratio via prop |
+| Work grid | 2 cols → 1 col < 720px |
+| University grid | 3 cols → 1 col < 860px |
+| PhotoGrid | 2×2 at all sizes, 4:3 cells, caption tag bottom-left; hatch + big number when no image |
+| MoreLink | row under a section: `[hatch filler 1fr][note label][button]`. Button = inverted block (`--fg` bg, `--bg` text), mono uppercase, → arrow; hover → accent, arrow nudges right. Used under Work ("Projects in depth") and Photos ("See all photos", note `04 / 09`) |
+| Spacer | hatched row, `clamp(32px, 5vw, 56px)` tall, between every section |
+| Footer | `© | Email | GitHub | LinkedIn | Top` → 2 cols on mobile; hatched tail row |
+
+## Subpages
+
+Same shell as the landing page (Header, Spacer rhythm, Footer). Structure:
+
+1. **PageHead** — two rows. Row 1: full-width back link ("← Back to overview", 56px tall, whole row clickable, hover → `--surface`, arrow nudges left); goes to the matching landing section (`/#work`). Row 2: `kicker + h1 (56–112px) | 340px note`; < 720px the note drops below.
+2. Spacer, then content rows, Spacer between items.
+
+- **WorkDetail** (`/work`): title row `code | h2 | org · period`, then body grid `1fr | 2fr` — left: facts list (Role, Company, Period, Stack) with internal hairlines, spanning 2 rows; right: Visual 16:9, then text cell (Context / What I did / Outcome, max 62ch, square bullets). < 860px: 1 col, facts become a 2×2 block.
+- **Gallery** (`/photos`): 3 cols → 2 < 860px → 1 < 520px. Each figure: 4:3 image (hatch + number placeholder) over a caption strip `caption …… PLACE · DATE`.
+
+## Interaction
+
+- Hover on interactive cells: background → `--surface` (120ms). Contact button inverts to `--fg`.
+- Arrows (→ / ↗ / ←) nudge 3px in their direction on hover.
+- Focus: 2px accent outline, inset.
+- Smooth scrolling + `scroll-padding-top` for the sticky header.
+
+## Motion
+
+Rule of thumb: motion confirms the grid, it never moves the grid. Lines, rails and
+row borders stay put; only what's *inside* cells moves. Nothing loops except the caret.
+
+| Effect | Where | Details |
+| --- | --- | --- |
+| Row reveal | every `<Row>` (except header) | On entering the viewport (40px offset): cells fade in 600ms, their direct children rise 14px over 800ms; staggered 70ms per cell (max 6 steps). Non-grid rows (spacers, back link) just fade |
+| Marker lock-in | "+" markers | rotate 45° → 0° (× becomes +) and fade in with the row |
+| Meter fill | Skills | filled blocks light up one by one, 80ms apart, after the cell appears |
+| Caret | hero "01 — Profile" | 7×12 accent block, blinks (steps, 1.1s) |
+| Card hover | ProjectCard | dot grid drifts 8px; code badge lifts −3px onto a 3px hard block shadow (`--line`) — the only shadow on the site |
+| Photo hover | PhotoGrid, /photos | image scales 1.03 (700ms); hatch placeholders drift |
+| Page change | all navigations | native cross-document View Transition (cross-fade); header has `view-transition-name: site-header` so it stays still |
+
+### How the reveal works
+
+- `Base.astro` inline head script adds `html.motion` before first paint — only if
+  `prefers-reduced-motion: no-preference` and IntersectionObserver exist. If the reveal
+  script hasn't started after 2.5s, it removes `.motion` again (content is never stuck hidden).
+- `Row.astro` renders `.frame[data-reveal]` (opt out with `reveal={false}`).
+- `src/scripts/reveal.ts` sets `--i` on each cell, adds `.is-in` when the row arrives,
+  then **removes `data-reveal`** after the animation so component hover transitions
+  aren't overridden by the reveal rules.
+- CSS lives in `global.css` → "Motion". Component-specific reveal tweaks use
+  `:global(.motion .frame[data-reveal])` / `:global(.motion .frame.is-in)` (see Skills meter).
+- Reduced motion: no `.motion` class, and global CSS kills all transitions/animations.
+- New component inside a Row gets the reveal automatically. Animate *contents*, never
+  `transform` the cell itself (it would drag its outline off the grid).
+
+## Ideas not yet built
+
+- Manual theme toggle
+- Subtle hatch in the area outside the rails on very wide screens
+- Real images/screens in project visuals

@@ -1,0 +1,38 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import PageHead from "../components/PageHead.astro";
+import Spacer from "../components/Spacer.astro";
+import WorkDetail from "../components/WorkDetail.astro";
+import Footer from "../components/Footer.astro";
+import { profile, workProjects } from "../data/profile";
+
+const fullName = `${profile.name.first} ${profile.name.last}`;
+const pad = (n: number) => String(n).padStart(2, "0");
+---
+
+<Base title={`Work — ${fullName}`} description={`Professional projects by ${fullName}, in depth.`}>
+  <Header />
+
+  <main>
+    <PageHead
+      kicker="02 — Work"
+      title="Work"
+      back="/#work"
+      note="A closer look at my professional projects: the context, what I did, and how it turned out."
+    />
+
+    {
+      workProjects.map((p, i) => (
+        <Fragment>
+          <Spacer />
+          <WorkDetail project={p} code={`W/${pad(i + 1)}`} />
+        </Fragment>
+      ))
+    }
+
+    <Spacer />
+  </main>
+
+  <Footer />
+</Base>
