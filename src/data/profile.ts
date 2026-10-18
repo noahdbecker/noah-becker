@@ -170,6 +170,7 @@ export const workProjects: WorkProject[] = [
       "Adobe XD",
       "Gemini",
       "Claude Code",
+      "Adobe Premiere Pro",
     ],
     context:
       "Placeholder — where the project started: the problem, who it was for, and why it mattered. A short paragraph of three to four sentences is enough.",
@@ -303,7 +304,13 @@ export const workProjects: WorkProject[] = [
     website: "https://briem-sped.com",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
-    tags: ["WordPress", "JavaScript", "PHP"],
+    tags: [
+      "WordPress",
+      "JavaScript",
+      "PHP",
+      "Adobe Premiere Pro",
+      "Drone Videography",
+    ],
     context:
       "Placeholder — the starting point of the project and the constraints you worked within.",
     contributions: [
@@ -324,7 +331,13 @@ export const workProjects: WorkProject[] = [
     website: "https://vesperkult.de",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
-    tags: ["WordPress", "JavaScript", "PHP"],
+    tags: [
+      "WordPress",
+      "JavaScript",
+      "PHP",
+      "Adobe Lightroom",
+      "Adobe Premiere Pro",
+    ],
     context:
       "Placeholder — the starting point of the project and the constraints you worked within.",
     contributions: [
@@ -366,7 +379,14 @@ export const workProjects: WorkProject[] = [
     website: "https://vgc-calw.de",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
-    tags: ["WordPress", "JavaScript", "PHP"],
+    tags: [
+      "WordPress",
+      "JavaScript",
+      "PHP",
+      "Adobe Lightroom",
+      "Adobe Premiere Pro",
+      "Drone Videography",
+    ],
     context:
       "Placeholder — the starting point of the project and the constraints you worked within.",
     contributions: [
