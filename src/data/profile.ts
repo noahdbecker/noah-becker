@@ -163,7 +163,14 @@ export const workProjects: WorkProject[] = [
     website: "https://etrucker.io",
     description:
       "Placeholder — what the product is, what you owned, and the outcome. Two to three lines read best in this card.",
-    tags: ["WordPress", "JavaScript", "PHP"],
+    tags: [
+      "WordPress",
+      "JavaScript",
+      "PHP",
+      "Adobe XD",
+      "Gemini",
+      "Claude Code",
+    ],
     context:
       "Placeholder — where the project started: the problem, who it was for, and why it mattered. A short paragraph of three to four sentences is enough.",
     contributions: [
@@ -186,7 +193,7 @@ export const workProjects: WorkProject[] = [
     website: "https://navicula-logistica.com",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
-    tags: ["Node.js", "Astro", "PHP Composer"],
+    tags: ["Node.js", "Astro", "Composer", "Figma", "Claude Code"],
     context:
       "Placeholder — the starting point of the project and the constraints you worked within.",
     contributions: [
@@ -207,7 +214,14 @@ export const workProjects: WorkProject[] = [
     website: "https://ga-gmbh.de",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
-    tags: ["WordPress", "JavaScript", "PHP"],
+    tags: [
+      "WordPress",
+      "JavaScript",
+      "PHP",
+      "Composer",
+      "Figma",
+      "Claude Code",
+    ],
     context:
       "Placeholder — the starting point of the project and the constraints you worked within.",
     contributions: [
@@ -227,7 +241,7 @@ export const workProjects: WorkProject[] = [
     website: "https://endodiabetikum.de",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
-    tags: ["WordPress", "JavaScript", "PHP"],
+    tags: ["HTML5", "(S)CSS", "JavaScript"],
     context:
       "Placeholder — the starting point of the project and the constraints you worked within.",
     contributions: [
@@ -348,7 +362,7 @@ export const workProjects: WorkProject[] = [
     meta: "Verbrauchergenossenschaft Calw eG",
     org: "Verbrauchergenossenschaft Calw eG",
     period: "2021-2022",
-    role: "Website Designer & Engineer + Photo- & Videographer",
+    role: "Website Designer & Engineer + Photo- & Videographer + Drone Pilot",
     website: "https://vgc-calw.de",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
