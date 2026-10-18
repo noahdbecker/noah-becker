@@ -108,7 +108,10 @@ export const profile = {
       | { zoom: number; origin: string }
       | undefined,
   },
-  location: "Ludwigsburg, Germany",
+  location: {
+    city: "Ludwigsburg",
+    country: "Germany",
+  },
   current: {
     label: "Current position",
     role: "Corporate Student",
