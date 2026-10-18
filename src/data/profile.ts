@@ -26,6 +26,11 @@ import dockerLogo from "../assets/logos/docker.svg";
 import etruckerImage from "../assets/projects/eTrucker__eActros_2810.png";
 import naviculaImage from "../assets/projects/Navicula__Charter_On-Tour_2.png";
 import briemImage from "../assets/projects/BRIEM.jpg";
+import gaImage from "../assets/projects/GA-Gmbh.png";
+import immoRiethImage from "../assets/projects/immo-rieth-2.jpg";
+import vesperkultImage from "../assets/projects/vesperkult.jpg";
+import thera4Image from "../assets/projects/thera4.jpg";
+import vgcImage from "../assets/projects/VGC.jpg";
 // Photo albums
 // Munich-2021-01
 import munich2021_01_01 from "../assets/photos/munich-2021-01/Munich-2021-01-1.jpg";
@@ -153,7 +158,7 @@ export const workProjects: WorkProject[] = [
     image: etruckerImage,
     meta: "ETM Elektrotrucker Media GmbH",
     org: "ETM Elektrotrucker Media GmbH",
-    period: "2025",
+    period: "2025-2026",
     role: "Website Designer & Engineer",
     website: "https://etrucker.io",
     description:
@@ -190,6 +195,88 @@ export const workProjects: WorkProject[] = [
     ],
     outcome: "Placeholder — what changed because of the project.",
   },
+  // GA GmbH
+  {
+    slug: "ga-gmbh",
+    title: "GA GmbH — Website",
+    image: gaImage,
+    meta: "GA GmbH",
+    org: "GA GmbH",
+    period: "2026",
+    role: "Website Designer & Engineer",
+    website: "https://ga-gmbh.de",
+    description:
+      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+    tags: ["WordPress", "JavaScript", "PHP"],
+    context:
+      "Placeholder — the starting point of the project and the constraints you worked within.",
+    contributions: [
+      "Placeholder — a concrete thing you designed, built or decided.",
+      "Placeholder — a second contribution, ideally with a technical detail.",
+    ],
+    outcome: "Placeholder — what changed because of the project.",
+  },
+  // endodiabetikum
+  {
+    slug: "endodiabetikum",
+    title: "endodiabetikum — Website",
+    meta: "PD Dr. med. Dorothee M. Baur",
+    org: "PD Dr. med. Dorothee M. Baur",
+    period: "2025",
+    role: "Website Engineer",
+    website: "https://endodiabetikum.de",
+    description:
+      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+    tags: ["WordPress", "JavaScript", "PHP"],
+    context:
+      "Placeholder — the starting point of the project and the constraints you worked within.",
+    contributions: [
+      "Placeholder — a concrete thing you designed, built or decided.",
+      "Placeholder — a second contribution, ideally with a technical detail.",
+    ],
+    outcome: "Placeholder — what changed because of the project.",
+  },
+  // ImmoRieth
+  {
+    slug: "immorieth",
+    title: "ImmoRieth — Website",
+    image: immoRiethImage,
+    meta: "Immobilien Rieth",
+    org: "Immobilien Rieth",
+    period: "2025",
+    role: "Website Designer & Engineer",
+    website: "https://immo-rieth.de",
+    description:
+      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+    tags: ["WordPress", "JavaScript", "PHP"],
+    context:
+      "Placeholder — the starting point of the project and the constraints you worked within.",
+    contributions: [
+      "Placeholder — a concrete thing you designed, built or decided.",
+      "Placeholder — a second contribution, ideally with a technical detail.",
+    ],
+    outcome: "Placeholder — what changed because of the project.",
+  },
+  // TSV Ehningen
+  {
+    slug: "tsv-ehningen",
+    title: "TSV Ehningen — Website",
+    meta: "TSV Ehningen",
+    org: "TSV Ehningen",
+    period: "2025 - now",
+    role: "Website Maintenace",
+    website: "https://tsv-ehningen.de",
+    description:
+      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+    tags: ["WordPress", "JavaScript", "PHP"],
+    context:
+      "Placeholder — the starting point of the project and the constraints you worked within.",
+    contributions: [
+      "Placeholder — a concrete thing you designed, built or decided.",
+      "Placeholder — a second contribution, ideally with a technical detail.",
+    ],
+    outcome: "Placeholder — what changed because of the project.",
+  },
   // BRIEM
   {
     slug: "briem",
@@ -200,6 +287,69 @@ export const workProjects: WorkProject[] = [
     period: "2023-2024",
     role: "Website Designer & Engineer",
     website: "https://briem-sped.com",
+    description:
+      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+    tags: ["WordPress", "JavaScript", "PHP"],
+    context:
+      "Placeholder — the starting point of the project and the constraints you worked within.",
+    contributions: [
+      "Placeholder — a concrete thing you designed, built or decided.",
+      "Placeholder — a second contribution, ideally with a technical detail.",
+    ],
+    outcome: "Placeholder — what changed because of the project.",
+  },
+  // Vesperkult
+  {
+    slug: "vesperkult",
+    title: "Vesperkult — Website",
+    image: vesperkultImage,
+    meta: "VGC Backwaren GmbH & Co. KG",
+    org: "VGC Backwaren GmbH & Co. KG",
+    period: "2023-2024",
+    role: "Website Designer & Engineer",
+    website: "https://vesperkult.de",
+    description:
+      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+    tags: ["WordPress", "JavaScript", "PHP"],
+    context:
+      "Placeholder — the starting point of the project and the constraints you worked within.",
+    contributions: [
+      "Placeholder — a concrete thing you designed, built or decided.",
+      "Placeholder — a second contribution, ideally with a technical detail.",
+    ],
+    outcome: "Placeholder — what changed because of the project.",
+  },
+  // thera4
+  {
+    slug: "thera4",
+    title: "thera4 — Website",
+    image: thera4Image,
+    meta: "thera4 GbR",
+    org: "thera4 GbR",
+    period: "2023",
+    role: "Website Designer & Engineer",
+    website: "https://thera4.de",
+    description:
+      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+    tags: ["WordPress", "JavaScript", "PHP"],
+    context:
+      "Placeholder — the starting point of the project and the constraints you worked within.",
+    contributions: [
+      "Placeholder — a concrete thing you designed, built or decided.",
+      "Placeholder — a second contribution, ideally with a technical detail.",
+    ],
+    outcome: "Placeholder — what changed because of the project.",
+  },
+  // VGC
+  {
+    slug: "vgc",
+    title: "VGC Calw — Website",
+    image: vgcImage,
+    meta: "Verbrauchergenossenschaft Calw eG",
+    org: "Verbrauchergenossenschaft Calw eG",
+    period: "2021-2022",
+    role: "Website Designer & Engineer",
+    website: "https://vgc-calw.de",
     description:
       "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
     tags: ["WordPress", "JavaScript", "PHP"],
