@@ -201,41 +201,60 @@ export const workProjects: WorkProject[] = [
 export const uniProjects: Project[] = [
   {
     title: "Seminar Project",
-    meta: "University · 2026-2027",
+    meta: "Bachelor · 2026-2027",
     description:
       "Placeholder — research question and key finding in one or two sentences.",
-    tags: ["Research", "App-Development"],
+    tags: ["Research", "App-Development", "iOS", "Android"],
   },
   {
     title: "Security-by-Design Project",
-    meta: "University · 2026",
+    meta: "Bachelor · 2026",
     description: "Placeholder — what the team built and your role in it.",
-    tags: ["Java", "Scrum"],
+    tags: [
+      "React",
+      "Python FastAPI",
+      "Authentication",
+      "TOTP",
+      "Session Handling",
+    ],
   },
   {
     title: "Rust Project",
-    meta: "University · 2026",
+    meta: "Bachelor · 2026",
     description: "Placeholder — topic, method and what you learned.",
-    tags: ["Rust", "Terminal", "Hashing"],
+    tags: ["Rust", "Terminal", "Integrity", "Cryptography", "Hashing"],
   },
   // TODO: placeholders — replace or delete. Any number works; the strip scrolls.
   {
-    title: "University Project 04",
-    meta: "University · Year",
+    title: "Project thesis #2",
+    meta: "Bachelor · 2026",
     description: "Placeholder — one or two sentences on topic and outcome.",
-    tags: ["Tag"],
+    tags: [
+      "Microsoft Defender",
+      "Microsoft Graph API",
+      "SQL & KQL",
+      "Azure",
+      "Infrastructure as Code",
+    ],
   },
   {
-    title: "University Project 05",
-    meta: "University · Year",
+    title: "Software Engineering Project",
+    meta: "Bachelor · 2025",
     description: "Placeholder — one or two sentences on topic and outcome.",
-    tags: ["Tag"],
+    tags: [
+      "Open Source",
+      "Kanban",
+      "CI/CD",
+      "Docker",
+      "GitHub Actions",
+      "Infrastructure",
+    ],
   },
   {
-    title: "University Project 06",
-    meta: "University · Year",
+    title: "Project thesis #1",
+    meta: "Bachelor · 2025",
     description: "Placeholder — one or two sentences on topic and outcome.",
-    tags: ["Tag"],
+    tags: ["CI/CD", "Testing", "Quality Assurance", "VMware", "PowerShell"],
   },
 ];
 
