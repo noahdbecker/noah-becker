@@ -83,7 +83,7 @@ Everything marked `// TODO` in `profile.ts`:
 - technologies: Azure, PowerShell, Linux were filled in as suggestions — confirm or swap
 - both work projects; university projects 04–06 are placeholders
 - work case-study text (role, context, contributions, outcome)
-- imprint + privacy: address, phone, email, hosting provider, dates; review every section (structure only, not legal advice)
+- privacy: address, phone, email, hosting provider, dates; review every section (structure only, not legal advice). The imprint is done (e-Recht24); regenerate it there if address, contact or business details change
 - albums (title, note, period) + photos with captions, alt text, place/date (3 placeholder albums × 3 photos; the first photo of each of the first 4 albums appears on the landing page)
 
 ## Writing guidelines

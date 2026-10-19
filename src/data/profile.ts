@@ -727,26 +727,30 @@ export interface LegalPage {
   sections: { heading: string; paragraphs: string[] }[];
 }
 
-// TODO: fill in all placeholders. Impressum under § 5 DDG (formerly § 5 TMG).
+// Impressum under § 5 DDG (formerly § 5 TMG), generated with e-Recht24.
 export const imprint: LegalPage = {
   title: "Imprint",
   kicker: "Legal — Impressum",
-  note: "Provider information under German law. Last updated: TODO.",
+  note: "Provider information under German law. Last updated: October 2026.",
   sections: [
     {
-      heading: "Information according to §\u00a05 DDG",
+      heading: "Information according to § 5 DDG",
       paragraphs: [
-        "Noah Becker\nTODO Street and number\nTODO Postcode City\nGermany",
+        "Noah Becker\nndb.media\nPleidelsheimer Str. 47\n74321 Bietigheim-Bissingen\nGermany",
       ],
     },
     {
       heading: "Contact",
-      paragraphs: ["Email: TODO\nPhone: TODO"],
+      paragraphs: ["Phone: +49 (0)178 1188295\nEmail: hey@noah-becker.de"],
     },
     {
-      heading: "Responsible for content",
+      heading: "Business identification number",
+      paragraphs: ["DE461817992"],
+    },
+    {
+      heading: "Consumer dispute resolution",
       paragraphs: [
-        "Responsible according to §\u00a018 (2) MStV:\nNoah Becker\nTODO address (as above)",
+        "We are not willing or obliged to participate in dispute resolution proceedings in front of a consumer arbitration board.",
       ],
     },
   ],

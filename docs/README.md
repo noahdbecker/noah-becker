@@ -25,7 +25,7 @@ The landing page (`/`) has six blocks, top to bottom:
 Work and Photos each end in a "see more" button row leading to a subpage:
 
 - **`/work`** — one case study per work project (role, company, period, stack, visual, context, what I did, outcome). Landing cards link to `/work#<slug>`.
-- **`/imprint`**, **`/privacy`** — Impressum and Datenschutzerklärung (required in Germany), linked from the footer on every page. Text lives in `imprint` / `privacy` in `profile.ts`, still all `TODO`.
+- **`/imprint`**, **`/privacy`** — Impressum and Datenschutzerklärung (required in Germany), linked from the footer on every page. Text lives in `imprint` / `privacy` in `profile.ts`; the imprint is filled in (from e-Recht24), privacy is still `TODO`.
 - **`/photos`** — photos grouped into albums; each album is a label cell (name, note, count) in the first row of a 4-column grid (3 photos beside it, rows of 4 below), label alternating left/right. Caption + place · date under each photo.
 
 Visual direction: blocky, visible-grid layout inspired by the *structure* of
@@ -103,7 +103,8 @@ public/favicon.svg
 - [ ] Set `site` in `astro.config.mjs` once the domain is known
 - [x] Seasonal decorations (calendar-based, header toggle, dev switcher in footer)
 - [x] Imprint / privacy pages + footer links (structure only)
-- [ ] Fill in imprint / privacy text (`imprint`, `privacy` in `profile.ts`) — hosting section depends on the deployment target
+- [x] Fill in imprint text (`imprint` in `profile.ts`, generated with e-Recht24)
+- [ ] Fill in privacy text (`privacy` in `profile.ts`) — hosting section depends on the deployment target
 - [ ] Deployment target not chosen yet
 
 ## Working conventions
