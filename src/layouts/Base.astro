@@ -48,6 +48,14 @@ const { title, description } = Astro.props;
         root.style.setProperty("--nav-elapsed", elapsed + "ms");
         root.classList.add("nav-loading");
       })();
+      // Theme override from the dev switcher (scripts/theme.ts); otherwise the
+      // theme follows prefers-color-scheme.
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme-override");
+          if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+        } catch (e) {}
+      })();
       // Seasonal decorations (see scripts/season.ts), off unless the visitor opted in.
       // Meteorological season from the date (northern hemisphere) unless the dev
       // switcher overrides it.
@@ -71,6 +79,7 @@ const { title, description } = Astro.props;
       import "../scripts/reveal";
       import "../scripts/progress";
       import "../scripts/season";
+      import "../scripts/theme";
     </script>
   </body>
 </html>

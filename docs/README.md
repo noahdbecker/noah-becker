@@ -82,10 +82,12 @@ src/
     SeasonScene.astro    ← seasonal glyphs inside each Spacer
     SeasonToggle.astro   ← header on/off button
     SeasonSwitcher.astro ← dev-only footer row to preview seasons
+    ThemeSwitcher.astro  ← dev-only footer row to force light / dark
   scripts/reveal.ts      ← scroll-reveal for rows (see design.md → Motion)
   scripts/strip.ts       ← wires StripControls to a Strip
   scripts/progress.ts    ← page-change progress line under the header
   scripts/season.ts      ← seasonal decorations toggle + dev switcher
+  scripts/theme.ts       ← dev theme switcher (auto / light / dark)
   assets/logos/          ← monochrome logos for both logo rows (SVG, drawn in currentColor)
   assets/photos/         ← put photos here (optimised by astro:assets)
 public/favicon.svg

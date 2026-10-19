@@ -1,0 +1,69 @@
+---
+/**
+ * Dev-only footer row to preview light / dark (scripts/theme.ts).
+ * Rendered only by `npm run dev`; the production build leaves it out.
+ */
+import Row from "./Row.astro";
+---
+
+<Row>
+  <div class="switch cells" role="group" aria-label="Preview theme (dev only)">
+    <p class="title label">Dev · Theme</p>
+    <button class="pick label" type="button" data-theme-pick="auto">
+      Auto <span class="auto" data-theme-auto></span>
+    </button>
+    <button class="pick label" type="button" data-theme-pick="light">Light</button>
+    <button class="pick label" type="button" data-theme-pick="dark">Dark</button>
+  </div>
+</Row>
+
+<style>
+  .switch {
+    grid-template-columns: minmax(0, 1fr) repeat(3, auto);
+  }
+
+  .switch > * {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 48px;
+    padding-inline: var(--pad);
+  }
+
+  .pick {
+    justify-content: center;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    transition: background-color 120ms, color 120ms;
+  }
+
+  .pick:hover {
+    background: var(--surface);
+    color: var(--fg);
+  }
+
+  .pick[aria-pressed="true"] {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  .auto:not(:empty)::before {
+    content: "(";
+  }
+  .auto:not(:empty)::after {
+    content: ")";
+  }
+
+  @media (max-width: 720px) {
+    .switch {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .title {
+      grid-column: 1 / -1;
+    }
+    .pick {
+      padding-inline: 4px;
+    }
+  }
+</style>

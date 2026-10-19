@@ -27,7 +27,7 @@
 | `--hatch` / `--dot` | low-alpha black/white | | Pattern ink |
 | `--season` / `--season-2` | per season | per season | Seasonal glyphs and the header season toggle only (see Seasons). Never used by the layout |
 
-Theme follows `prefers-color-scheme`; there is no manual toggle (yet). Season tokens are set on `html[data-season]`.
+Theme follows `prefers-color-scheme`; there is no visitor-facing toggle (yet). `html[data-theme="light|dark"]` forces one — set only by the dev theme switcher (see Footer), from `localStorage["theme-override"]` by the inline head script before first paint. The dark tokens therefore exist twice in `global.css` (under the media query with `:not([data-theme="light"])`, and on `[data-theme="dark"]`) — keep them identical. Season tokens are set on `html[data-season]`.
 
 ### Type
 
@@ -94,7 +94,7 @@ Theme follows `prefers-color-scheme`; there is no manual toggle (yet). Season to
 | PhotoGrid | 2×2 at all sizes, 4:3 cells, caption tag bottom-left; hatch + big number when no image |
 | MoreLink | row under a section: `[hatch filler 1fr][note label][button]`. Button = inverted block (`--fg` bg, `--bg` text), mono uppercase, → arrow; hover → accent, arrow nudges right. Used under Work ("Projects in depth", note "Case studies") and Photos ("See all photos", no note — the `04 / 09` count was removed on request) |
 | Spacer | hatched row, `clamp(32px, 5vw, 56px)` tall, between every section |
-| Footer | `© | Email ↗ | GitHub ↗ | LinkedIn ↗ | Imprint → | Privacy → | Top` → 2 cols < 860px (© spans both); hatched tail row. In `npm run dev` only, a season switcher row sits above the tail (see Seasons) |
+| Footer | `© | Email ↗ | GitHub ↗ | LinkedIn ↗ | Imprint → | Privacy → | Top` → 2 cols < 860px (© spans both); hatched tail row. In `npm run dev` only, two switcher rows sit above the tail: season (see Seasons) and theme `Dev · Theme | Auto (light) | Light | Dark` (`ThemeSwitcher.astro`, `scripts/theme.ts`) |
 
 ## Subpages
 

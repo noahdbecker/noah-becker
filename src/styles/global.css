@@ -31,8 +31,10 @@
   color-scheme: light dark;
 }
 
+/* Dark theme: follows the system unless html[data-theme] forces one
+   (dev theme switcher, scripts/theme.ts). Keep both blocks identical. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #0f0f10;
     --surface: #17171a;
     --fg: #ecece8;
@@ -46,6 +48,22 @@
   }
 }
 
+:root[data-theme="dark"] {
+  --bg: #0f0f10;
+  --surface: #17171a;
+  --fg: #ecece8;
+  --muted: #8f8f89;
+  --line: #2b2b2f;
+  --marker: #5c5c62;
+  --accent: #7090ff;
+  --accent-fg: #0f0f10;
+  --hatch: rgb(255 255 255 / 0.06);
+  --dot: rgb(255 255 255 / 0.14);
+}
+
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
 /* Seasonal decorations (docs/design.md → Seasons). Only used by the season
    glyphs and the header toggle, never by the layout. --season paints the main
    shape (currentColor), --season-2 the stems, leaves and sea. */
@@ -55,11 +73,16 @@
 :root[data-season="winter"] { --season: #5b8fc4; --season-2: #3c785a; }
 
 @media (prefers-color-scheme: dark) {
-  :root[data-season="spring"] { --season: #ee8cb0; --season-2: #79b874; }
-  :root[data-season="summer"] { --season: #f4c04f; --season-2: #57abd8; }
-  :root[data-season="autumn"] { --season: #f08a45; --season-2: #c99a4e; }
-  :root[data-season="winter"] { --season: #8ab4df; --season-2: #5c9d7c; }
+  :root:not([data-theme="light"])[data-season="spring"] { --season: #ee8cb0; --season-2: #79b874; }
+  :root:not([data-theme="light"])[data-season="summer"] { --season: #f4c04f; --season-2: #57abd8; }
+  :root:not([data-theme="light"])[data-season="autumn"] { --season: #f08a45; --season-2: #c99a4e; }
+  :root:not([data-theme="light"])[data-season="winter"] { --season: #8ab4df; --season-2: #5c9d7c; }
 }
+
+:root[data-theme="dark"][data-season="spring"] { --season: #ee8cb0; --season-2: #79b874; }
+:root[data-theme="dark"][data-season="summer"] { --season: #f4c04f; --season-2: #57abd8; }
+:root[data-theme="dark"][data-season="autumn"] { --season: #f08a45; --season-2: #c99a4e; }
+:root[data-theme="dark"][data-season="winter"] { --season: #8ab4df; --season-2: #5c9d7c; }
 
 /* ==========================================================================
    Base

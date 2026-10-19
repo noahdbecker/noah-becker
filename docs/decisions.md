@@ -140,3 +140,12 @@ Colours get their own `--season` / `--season-2` tokens so the one-accent rule st
 UI itself. Meteorological seasons (1 Mar / Jun / Sep / Dec), northern hemisphere, since the site is German.
 The dev switcher is rendered only under `import.meta.env.DEV`; to show it in production, drop that condition in `Footer.astro`.
 
+
+### 2026-10-19 — Dev-only theme switcher
+
+Requested by Noah to check both themes without changing the OS setting. Footer row
+`Auto | Light | Dark`, rendered only under `import.meta.env.DEV` like the season switcher.
+It sets `html[data-theme]` (persisted in `localStorage["theme-override"]`, applied by the inline
+head script before first paint). The CSS hook ships in production too, which makes a later
+visitor-facing toggle a matter of adding a button. Plain duplicated dark-token blocks were chosen
+over `light-dark()` to keep the token definitions as they were.
