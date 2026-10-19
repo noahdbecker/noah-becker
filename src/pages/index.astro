@@ -56,13 +56,13 @@ const pad = (n: number) => String(n).padStart(2, "0");
                 <ProjectCard
                   project={p}
                   code={`W/${pad(i + 1)}`}
-                  href={`/work#${p.slug}`}
+                  href={`/work/#${p.slug}`}
                 />
               ))
           }
         </div>
       </Row>
-      <MoreLink href="/work" label="Projects in depth" note="Case studies" />
+      <MoreLink href="/work/" label="Projects in depth" note="Case studies" />
     </section>
 
     <Spacer />
@@ -103,7 +103,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
         note="A few moments away from the keyboard."
       />
       <PhotoGrid />
-      <MoreLink href="/photos" label="See all photos" />
+      <MoreLink href="/photos/" label="See all photos" />
     </section>
 
     <Spacer />

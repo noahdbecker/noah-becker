@@ -61,7 +61,7 @@ export interface Project {
 
 /** Work projects carry extra detail for the /work case-study page. */
 export interface WorkProject extends Project {
-  /** URL fragment on /work, e.g. /work#project-alpha. */
+  /** URL fragment on /work, e.g. /work/#project-alpha. */
   slug: string;
   role: string;
   org: string;
@@ -84,7 +84,7 @@ export interface Photo {
 
 /** A group of photos on /photos, e.g. one trip or one theme. */
 export interface Album {
-  /** URL fragment on /photos, e.g. /photos#japan. */
+  /** URL fragment on /photos, e.g. /photos/#japan. */
   slug: string;
   title: string;
   /** One short line under the album title. */

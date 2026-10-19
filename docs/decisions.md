@@ -149,3 +149,11 @@ It sets `html[data-theme]` (persisted in `localStorage["theme-override"]`, appli
 head script before first paint). The CSS hook ships in production too, which makes a later
 visitor-facing toggle a matter of adding a button. Plain duplicated dark-token blocks were chosen
 over `light-dark()` to keep the token definitions as they were.
+
+### 2026-10-19 — Trailing slashes on all subpage URLs
+
+On the Plesk host, links like `/work` did not open the subpage: the build emits `work/index.html`,
+which the web server only resolves as `/work/`. `astro.config.mjs` now sets `trailingSlash: "always"`
+(with `build.format: "directory"` spelled out), every internal link ends in `/` (`/work/`, `/work/#slug`),
+and `public/.htaccess` 301-redirects slashless URLs for Apache. The host's Node 20 cannot run Astro 7,
+so the site is built locally and only `dist/` is uploaded as static files — no Node app on the server.
