@@ -16,3 +16,6 @@ npm-debug.log*
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# basic-auth password file (uploaded to the server by hand, never committed)
+.htpasswd

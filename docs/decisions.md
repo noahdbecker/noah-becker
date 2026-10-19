@@ -157,3 +157,10 @@ which the web server only resolves as `/work/`. `astro.config.mjs` now sets `tra
 (with `build.format: "directory"` spelled out), every internal link ends in `/` (`/work/`, `/work/#slug`),
 and `public/.htaccess` 301-redirects slashless URLs for Apache. The host's Node 20 cannot run Astro 7,
 so the site is built locally and only `dist/` is uploaded as static files — no Node app on the server.
+
+### 2026-10-19 — Temporary password protection
+
+Requested by Noah so the site isn't publicly reachable yet. HTTP Basic Auth in `public/.htaccess`
+(`Require valid-user`, bcrypt `.htpasswd`). The password file is gitignored and uploaded by hand to
+`/var/www/vhosts/noah-becker.de/.htpasswd`, one level above `httpdocs`, so it is neither in the repo
+nor downloadable. To go public: delete the auth block from `public/.htaccess`, rebuild, upload.
