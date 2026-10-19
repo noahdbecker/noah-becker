@@ -161,29 +161,31 @@ export const workProjects: WorkProject[] = [
     image: etruckerImage,
     meta: "ETM Elektrotrucker Media GmbH",
     org: "ETM Elektrotrucker Media GmbH",
-    period: "2025-2026",
-    role: "Website Designer & Engineer",
+    period: "2025-today",
+    role: "Website Designer, Engineer & Maintenance",
     website: "https://etrucker.io",
     description:
-      "A modern, responsive website for the eTrucker system, showcasing electric truck charging agreements for logistics companies, and the >100k subscriber YouTube-Channel 'elektrotrucker'.",
+      "Bilingual website for eTrucker – app, charging chip and fleet manager for electric trucks – from the team behind Elektrotrucker, a YouTube channel with over 100k subscribers.",
     tags: [
       "WordPress",
-      "JavaScript",
-      "PHP",
+      "Vite",
+      "Tailwind CSS",
       "Adobe XD",
-      "Gemini",
-      "Claude Code",
       "Adobe Premiere Pro",
+      "Gemini",
     ],
     context:
-      "eTrucker is a subscription-based service for logistics companies, providing access to electric truck charging agreements & fleet management. The website needed a modern design – with animations and custom graphics – and easy technical accessibility. The project was completed in a tight timeframe, requiring efficient design and development processes.",
+      "ETM Elektrotrucker Media GmbH is the company behind Elektrotrucker, Tobias Wagner's YouTube channel about driving electric trucks across Europe, with over 100k subscribers. Its eTrucker system combines a free routing app for drivers, a chip that bundles a fleet's direct charging contracts and a manager for dispatchers, alongside a greenhouse gas quota (THG) service and a 2026 world tour. The site had to explain this to fleet operators, dispatchers and drivers in German and English, stay true to the existing brand and turn interest into enquiries.",
     contributions: [
-      "A modern design — from wireframes to a responsive, accessible website with a clear visual identity.",
-      "Easy customer integration — WordPress-Gutenberg as a CMS, with custom blocks and templates for the eTrucker system.",
-      "AI-assisted content creation — leveraging AI tools for efficient and effective content generation.",
+      "Design within the brand — page layouts designed in Adobe XD around eTrucker's existing logo and colours, illustrated with AI-generated imagery from Gemini, responsive from phone to desktop.",
+      "Theme from scratch — a custom WordPress theme bundled with Vite and styled with Tailwind CSS, with block styles for headings, text, containers and buttons.",
+      "Own block library — a custom plugin of nine React and ACF blocks, written AI-assisted with Gemini: video hero, product slider, pricing table with a 12/24-month toggle, FAQ accordion, operator carousels and, the toughest, an animated journey contrasting dispatch, driving and charging with and without eTrucker.",
+      "Video & pages — the homepage video, cut in Adobe Premiere Pro, plus a system page with products, pricing and FAQ, a THG quota page and the World Tour 2026 page.",
+      "Two languages — German and English with Polylang, localised URLs and hreflang tags; translated with DeepL and reviewed by the client.",
+      "Privacy & operations — CCM19 cookie consent, the initial HubSpot, Matomo and beehiiv integrations the client now runs, and ongoing changes and additions on request.",
     ],
     outcome:
-      "The new website improved user experience, increased engagement, and enhanced the brand's online presence. It also streamlined content management for the eTrucker team, allowing for quicker updates and better customer communication.",
+      "eTrucker presents its whole system – app, chip, manager, pricing and THG service – on one bilingual site that keeps growing with the product. In the three months to October 2026 it earned 40k Google search impressions and 9.2k clicks, 5k of them in the last 28 days.",
   },
   // Navicula
   {
@@ -193,20 +195,29 @@ export const workProjects: WorkProject[] = [
     meta: "Navicula Logistica d.o.o.",
     org: "Navicula Logistica d.o.o.",
     period: "2025-2026",
-    role: "Website Designer & Engineer",
+    role: "Logo & Website Designer, Engineer",
     website: "https://navicula-logistica.com",
     description:
-      "A modern, responsive website for Navicula Logistica, showcasing their logistics services and attracting new clients.",
-    tags: ["Node.js", "Astro", "Composer", "Figma", "Claude Code"],
+      "Logo and trilingual website for a transport company on the Croatian coast – freight, B2B boat charters and an upcoming yacht transport service, in German, English and Croatian.",
+    tags: [
+      "Astro",
+      "Tailwind CSS",
+      "TypeScript",
+      "Adobe XD",
+      "Figma",
+      "Claude Code",
+    ],
     context:
-      "As the croatian successor of BRIEM Speditions-GmbH, Navicula Logistica needed a modern website to showcase their services and attract new clients. The project required a responsive design, clear navigation, and provide information about the company's services and expertise.",
+      "Navicula Logistica is a transport company in Novi Vinodolski near the port of Rijeka, run by the same family as BRIEM Speditions-GmbH. It moves part and full loads across Croatia and Europe, runs B2B charters on an Invictus 320 GTS along the Adriatic coast, and is preparing a European yacht transport service. The site had to present three very different services to German, English and Croatian-speaking business customers and lead each of them to a direct enquiry.",
     contributions: [
-      "A modern design — from wireframes in Figma to a responsive, accessible website with a clear visual identity – in three languages.",
-      "Modern web technologies — leveraging Node.js and Astro for a fast, efficient, and maintainable website.",
-      "AI-assisted content creation — leveraging AI tools for efficient and effective content generation.",
+      "Brand & design — the Navicula logo and colour palette, then a layout designed in Adobe XD, moved to Figma and illustrated with AI-generated imagery.",
+      "Static Astro site — Astro, Tailwind CSS and TypeScript, built AI-assisted with Claude Code from the Figma design; page content in YAML per language, all pages generated from one route, images served as responsive WebP.",
+      "Three languages — the client's German, English and Croatian copy with localised URLs, a language switcher and hreflang tags; old URLs redirect after the restructure.",
+      "One page per service — a homepage that splits into transport and charter, a charter page for the Invictus 320 GTS covering equipment, safety and season, and a 'coming soon' page announcing yacht transport.",
+      "Privacy & deployment — Impressum and privacy policy, self-hosted fonts, no tracking and therefore no cookie banner, plus the deployment to the client's Plesk hosting.",
     ],
     outcome:
-      "The new website improved user experience, increased engagement, and enhanced the brand's online presence. It also streamlined content management for the Navicula Logistica team, allowing for quicker updates and better client communication.",
+      "Navicula now presents all three services in the languages its customers speak, under one brand I designed from the logo up – with every page ending in a direct way to get in touch.",
   },
   // GA GmbH
   {
@@ -215,49 +226,46 @@ export const workProjects: WorkProject[] = [
     image: gaImage,
     meta: "GA GmbH",
     org: "GA GmbH",
-    period: "2026",
-    role: "Website Designer & Engineer",
+    period: "2026-today",
+    role: "Website Designer, Engineer & Maintenance",
     website: "https://ga-gmbh.de",
     description:
-      "A modern, responsive and customer convincing website for GA GmbH – a building automation company. The website showcases their services and expertise, attracting new clients.",
-    tags: [
-      "WordPress",
-      "JavaScript",
-      "PHP",
-      "Composer",
-      "Figma",
-      "Claude Code",
-    ],
+      "Relaunch for a Dortmund building automation company – replacing a dated, non-responsive site with one that presents its services, own products and open jobs.",
+    tags: ["WordPress", "Vite", "Tailwind CSS", "Figma", "Claude Code"],
     context:
-      "GA GmbH needed a modern, responsive website to showcase their building automation services – from Hardware to Software – to attract new clients. The project required a clean, professional design with a focus on user experience and conversion.",
+      "GA Gebäude Automatisierung GmbH develops its own automation stations and the GA-Leit building management system, used by clients such as Dortmund Airport, Grünenthal and several Sparkassen. Its old website was very dated and did not work on phones. The new one had to explain a highly technical offer – from consulting to BACnet hardware – to facility managers and planners, help with recruiting, and stay true to the existing brand.",
     contributions: [
-      "A modern design — from wireframes in Figma to a responsive, accessible website with a clear visual identity.",
-      "Modern web technologies — leveraging WordPress and Composer for a fast, efficient, and maintainable website.",
-      "AI-assisted code creation — leveraging AI tools for efficient and effective code generation, ensuring high-quality and maintainable code.",
+      "Design within the brand — a new layout designed in Figma around GA's existing logo and colours, responsive from phone to desktop.",
+      "Theme from scratch — a hand-built WordPress theme on a Composer-managed Bedrock setup, bundled with Vite and styled with Tailwind CSS.",
+      "Own block library — a custom plugin with React and ACF blocks (hero, stats, reference slider, contact form, layout container) plus text and button styles, so pages can be edited in the block editor without breaking the design. Written AI-assisted with Claude Code.",
+      "Products & careers — GA's content turned into a services homepage, spec sheets for around ten hardware components, a software overview and a jobs page with open positions.",
+      "Privacy & operations — Contact Form 7 with ALTCHA instead of reCAPTCHA, CCM19 cookie consent, self-hosted fonts, a deployment process, and ongoing maintenance.",
     ],
     outcome:
-      "The new website shows the company's services and expertise in a clear and professional manner – representing the company's values and mission, attracting new clients and improving the company's online presence.",
+      "Since the 2026 relaunch, GA has a modern website that works on any device and gives its products, references and open jobs a proper home – maintained and extended by me as needs change.",
   },
   // endodiabetikum
   {
     slug: "endodiabetikum",
-    title: "endodiabetikum — Website",
+    title: "Endodiabetikum — Website",
     meta: "PD Dr. med. Dorothee M. Baur",
     org: "PD Dr. med. Dorothee M. Baur",
-    period: "2025",
-    role: "Website Engineer",
+    period: "2025-today",
+    role: "Website Engineer & Maintenance",
     website: "https://endodiabetikum.de",
     description:
-      "A simple website for a medical practice, providing information about the practice and its services.",
-    tags: ["HTML5", "(S)CSS", "JavaScript"],
+      "The first website for an endocrinology and diabetes practice in Illertissen – one clear page with address, opening hours and contact details that patients check regularly.",
+    tags: ["HTML5", "CSS3", "Usercentrics", "Google Search Console"],
     context:
-      "Simple, but informative website for a medical practice, providing information about the practice and its services. The project required a clean, professional design with a focus on information and accessibility.",
+      "Endodiabetikum is the endocrinology and diabetes practice of PD Dr. med. Dorothee M. Baur in Illertissen. It had no website at all. Patients mainly need to know where the practice is, when it is open and how to reach it – so the site had to answer exactly that, quickly and on any device, while complying with German privacy law.",
     contributions: [
-      "KISS — Keep It Simple, Stupid – a simple, clean design with a focus on information and accessibility.",
-      "Modern web technologies — leveraging HTML5, CSS3, and JavaScript for a fast, efficient, and maintainable website.",
+      "One page, one job — hand-written HTML and CSS with no framework or build step: a full-screen map with a contact card showing address, opening hours and one-tap phone, fax and email links.",
+      "Privacy by default — Usercentrics cookie consent set up from scratch, Google Maps blocked until consent, fonts hosted on the site instead of loaded from Google, plus Impressum and privacy policy.",
+      "Hiring banner — a job-ads banner the practice can switch on when it is recruiting, listing the open positions and an application address.",
+      "Hosting & upkeep — hosting, Google Search Console setup and ongoing small updates such as changed opening hours.",
     ],
     outcome:
-      "The new website provides clear information about the practice and its services, improving the patient experience and enhancing the practice's online presence.",
+      "The practice has had an online presence since 2025. Patients regularly use the site to check opening hours and contact details, and small updates keep it current.",
   },
   // ImmoRieth
   {
