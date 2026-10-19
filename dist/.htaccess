@@ -1,5 +1,7 @@
 # Apache (Plesk): send /work to /work/ so typed or old links without the
-# trailing slash still reach work/index.html. See docs/decisions.md.
+
+# trailing slash still reach work/index.html. See docs/decisions.md
+
 DirectorySlash On
 <IfModule mod_rewrite.c>
   RewriteEngine On
