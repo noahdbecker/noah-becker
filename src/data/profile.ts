@@ -175,14 +175,14 @@ export const workProjects: WorkProject[] = [
       "Gemini",
     ],
     context:
-      "ETM Elektrotrucker Media GmbH is the company behind Elektrotrucker, Tobias Wagner's YouTube channel about driving electric trucks across Europe, with over 100k subscribers. Its eTrucker system combines a free routing app for drivers, a chip that bundles a fleet's direct charging contracts and a manager for dispatchers, alongside a greenhouse gas quota (THG) service and a 2026 world tour. The site had to explain this to fleet operators, dispatchers and drivers in German and English, stay true to the existing brand and turn interest into enquiries.",
+      "ETM Elektrotrucker Media GmbH is the company behind Elektrotrucker, Tobias Wagner's YouTube channel about driving electric trucks across Europe, with over 100k subscribers. Its eTrucker system combines a free routing app for drivers, a chip that bundles a fleet's direct charging contracts and a manager for dispatchers, alongside a greenhouse gas quota (THG) service. The site had to explain this to fleet operators, dispatchers and drivers in German and English, stay true to the existing brand and turn interest into enquiries.",
     contributions: [
-      "Design within the brand — page layouts designed in Adobe XD around eTrucker's existing logo and colours, illustrated with AI-generated imagery from Gemini, responsive from phone to desktop.",
+      "Design within the brand — page layouts designed in Adobe XD around eTrucker's existing logo and colours, illustrated with AI-generated imagery, responsive from phone to desktop.",
       "Theme from scratch — a custom WordPress theme bundled with Vite and styled with Tailwind CSS, with block styles for headings, text, containers and buttons.",
-      "Own block library — a custom plugin of nine React and ACF blocks, written AI-assisted with Gemini: video hero, product slider, pricing table with a 12/24-month toggle, FAQ accordion, operator carousels and, the toughest, an animated journey contrasting dispatch, driving and charging with and without eTrucker.",
+      "Own block library — a custom plugin of multiple React and ACF blocks: video hero, product slider, pricing table, FAQ accordion, operator carousels and, the toughest, an animated journey contrasting dispatch, driving and charging with and without eTrucker.",
       "Video & pages — the homepage video, cut in Adobe Premiere Pro, plus a system page with products, pricing and FAQ, a THG quota page and the World Tour 2026 page.",
-      "Two languages — German and English with Polylang, localised URLs and hreflang tags; translated with DeepL and reviewed by the client.",
-      "Privacy & operations — CCM19 cookie consent, the initial HubSpot, Matomo and beehiiv integrations the client now runs, and ongoing changes and additions on request.",
+      "Two languages — German and English with Polylang, localised URLs and hreflang tags.",
+      "Privacy & operations — CCM19 cookie consent, HubSpot, Matomo and beehiiv integrations the client now runs, and ongoing changes and additions on request.",
     ],
     outcome:
       "eTrucker presents its whole system – app, chip, manager, pricing and THG service – on one bilingual site that keeps growing with the product. In the three months to October 2026 it earned 40k Google search impressions and 9.2k clicks, 5k of them in the last 28 days.",
@@ -212,9 +212,9 @@ export const workProjects: WorkProject[] = [
     contributions: [
       "Brand & design — the Navicula logo and colour palette, then a layout designed in Adobe XD, moved to Figma and illustrated with AI-generated imagery.",
       "Static Astro site — Astro, Tailwind CSS and TypeScript, built AI-assisted with Claude Code from the Figma design; page content in YAML per language, all pages generated from one route, images served as responsive WebP.",
-      "Three languages — the client's German, English and Croatian copy with localised URLs, a language switcher and hreflang tags; old URLs redirect after the restructure.",
-      "One page per service — a homepage that splits into transport and charter, a charter page for the Invictus 320 GTS covering equipment, safety and season, and a 'coming soon' page announcing yacht transport.",
-      "Privacy & deployment — Impressum and privacy policy, self-hosted fonts, no tracking and therefore no cookie banner, plus the deployment to the client's Plesk hosting.",
+      "Three languages — the client's German, English and Croatian copy with localised URLs, a language switcher and hreflang tags.",
+      "One page per service — a homepage that splits into transport and charter, a charter page for the fleet equipment, safety and season, and a page for yacht transport.",
+      "Privacy & deployment — Impressum and privacy policy, self-hosted fonts, no tracking and therefore no cookie banner, plus the deployment to the client's hosting.",
     ],
     outcome:
       "Navicula now presents all three services in the languages its customers speak, under one brand I designed from the logo up – with every page ending in a direct way to get in touch.",
@@ -237,7 +237,7 @@ export const workProjects: WorkProject[] = [
     contributions: [
       "Design within the brand — a new layout designed in Figma around GA's existing logo and colours, responsive from phone to desktop.",
       "Theme from scratch — a hand-built WordPress theme on a Composer-managed Bedrock setup, bundled with Vite and styled with Tailwind CSS.",
-      "Own block library — a custom plugin with React and ACF blocks (hero, stats, reference slider, contact form, layout container) plus text and button styles, so pages can be edited in the block editor without breaking the design. Written AI-assisted with Claude Code.",
+      "Own block library — a custom plugin with React and ACF blocks plus text and button styles, so pages can be edited in the block editor without breaking the design.",
       "Products & careers — GA's content turned into a services homepage, spec sheets for around ten hardware components, a software overview and a jobs page with open positions.",
       "Privacy & operations — Contact Form 7 with ALTCHA instead of reCAPTCHA, CCM19 cookie consent, self-hosted fonts, a deployment process, and ongoing maintenance.",
     ],
@@ -291,6 +291,7 @@ export const workProjects: WorkProject[] = [
       "The website gives the agency a professional, trustworthy online presence that matches its personal approach, and brings in enquiries from both owners and tenants through a single contact point.",
   },
   // TSV Ehningen
+  /*
   {
     slug: "tsv-ehningen",
     title: "TSV Ehningen — Website",
@@ -310,6 +311,7 @@ export const workProjects: WorkProject[] = [
     ],
     outcome: "Placeholder — what changed because of the project.",
   },
+  */
   // BRIEM
   {
     slug: "briem",
@@ -334,7 +336,7 @@ export const workProjects: WorkProject[] = [
       "BRIEM is a third-generation family business founded in 1946, specialising in the storage and transport of hazardous materials from two sites in Filderstadt and Münsingen. The website has to speak to very different audiences – industrial customers looking for a certified logistics partner, neighbours who must be informed under the Major Accidents Ordinance, and young people looking for vocational training or a dual study place – while remaining easy for the company to keep up to date.",
     contributions: [
       "A custom design — a hand-built WordPress theme (BlankSlate child theme) with full-screen video headers, a responsive layout and a footer mega-menu instead of an off-the-shelf template.",
-      "Content structure — six service pages with case studies, a company history timeline back to 1946, certificate pages with downloads (ISO 9001/14001, SQAS, AEO-F …), a careers section and a news blog.",
+      "Content structure — six service pages with case studies, a company history timeline back to 1946, certificate pages with downloads, a careers section and a news blog.",
       "GDPR-compliant integrations — Usercentrics cookie consent, Google Maps embeds for both sites, lazy-loaded media and links to the shipment tracking and warehouse management tools.",
       "Drone footage — aerial shots of the sites for BRIEM's internal use.",
     ],
@@ -394,10 +396,10 @@ export const workProjects: WorkProject[] = [
       "Google My Maps",
     ],
     context:
-      "thera4 is a physiotherapy and sports therapy practice in Ludwigsburg that has been treating patients since 1993, with a team of eleven. Until 2022 it had no website at all. It needed a first online presence that answers what patients actually ask – which treatments are offered and covered by statutory health insurance, when the practice and reception are open, and how to get there – without anything the team would have to maintain day to day.",
+      "thera4 is a physiotherapy and sports therapy practice in Ludwigsburg that has been treating patients since 1993. Until 2022 it had no website at all. It needed a first online presence that answers what patients actually ask – which treatments are offered and covered by statutory health insurance, when the practice and reception are open, and how to get there – without anything the team would have to maintain day to day.",
     contributions: [
       "A custom design — a hand-built WordPress theme (BlankSlate child theme) as a single page with anchor navigation, custom SVG graphics and a loading screen, instead of an off-the-shelf template.",
-      "Clear patient information — fourteen services with short explanations and private-pay treatments marked, separate practice and reception hours, and a team slider (Smart Slider 3) with portraits of all eleven team members, some of them photographed by me.",
+      "Clear patient information — several services with short explanations and private-pay treatments marked, separate practice and reception hours, and a team slider with portraits of all team members, some of them photographed by me.",
       "Directions & GDPR — a custom Google My Maps map next to parking and public transport directions, lazy-loaded, and Usercentrics cookie consent configured from scratch.",
     ],
     outcome:
@@ -414,7 +416,7 @@ export const workProjects: WorkProject[] = [
     role: "Website Designer & Engineer + Photo- & Videographer + Drone Pilot",
     website: "https://vgc-calw.de",
     description:
-      "A relaunch for a consumer cooperative founded in 1907 that runs twelve EDEKA and Trinkgut markets around Calw – market pages, company history and careers, with my own image film and photos.",
+      "A relaunch for a consumer cooperative founded in 1907 that runs more than a hand full of EDEKA and Trinkgut markets around Calw – market pages, company history and careers, with my own image film and photos.",
     tags: [
       "WordPress",
       "PHP",
@@ -425,11 +427,11 @@ export const workProjects: WorkProject[] = [
       "Drone Videography",
     ],
     context:
-      "The Verbrauchergenossenschaft Calw eG (VGC) is a consumer cooperative founded in 1907 by workers and craftsmen in Calw. Today it runs eleven EDEKA supermarkets and a Trinkgut drinks market across the Calw, Böblingen and Freudenstadt/Rottweil regions, with more than 500 employees. Its old website no longer matched a company of that size. The relaunch had to help customers find their nearest market, present the cooperative and its history, support the constant search for staff and trainees, and stay easy for the team to update as new markets open.",
+      "The Verbrauchergenossenschaft Calw eG (VGC) is a consumer cooperative founded in 1907 by workers and craftsmen in Calw. Today it runs over a hand full of EDEKA supermarkets and a Trinkgut drinks market across the Calw, Böblingen and Freudenstadt/Rottweil regions, with more than 500 employees. Its old website no longer matched a company of that size. The relaunch had to help customers find their nearest market, present the cooperative and its history, support the constant search for staff and trainees, and stay easy for the team to update as new markets open.",
     contributions: [
       "A custom design — a hand-built WordPress theme (BlankSlate child theme) with a full-width image-film header and a homepage that groups all markets into three regions.",
-      "Market pages — one page per market with address, opening hours, route link, phone and email, services (cashback, Scan & Go, catering platters …), key facts such as opening date and sales area, contact persons, and a scrollable row of the other markets.",
-      "Company & careers — a company page with a timeline from the founding in 1907 to today, management and member information, and a careers section with job ads and a collapsible list of apprenticeships.",
+      "Market pages — one page per market with address, opening hours, route link, phone and email, services (cashback, Scan & Go, catering platters …), key facts such as opening date and sales area and contact persons.",
+      "Company & careers — a company page with a timeline from the founding in 1907 to today, management and member information, and a careers section with job ads and a list of apprenticeships.",
       "Photo & video — the image film on the homepage (2023), market photos and contact-person portraits, shot and edited in Lightroom and Premiere Pro.",
       "GDPR-compliant setup — Usercentrics cookie consent configured from scratch, lazy-loaded media and legal pages.",
     ],
