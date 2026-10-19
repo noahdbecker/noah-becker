@@ -120,14 +120,14 @@ export const profile = {
   },
   education: {
     label: "Education",
-    degree: "B.Sc. Cyber Security", // TODO
-    school: "DHBW Stuttgart", // TODO
-    status: "2024 – 2027", // TODO
+    degree: "B.Sc. Cyber Security",
+    school: "DHBW Stuttgart",
+    status: "2024 – 2027",
   },
   links: {
-    email: "mailto:hey@noah-becker.de", // TODO
-    github: "https://github.com/noahdbecker", // TODO: confirm handle
-    linkedin: "https://linkedin.com/in/noah-david-becker", // TODO
+    email: "mailto:hey@noah-becker.de",
+    github: "https://github.com/noahdbecker",
+    linkedin: "https://linkedin.com/in/noah-david-becker",
   },
 };
 
