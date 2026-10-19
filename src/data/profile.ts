@@ -165,7 +165,7 @@ export const workProjects: WorkProject[] = [
     role: "Website Designer & Engineer",
     website: "https://etrucker.io",
     description:
-      "Placeholder — what the product is, what you owned, and the outcome. Two to three lines read best in this card.",
+      "A modern, responsive website for the eTrucker system, showcasing electric truck charging agreements for logistics companies, and the >100k subscriber YouTube-Channel 'elektrotrucker'.",
     tags: [
       "WordPress",
       "JavaScript",
@@ -176,14 +176,14 @@ export const workProjects: WorkProject[] = [
       "Adobe Premiere Pro",
     ],
     context:
-      "Placeholder — where the project started: the problem, who it was for, and why it mattered. A short paragraph of three to four sentences is enough.",
+      "eTrucker is a subscription-based service for logistics companies, providing access to electric truck charging agreements & fleet management. The website needed a modern design – with animations and custom graphics – and easy technical accessibility. The project was completed in a tight timeframe, requiring efficient design and development processes.",
     contributions: [
-      "Placeholder — a concrete thing you designed, built or decided.",
-      "Placeholder — a second contribution, ideally with a technical detail.",
-      "Placeholder — something about collaboration, ownership or process.",
+      "A modern design — from wireframes to a responsive, accessible website with a clear visual identity.",
+      "Easy customer integration — WordPress-Gutenberg as a CMS, with custom blocks and templates for the eTrucker system.",
+      "AI-assisted content creation — leveraging AI tools for efficient and effective content generation.",
     ],
     outcome:
-      "Placeholder — the result. Numbers work well here: performance, adoption, time saved, errors reduced.",
+      "The new website improved user experience, increased engagement, and enhanced the brand's online presence. It also streamlined content management for the eTrucker team, allowing for quicker updates and better customer communication.",
   },
   // Navicula
   {
@@ -196,15 +196,17 @@ export const workProjects: WorkProject[] = [
     role: "Website Designer & Engineer",
     website: "https://navicula-logistica.com",
     description:
-      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+      "A modern, responsive website for Navicula Logistica, showcasing their logistics services and attracting new clients.",
     tags: ["Node.js", "Astro", "Composer", "Figma", "Claude Code"],
     context:
-      "Placeholder — the starting point of the project and the constraints you worked within.",
+      "As the croatian successor of BRIEM Speditions-GmbH, Navicula Logistica needed a modern website to showcase their services and attract new clients. The project required a responsive design, clear navigation, and provide information about the company's services and expertise.",
     contributions: [
-      "Placeholder — a concrete thing you designed, built or decided.",
-      "Placeholder — a second contribution, ideally with a technical detail.",
+      "A modern design — from wireframes in Figma to a responsive, accessible website with a clear visual identity – in three languages.",
+      "Modern web technologies — leveraging Node.js and Astro for a fast, efficient, and maintainable website.",
+      "AI-assisted content creation — leveraging AI tools for efficient and effective content generation.",
     ],
-    outcome: "Placeholder — what changed because of the project.",
+    outcome:
+      "The new website improved user experience, increased engagement, and enhanced the brand's online presence. It also streamlined content management for the Navicula Logistica team, allowing for quicker updates and better client communication.",
   },
   // GA GmbH
   {
@@ -217,7 +219,7 @@ export const workProjects: WorkProject[] = [
     role: "Website Designer & Engineer",
     website: "https://ga-gmbh.de",
     description:
-      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+      "A modern, responsive and customer convincing website for GA GmbH – a building automation company. The website showcases their services and expertise, attracting new clients.",
     tags: [
       "WordPress",
       "JavaScript",
@@ -227,12 +229,14 @@ export const workProjects: WorkProject[] = [
       "Claude Code",
     ],
     context:
-      "Placeholder — the starting point of the project and the constraints you worked within.",
+      "GA GmbH needed a modern, responsive website to showcase their building automation services – from Hardware to Software – to attract new clients. The project required a clean, professional design with a focus on user experience and conversion.",
     contributions: [
-      "Placeholder — a concrete thing you designed, built or decided.",
-      "Placeholder — a second contribution, ideally with a technical detail.",
+      "A modern design — from wireframes in Figma to a responsive, accessible website with a clear visual identity.",
+      "Modern web technologies — leveraging WordPress and Composer for a fast, efficient, and maintainable website.",
+      "AI-assisted code creation — leveraging AI tools for efficient and effective code generation, ensuring high-quality and maintainable code.",
     ],
-    outcome: "Placeholder — what changed because of the project.",
+    outcome:
+      "The new website shows the company's services and expertise in a clear and professional manner – representing the company's values and mission, attracting new clients and improving the company's online presence.",
   },
   // endodiabetikum
   {
@@ -244,15 +248,16 @@ export const workProjects: WorkProject[] = [
     role: "Website Engineer",
     website: "https://endodiabetikum.de",
     description:
-      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+      "A simple website for a medical practice, providing information about the practice and its services.",
     tags: ["HTML5", "(S)CSS", "JavaScript"],
     context:
-      "Placeholder — the starting point of the project and the constraints you worked within.",
+      "Simple, but informative website for a medical practice, providing information about the practice and its services. The project required a clean, professional design with a focus on information and accessibility.",
     contributions: [
-      "Placeholder — a concrete thing you designed, built or decided.",
-      "Placeholder — a second contribution, ideally with a technical detail.",
+      "KISS — Keep It Simple, Stupid – a simple, clean design with a focus on information and accessibility.",
+      "Modern web technologies — leveraging HTML5, CSS3, and JavaScript for a fast, efficient, and maintainable website.",
     ],
-    outcome: "Placeholder — what changed because of the project.",
+    outcome:
+      "The new website provides clear information about the practice and its services, improving the patient experience and enhancing the practice's online presence.",
   },
   // ImmoRieth
   {
@@ -265,15 +270,17 @@ export const workProjects: WorkProject[] = [
     role: "Website Designer & Engineer",
     website: "https://immo-rieth.de",
     description:
-      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
-    tags: ["WordPress", "JavaScript", "PHP"],
+      "A calm, personal website for a Ludwigsburg real estate agent specialising in rentals – built to earn the trust of property owners and connect them with the right tenants.",
+    tags: ["WordPress", "PHP", "JavaScript", "Contact Form 7", "Usercentrics"],
     context:
-      "Placeholder — the starting point of the project and the constraints you worked within.",
+      "Immobilien Rieth is a one-person agency in Ludwigsburg focused on renting out property – personal, reliable and fully digital. The website needed to reflect that personal approach, explain the service clearly to two very different audiences – property owners and prospective tenants – and stay simple enough for the owner to maintain himself.",
     contributions: [
-      "Placeholder — a concrete thing you designed, built or decided.",
-      "Placeholder — a second contribution, ideally with a technical detail.",
+      "A custom design — a hand-built WordPress theme (BlankSlate child theme) with a clear, text-led layout instead of an off-the-shelf template.",
+      "Two audiences, two paths — dedicated pages for owners (service, process, fees) and for prospective tenants (waiting list), plus a testimonial carousel on the homepage as social proof.",
+      "GDPR-compliant setup — Usercentrics cookie consent configured from scratch, Contact Form 7 enquiries, lazy-loaded images, and legal pages.",
     ],
-    outcome: "Placeholder — what changed because of the project.",
+    outcome:
+      "The website gives the agency a professional, trustworthy online presence that matches its personal approach, and brings in enquiries from both owners and tenants through a single contact point.",
   },
   // TSV Ehningen
   {
@@ -302,25 +309,29 @@ export const workProjects: WorkProject[] = [
     image: briemImage,
     meta: "BRIEM Speditions-GmbH",
     org: "BRIEM Speditions-GmbH",
-    period: "2023-2024",
+    period: "2023-today",
     role: "Website Designer & Engineer + Drone Pilot",
     website: "https://briem-sped.com",
     description:
-      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+      "A content-rich website for a family-run hazardous goods logistics company near Stuttgart – presenting services, certifications and careers to customers and future trainees.",
     tags: [
       "WordPress",
       "JavaScript",
       "PHP",
+      "Usercentrics",
       "Adobe Premiere Pro",
       "Drone Videography",
     ],
     context:
-      "Placeholder — the starting point of the project and the constraints you worked within.",
+      "BRIEM is a third-generation family business founded in 1946, specialising in the storage and transport of hazardous materials from two sites in Filderstadt and Münsingen. The website has to speak to very different audiences – industrial customers looking for a certified logistics partner, neighbours who must be informed under the Major Accidents Ordinance, and young people looking for vocational training or a dual study place – while remaining easy for the company to keep up to date.",
     contributions: [
-      "Placeholder — a concrete thing you designed, built or decided.",
-      "Placeholder — a second contribution, ideally with a technical detail.",
+      "A custom design — a hand-built WordPress theme (BlankSlate child theme) with full-screen video headers, a responsive layout and a footer mega-menu instead of an off-the-shelf template.",
+      "Content structure — six service pages with case studies, a company history timeline back to 1946, certificate pages with downloads (ISO 9001/14001, SQAS, AEO-F …), a careers section and a news blog.",
+      "GDPR-compliant integrations — Usercentrics cookie consent, Google Maps embeds for both sites, lazy-loaded media and links to the shipment tracking and warehouse management tools.",
+      "Drone footage — aerial shots of the sites for BRIEM's internal use.",
     ],
-    outcome: "Placeholder — what changed because of the project.",
+    outcome:
+      "The website gives BRIEM a modern, trustworthy presence that matches its certifications and experience. It brings customer information, legal disclosures and recruiting together in one place, and I still look after it as the content grows.",
   },
   // Vesperkult
   {
@@ -329,25 +340,30 @@ export const workProjects: WorkProject[] = [
     image: vesperkultImage,
     meta: "VGC Backwaren GmbH & Co. KG",
     org: "VGC Backwaren GmbH & Co. KG",
-    period: "2023-2024",
+    period: "2023-today",
     role: "Website Designer & Engineer + Photo- & Videographer",
     website: "https://vesperkult.de",
     description:
-      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+      "A warm, food-led website for a young regional bakery brand with five shops in EDEKA markets – presenting its branches, story and open jobs, with my own image film and photos.",
     tags: [
       "WordPress",
-      "JavaScript",
       "PHP",
+      "JavaScript",
+      "Usercentrics",
       "Adobe Lightroom",
       "Adobe Premiere Pro",
     ],
     context:
-      "Placeholder — the starting point of the project and the constraints you worked within.",
+      "Vesperkult is the bakery brand of VGC Backwaren GmbH & Co. KG, founded in 2021 as a subsidiary of the Verbrauchergenossenschaft Calw eG. It runs five bakery shops inside EDEKA markets between Calw, Böblingen and the Black Forest, selling bread, cakes and Swabian ‘Vesper’ classics. As a new brand it needed a website that makes it known locally, gives every shop its own page, and supports the ongoing search for sales staff.",
     contributions: [
-      "Placeholder — a concrete thing you designed, built or decided.",
-      "Placeholder — a second contribution, ideally with a technical detail.",
+      "A custom design — a hand-built WordPress theme (BlankSlate child theme) based on the existing Vesperkult brand, with a full-width image-film header and a warm, food-led look.",
+      "Branch pages — one page per shop with address, opening hours, route link, contact, opening date, team contact and a photo slider, each linked to its EDEKA market page.",
+      "Careers section — open positions listed per branch, with the job ads published by the management themselves.",
+      "Photo & video — the image film on the homepage, shop photos and team portraits, shot and edited in Lightroom and Premiere Pro.",
+      "GDPR-compliant setup — Usercentrics cookie consent configured from scratch, lazy-loaded media and legal pages.",
     ],
-    outcome: "Placeholder — what changed because of the project.",
+    outcome:
+      "Vesperkult got a consistent online presence from its first shops onwards. The site grew with the brand from four to five branches, remains the central place for branch information and recruiting, and I still look after it.",
   },
   // thera4
   {
@@ -356,19 +372,28 @@ export const workProjects: WorkProject[] = [
     image: thera4Image,
     meta: "thera4 GbR",
     org: "thera4 GbR",
-    period: "2023",
+    period: "2022",
     role: "Website Designer & Engineer",
     website: "https://thera4.de",
     description:
-      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
-    tags: ["WordPress", "JavaScript", "PHP"],
-    context:
-      "Placeholder — the starting point of the project and the constraints you worked within.",
-    contributions: [
-      "Placeholder — a concrete thing you designed, built or decided.",
-      "Placeholder — a second contribution, ideally with a technical detail.",
+      "A first website for a long-established physio and sports therapy practice in Ludwigsburg – services, opening hours, team and directions on one clear page.",
+    tags: [
+      "WordPress",
+      "PHP",
+      "JavaScript",
+      "Usercentrics",
+      "Smart Slider 3",
+      "Google My Maps",
     ],
-    outcome: "Placeholder — what changed because of the project.",
+    context:
+      "thera4 is a physiotherapy and sports therapy practice in Ludwigsburg that has been treating patients since 1993, with a team of eleven. Until 2022 it had no website at all. It needed a first online presence that answers what patients actually ask – which treatments are offered and covered by statutory health insurance, when the practice and reception are open, and how to get there – without anything the team would have to maintain day to day.",
+    contributions: [
+      "A custom design — a hand-built WordPress theme (BlankSlate child theme) as a single page with anchor navigation, custom SVG graphics and a loading screen, instead of an off-the-shelf template.",
+      "Clear patient information — fourteen services with short explanations and private-pay treatments marked, separate practice and reception hours, and a team slider (Smart Slider 3) with portraits of all eleven team members, some of them photographed by me.",
+      "Directions & GDPR — a custom Google My Maps map next to parking and public transport directions, lazy-loaded, and Usercentrics cookie consent configured from scratch.",
+    ],
+    outcome:
+      "After almost 30 years in business the practice got its first website: one page where patients find services, opening hours, the team and directions – still in use today.",
   },
   // VGC
   {
@@ -377,26 +402,31 @@ export const workProjects: WorkProject[] = [
     image: vgcImage,
     meta: "Verbrauchergenossenschaft Calw eG",
     org: "Verbrauchergenossenschaft Calw eG",
-    period: "2021-2022",
+    period: "2021-today",
     role: "Website Designer & Engineer + Photo- & Videographer + Drone Pilot",
     website: "https://vgc-calw.de",
     description:
-      "Placeholder — the problem, your approach, and one concrete result (a number if you have one).",
+      "A relaunch for a consumer cooperative founded in 1907 that runs twelve EDEKA and Trinkgut markets around Calw – market pages, company history and careers, with my own image film and photos.",
     tags: [
       "WordPress",
-      "JavaScript",
       "PHP",
+      "JavaScript",
+      "Usercentrics",
       "Adobe Lightroom",
       "Adobe Premiere Pro",
       "Drone Videography",
     ],
     context:
-      "Placeholder — the starting point of the project and the constraints you worked within.",
+      "The Verbrauchergenossenschaft Calw eG (VGC) is a consumer cooperative founded in 1907 by workers and craftsmen in Calw. Today it runs eleven EDEKA supermarkets and a Trinkgut drinks market across the Calw, Böblingen and Freudenstadt/Rottweil regions, with more than 500 employees. Its old website no longer matched a company of that size. The relaunch had to help customers find their nearest market, present the cooperative and its history, support the constant search for staff and trainees, and stay easy for the team to update as new markets open.",
     contributions: [
-      "Placeholder — a concrete thing you designed, built or decided.",
-      "Placeholder — a second contribution, ideally with a technical detail.",
+      "A custom design — a hand-built WordPress theme (BlankSlate child theme) with a full-width image-film header and a homepage that groups all markets into three regions.",
+      "Market pages — one page per market with address, opening hours, route link, phone and email, services (cashback, Scan & Go, catering platters …), key facts such as opening date and sales area, contact persons, and a scrollable row of the other markets.",
+      "Company & careers — a company page with a timeline from the founding in 1907 to today, management and member information, and a careers section with job ads and a collapsible list of apprenticeships.",
+      "Photo & video — the image film on the homepage (2023), market photos and contact-person portraits, shot and edited in Lightroom and Premiere Pro.",
+      "GDPR-compliant setup — Usercentrics cookie consent configured from scratch, lazy-loaded media and legal pages.",
     ],
-    outcome: "Placeholder — what changed because of the project.",
+    outcome:
+      "VGC got a modern, consistent web presence that has grown with the cooperative from ten to twelve markets, including its first Trinkgut drinks market. The site remains the central place for market information, news and recruiting, and I still look after it.",
   },
 ];
 
