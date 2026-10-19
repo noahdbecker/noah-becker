@@ -406,13 +406,14 @@ export const uniProjects: Project[] = [
     title: "Seminar Project",
     meta: "Bachelor · 2026-2027",
     description:
-      "Placeholder — research question and key finding in one or two sentences.",
-    tags: ["Research", "App-Development", "iOS", "Android"],
+      "Development of a mobile application for iOS and Android with Flutter, including a backend API.",
+    tags: ["Research", "App-Development", "iOS", "Android", "Flutter"],
   },
   {
     title: "Security-by-Design Project",
     meta: "Bachelor · 2026",
-    description: "Placeholder — what the team built and your role in it.",
+    description:
+      "Implementation of a web application with industry-standard security features.",
     tags: [
       "React",
       "Python FastAPI",
@@ -424,26 +425,30 @@ export const uniProjects: Project[] = [
   {
     title: "Rust Project",
     meta: "Bachelor · 2026",
-    description: "Placeholder — topic, method and what you learned.",
+    description:
+      "A Rust-based command-line tool for file integrity verification and hashing.",
     tags: ["Rust", "Terminal", "Integrity", "Cryptography", "Hashing"],
   },
   // TODO: placeholders — replace or delete. Any number works; the strip scrolls.
   {
     title: "Project thesis #2",
     meta: "Bachelor · 2026",
-    description: "Placeholder — one or two sentences on topic and outcome.",
+    description:
+      "University paper with focus on security-relevant tenant data & vulnerability management.",
     tags: [
-      "Microsoft Defender",
+      "Paper",
       "Microsoft Graph API",
       "SQL & KQL",
+      "Power BI",
       "Azure",
-      "Infrastructure as Code",
+      "Bicep IaC",
     ],
   },
   {
     title: "Software Engineering Project",
     meta: "Bachelor · 2025",
-    description: "Placeholder — one or two sentences on topic and outcome.",
+    description:
+      "Work on an open-source project with a team of students. Taking ownership of the infrastructure and CI/CD pipelines.",
     tags: [
       "Open Source",
       "Kanban",
@@ -456,8 +461,16 @@ export const uniProjects: Project[] = [
   {
     title: "Project thesis #1",
     meta: "Bachelor · 2025",
-    description: "Placeholder — one or two sentences on topic and outcome.",
-    tags: ["CI/CD", "Testing", "Quality Assurance", "VMware", "PowerShell"],
+    description:
+      "University paper with focus on PowerShell testing in CI/CD pipelines for VMware environments.",
+    tags: [
+      "Paper",
+      "CI/CD",
+      "Testing",
+      "Quality Assurance",
+      "VMware",
+      "PowerShell",
+    ],
   },
 ];
 
