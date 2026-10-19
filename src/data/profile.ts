@@ -98,7 +98,7 @@ export const profile = {
   name: { first: "Noah", last: "Becker" },
   // TODO: replace with a real one-liner.
   intro:
-    "Software developer building thoughtful, reliable products. This is a placeholder intro — two short sentences about what you do and what you care about work best.",
+    "Security-interested software developer building thoughtful, reliable products. I enjoy building websites, apps and tools that are simple to use, easy to maintain and look good. Every time on the hunt for something new.",
   portrait: {
     image: portraitImage as ImageMetadata | undefined,
     alt: "Portrait of Noah Becker",
