@@ -32,6 +32,32 @@ import vesperkultImage from "../assets/projects/vesperkult.jpg";
 import thera4Image from "../assets/projects/thera4.jpg";
 import vgcImage from "../assets/projects/VGC.jpg";
 // Photo albums
+// Netherlands 2025-01
+import netherlands2025_01_01 from "../assets/photos/netherlands-2025-01/netherlands-2025-01-1.jpg";
+import netherlands2025_01_02 from "../assets/photos/netherlands-2025-01/netherlands-2025-01-2.jpg";
+import netherlands2025_01_03 from "../assets/photos/netherlands-2025-01/netherlands-2025-01-3.jpg";
+import netherlands2025_01_04 from "../assets/photos/netherlands-2025-01/netherlands-2025-01-4.jpg";
+import netherlands2025_01_05 from "../assets/photos/netherlands-2025-01/netherlands-2025-01-5-2.jpg";
+import netherlands2025_01_06 from "../assets/photos/netherlands-2025-01/netherlands-2025-01-6.jpg";
+import netherlands2025_01_07 from "../assets/photos/netherlands-2025-01/netherlands-2025-01-7.jpg";
+// Croatia 2024-01
+
+// Hamburg 2023-02
+
+// South Tirol 2023-01
+import southtirol2023_01_01 from "../assets/photos/southtirol-2023-01/Southtirol-2023-01-1.jpg";
+import southtirol2023_01_02 from "../assets/photos/southtirol-2023-01/Southtirol-2023-01-2.jpg";
+import southtirol2023_01_03 from "../assets/photos/southtirol-2023-01/Southtirol-2023-01-3.jpg";
+import southtirol2023_01_04 from "../assets/photos/southtirol-2023-01/Southtirol-2023-01-4.jpg";
+import southtirol2023_01_05 from "../assets/photos/southtirol-2023-01/Southtirol-2023-01-5.jpg";
+import southtirol2023_01_06 from "../assets/photos/southtirol-2023-01/Southtirol-2023-01-6.jpg";
+import southtirol2023_01_07 from "../assets/photos/southtirol-2023-01/Southtirol-2023-01-7.jpg";
+// Hamburg 2023-01
+
+// Crete 2022-01
+
+// Ludwigsburg 2021-01
+
 // Munich-2021-01
 import munich2021_01_01 from "../assets/photos/munich-2021-01/Munich-2021-01-1.jpg";
 import munich2021_01_02 from "../assets/photos/munich-2021-01/munich-2021-01-2.jpg";
@@ -96,7 +122,6 @@ export interface Album {
 
 export const profile = {
   name: { first: "Noah", last: "Becker" },
-  // TODO: replace with a real one-liner.
   intro:
     "Security-interested software developer building thoughtful, reliable and secure products. I enjoy building websites, apps and tools that are simple to use, easy to maintain and look good.",
   portrait: {
@@ -152,7 +177,6 @@ export const technologies: Skill[] = [
   { name: "Docker", logo: dockerLogo },
 ];
 
-// TODO: real work projects. The landing page shows the first two; /work shows all.
 export const workProjects: WorkProject[] = [
   // eTrucker
   {
@@ -469,7 +493,6 @@ export const uniProjects: Project[] = [
       "A Rust-based command-line tool for file integrity verification and hashing.",
     tags: ["Rust", "Terminal", "Integrity", "Cryptography", "Hashing"],
   },
-  // TODO: placeholders — replace or delete. Any number works; the strip scrolls.
   {
     title: "Project thesis #2",
     meta: "Bachelor · 2026",
@@ -514,9 +537,9 @@ export const uniProjects: Project[] = [
   },
 ];
 
-// TODO: add photos to src/assets/photos/, import them here and group them into albums.
 // /photos shows one block per album; the landing page shows the first photo of the first four albums.
 export const albums: Album[] = [
+  /*
   // Hanover 2026-01
   {
     slug: "hanover-2026-01",
@@ -541,28 +564,63 @@ export const albums: Album[] = [
       { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
     ],
   },
+  */
   // Netherlands 2025-01
   {
     slug: "netherlands-2025-01",
     title: "Netherlands",
-    note: "Placeholder — one line about where or what this album is.",
+    note: "Some cities, windmills, canals and alpacas. A short trip to the Netherlands in 2025.",
     period: "2025",
     photos: [
-      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
-      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
-      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
-    ],
-  },
-  // Lago Maggiore 2024-01
-  {
-    slug: "lagomaggiore-2024-01",
-    title: "Lago Maggiore, Swiss/Italy",
-    note: "Placeholder — one line about where or what this album is.",
-    period: "2024",
-    photos: [
-      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
-      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
-      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+      {
+        caption: "Photo 01",
+        alt: "",
+        place: "Netherlands",
+        date: "2025",
+        image: netherlands2025_01_01 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 02",
+        alt: "",
+        place: "Netherlands",
+        date: "2025",
+        image: netherlands2025_01_02 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 03",
+        alt: "",
+        place: "Netherlands",
+        date: "2025",
+        image: netherlands2025_01_03 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 04",
+        alt: "",
+        place: "Netherlands",
+        date: "2025",
+        image: netherlands2025_01_04 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 05",
+        alt: "",
+        place: "Netherlands",
+        date: "2025",
+        image: netherlands2025_01_05 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 06",
+        alt: "",
+        place: "Netherlands",
+        date: "2025",
+        image: netherlands2025_01_06 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 07",
+        alt: "",
+        place: "Netherlands",
+        date: "2025",
+        image: netherlands2025_01_07 as ImageMetadata | undefined,
+      },
     ],
   },
   // Crotia 2024-01
@@ -596,9 +654,55 @@ export const albums: Album[] = [
     note: "Placeholder — one line about where or what this album is.",
     period: "2023",
     photos: [
-      { caption: "Photo 01", alt: "", place: "Place", date: "2025" },
-      { caption: "Photo 02", alt: "", place: "Place", date: "2025" },
-      { caption: "Photo 03", alt: "", place: "Place", date: "2025" },
+      {
+        caption: "Photo 01",
+        alt: "",
+        place: "South Tirol",
+        date: "2023",
+        image: southtirol2023_01_01 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 02",
+        alt: "",
+        place: "South Tirol",
+        date: "2023",
+        image: southtirol2023_01_02 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 03",
+        alt: "",
+        place: "South Tirol",
+        date: "2023",
+        image: southtirol2023_01_03 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 04",
+        alt: "",
+        place: "South Tirol",
+        date: "2023",
+        image: southtirol2023_01_04 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 05",
+        alt: "",
+        place: "South Tirol",
+        date: "2023",
+        image: southtirol2023_01_05 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 06",
+        alt: "",
+        place: "South Tirol",
+        date: "2023",
+        image: southtirol2023_01_06 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 07",
+        alt: "",
+        place: "South Tirol",
+        date: "2023",
+        image: southtirol2023_01_07 as ImageMetadata | undefined,
+      },
     ],
   },
   // Hamburg 2023-01
@@ -645,63 +749,63 @@ export const albums: Album[] = [
     period: "2021",
     photos: [
       {
-        caption: "Munich 01",
+        caption: "Photo 01",
         alt: "",
         place: "Munich",
         date: "2021",
         image: munich2021_01_01 as ImageMetadata | undefined,
       },
       {
-        caption: "Munich 02",
+        caption: "Photo 02",
         alt: "",
         place: "Munich",
         date: "2021",
         image: munich2021_01_02 as ImageMetadata | undefined,
       },
       {
-        caption: "Munich 03",
+        caption: "Photo 03",
         alt: "",
         place: "Munich",
         date: "2021",
         image: munich2021_01_03 as ImageMetadata | undefined,
       },
       {
-        caption: "Munich 04",
+        caption: "Photo 04",
         alt: "",
         place: "Munich",
         date: "2021",
         image: munich2021_01_04 as ImageMetadata | undefined,
       },
       {
-        caption: "Munich 05",
+        caption: "Photo 05",
         alt: "",
         place: "Munich",
         date: "2021",
         image: munich2021_01_05 as ImageMetadata | undefined,
       },
       {
-        caption: "Munich 06",
+        caption: "Photo 06",
         alt: "",
         place: "Munich",
         date: "2021",
         image: munich2021_01_06 as ImageMetadata | undefined,
       },
       {
-        caption: "Munich 07",
+        caption: "Photo 07",
         alt: "",
         place: "Munich",
         date: "2021",
         image: munich2021_01_07 as ImageMetadata | undefined,
       },
       {
-        caption: "Munich 08",
+        caption: "Photo 08",
         alt: "",
         place: "Munich",
         date: "2021",
         image: munich2021_01_08 as ImageMetadata | undefined,
       },
       {
-        caption: "Munich 09",
+        caption: "Photo 09",
         alt: "",
         place: "Munich",
         date: "2021",
