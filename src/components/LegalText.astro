@@ -1,7 +1,11 @@
 ---
-/** Body of a legal page (/imprint, /privacy): one row per section, heading | text. */
+/**
+ * Body of a legal page (/imprint, /privacy): one row per section, heading | text.
+ * A section with sub-sections becomes a chapter row (§ 01) followed by one row
+ * per sub-section (§ 01.1, § 01.2 …).
+ */
 import Row from "./Row.astro";
-import type { LegalPage } from "../data/profile";
+import type { LegalBlock, LegalPage } from "../data/profile";
 
 interface Props {
   sections: LegalPage["sections"];
@@ -9,22 +13,71 @@ interface Props {
 
 const { sections } = Astro.props;
 const pad = (n: number) => String(n).padStart(2, "0");
+
+interface LegalRow {
+  label: string;
+  heading: string;
+  level: 2 | 3;
+  chapter: boolean;
+  body?: LegalBlock[];
+}
+
+const rows: LegalRow[] = sections.flatMap((section, i) => {
+  const label = `§ ${pad(i + 1)}`;
+  const head: LegalRow = {
+    label,
+    heading: section.heading,
+    level: 2,
+    chapter: Boolean(section.sections),
+    body: section.body,
+  };
+  const subs = (section.sections ?? []).map(
+    (sub, j): LegalRow => ({
+      label: `${label}.${j + 1}`,
+      heading: sub.heading,
+      level: 3,
+      chapter: false,
+      body: sub.body,
+    }),
+  );
+  return [head, ...subs];
+});
 ---
 
 <Row>
   <div class="legal cells">
     {
-      sections.map((section, i) => (
-        <Fragment>
-          <div class="heading">
-            <p class="label">§ {pad(i + 1)}</p>
-            <h2>{section.heading}</h2>
-          </div>
-          <div class="text">
-            {section.paragraphs.map((p) => <p>{p}</p>)}
-          </div>
-        </Fragment>
-      ))
+      rows.map((row) => {
+        const Heading = `h${row.level}`;
+        const Subheading = `h${row.level + 1}`;
+        return (
+          <Fragment>
+            <div class:list={["heading", { chapter: row.chapter }]}>
+              <p class="label">{row.label}</p>
+              <Heading>{row.heading}</Heading>
+            </div>
+            {row.body ? (
+              <div class="text">
+                {row.body.map((block) =>
+                  typeof block === "string" ? (
+                    <p>{block}</p>
+                  ) : "heading" in block ? (
+                    <Subheading class="subheading">{block.heading}</Subheading>
+                  ) : (
+                    <ul class="list">
+                      {block.list.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  ),
+                )}
+              </div>
+            ) : (
+              <div class="filler hatch" aria-hidden="true" />
+            )}
+          </Fragment>
+        );
+      })
     }
   </div>
 </Row>
@@ -45,27 +98,78 @@ const pad = (n: number) => String(n).padStart(2, "0");
     gap: 12px;
   }
 
-  h2 {
+  .heading h2,
+  .heading h3 {
     font-size: clamp(20px, 2.4vw, 26px);
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.02em;
   }
 
+  /* Chapter heading above its sub-sections: section-title size. */
+  .chapter h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    letter-spacing: -0.03em;
+  }
+
   .text {
     gap: 14px;
   }
 
-  .text p {
+  .text p,
+  .list {
     max-width: 62ch;
     font-size: 17px;
     line-height: 1.55;
+  }
+
+  .text p {
     white-space: pre-line;
+  }
+
+  .subheading {
+    max-width: 62ch;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .subheading:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .list li {
+    position: relative;
+    padding-left: 22px;
+  }
+
+  /* Square bullet, as on /work. */
+  .list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 7px;
+    height: 7px;
+    background: var(--fg);
   }
 
   @media (max-width: 720px) {
     .legal {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    .filler {
+      display: none;
     }
   }
 </style>

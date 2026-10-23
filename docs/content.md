@@ -14,7 +14,7 @@ All copy and data live in **`src/data/profile.ts`**. Components only read from i
 | `albums` | `{ slug, title, note?, period?, photos: Photo[] }[]` | `/photos`: one block per album (`A/01`…), label alternates left/right. `slug` is the anchor (`/photos#album-01`) |
 | `albumCovers` | derived: the first photo of each album, in album order, max 4 (`Photo` = `{ caption, alt, place?, date?, image? }`) | Landing grid. Don't edit — reorder albums / photos instead |
 
-| `imprint`, `privacy` | `LegalPage` = `{ title, kicker, note?, sections: { heading, paragraphs[] }[] }` | `/imprint`, `/privacy`. `\n` inside a paragraph is a line break (addresses). Use a non-breaking space after `§` (`§\u00a05`) |
+| `imprint`, `privacy` | `LegalPage` = `{ title, kicker, note?, sections: LegalSection[] }`, `LegalSection` = `{ heading, body?: LegalBlock[], sections?: LegalSection[] }`, `LegalBlock` = paragraph string \| `{ heading }` (small heading inside the text) \| `{ list: string[] }` | `/imprint`, `/privacy`. A section with `sections` is a chapter (`§ 01`) over numbered sub-sections (`§ 01.1`); privacy uses this, imprint doesn't. `\n` inside a paragraph is a line break (addresses). Use a non-breaking space after `§` (`§\u00a05`) |
 
 `Project` = `{ title, meta, description, tags[], href?, image? }`.
 `meta` is the small mono line above the title — keep it `Org · Year`.
@@ -83,7 +83,7 @@ Everything marked `// TODO` in `profile.ts`:
 - technologies: Azure, PowerShell, Linux were filled in as suggestions — confirm or swap
 - both work projects; university projects 04–06 are placeholders
 - work case-study text (role, context, contributions, outcome)
-- privacy: address, phone, email, hosting provider, dates; review every section (structure only, not legal advice). The imprint is done (e-Recht24); regenerate it there if address, contact or business details change
+- (done) imprint (e-Recht24) and privacy (text supplied by Noah, kept word for word) — update both if address, contact, hosting or business details change, and update privacy if the site starts collecting anything new (contact form, analytics, embeds)
 - albums (title, note, period) + photos with captions, alt text, place/date (3 placeholder albums × 3 photos; the first photo of each of the first 4 albums appears on the landing page)
 
 ## Writing guidelines

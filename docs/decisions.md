@@ -164,3 +164,14 @@ Requested by Noah so the site isn't publicly reachable yet. HTTP Basic Auth in `
 (`Require valid-user`, bcrypt `.htpasswd`). The password file is gitignored and uploaded by hand to
 `/var/www/vhosts/noah-becker.de/.htpasswd`, one level above `httpdocs`, so it is neither in the repo
 nor downloadable. To go public: delete the auth block from `public/.htaccess`, rebuild, upload.
+
+### 2026-10-23 — Privacy policy text, with chapters
+
+Noah supplied the full privacy policy (English, four numbered chapters with sub-sections, small
+question headings and one bullet list). It is kept word for word in `privacy` in `profile.ts`. The
+flat `heading + paragraphs` model couldn't hold that structure, so `LegalSection` got an optional
+`sections` list and `paragraphs` became `body`, which can also hold `{ heading }` and `{ list }`
+blocks. `LegalText` renders a chapter as its own row (`§ 01`, bigger h2, hatch filler when it has
+no intro) followed by one heading | text row per sub-section (`§ 01.1`), so the existing two-column
+rhythm stays and long chapters don't leave a near-empty left column. The imprint keeps its flat
+sections and looks as before.
