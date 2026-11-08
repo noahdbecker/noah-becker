@@ -4,6 +4,16 @@ import Row from "./Row.astro";
 import { profile } from "../data/profile";
 
 const { name, intro, portrait, current, education, location } = profile;
+
+// The crop zoom scales the img with a CSS transform, which the browser ignores
+// when it picks a srcset candidate — so `sizes` has to include it, or a
+// too-small file gets upscaled. Desktop cell ≈ 400px (a third of the 1200px
+// container); on phones the square cell is ~full width.
+const zoom = portrait.crop?.zoom ?? 1;
+const portraitSizes = `(max-width: 860px) ${Math.ceil(100 * zoom)}vw, ${Math.ceil(400 * zoom)}px`;
+const portraitWidths = portrait.image
+  ? [600, 900, 1200, 1600, 2400].filter((w) => w < portrait.image!.width).concat(portrait.image.width)
+  : [];
 ---
 
 <Row>
@@ -32,8 +42,9 @@ const { name, intro, portrait, current, education, location } = profile;
             <Image
               src={portrait.image}
               alt={portrait.alt}
-              widths={[480, 960, 1180]}
-              sizes="(max-width: 860px) 100vw, 480px"
+              widths={portraitWidths}
+              sizes={portraitSizes}
+              quality={90}
               loading="eager"
             />
           </div>

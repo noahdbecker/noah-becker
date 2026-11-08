@@ -72,6 +72,10 @@ keeps the bottom-right fixed so the top/left background drops out). Current phot
 (`Stuttgart_2026-10-27_JPG80-21.jpg`, autumn leaves, standing):
 `zoom: 1.35, origin: "50% 40%"` — zooms around the face, cutting the leaves above and the legs below. Check both desktop and a 390px viewport after changing it.
 
+Export the portrait large — at least 2400px wide (long edge ~4000px). The zoom crops it and
+phones show it at 3× pixel density, so a 1152px-wide export ends up upscaled and soft there.
+`Hero.astro` builds the srcset from the file's real width and folds `zoom` into `sizes`.
+
 ## Placeholders still to replace
 
 Everything marked `// TODO` in `profile.ts`:
