@@ -32,6 +32,21 @@ import vesperkultImage from "../assets/projects/vesperkult.jpg";
 import thera4Image from "../assets/projects/thera4.jpg";
 import vgcImage from "../assets/projects/VGC.jpg";
 // Photo albums
+// Stuttgart 2026-01
+import stuttgart2026_01_01 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-1.jpg";
+import stuttgart2026_01_02 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-2.jpg";
+import stuttgart2026_01_03 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-3.jpg";
+import stuttgart2026_01_04 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-4.jpg";
+import stuttgart2026_01_05 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-5.jpg";
+import stuttgart2026_01_06 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-6.jpg";
+import stuttgart2026_01_07 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-7.jpg";
+import stuttgart2026_01_08 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-8.jpg";
+import stuttgart2026_01_09 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-9.jpg";
+import stuttgart2026_01_10 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-10.jpg";
+import stuttgart2026_01_11 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-11.jpg";
+import stuttgart2026_01_12 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-12.jpg";
+import stuttgart2026_01_13 from "../assets/photos/stuttgart-2026-01/stuttgart-2026-01-13.jpg";
+
 // Netherlands 2025-01
 import netherlands2025_01_01 from "../assets/photos/netherlands-2025-01/netherlands-2025-01-1.jpg";
 import netherlands2025_01_02 from "../assets/photos/netherlands-2025-01/netherlands-2025-01-2.jpg";
@@ -541,6 +556,106 @@ export const uniProjects: Project[] = [
 
 // /photos shows one block per album; the landing page shows the first photo of the first four albums.
 export const albums: Album[] = [
+  // Stuttgart 2026-01
+  {
+    slug: "stuttgart-2026-01",
+    title: "Stuttgart, Germany",
+    note: "Autumn in Stuttgart, Germany. A short trip to the city in 2026.",
+    period: "2026",
+    photos: [
+      {
+        caption: "Photo 01",
+        alt: "",
+        place: "Rosensteinpark",
+        date: "2026",
+        image: stuttgart2026_01_01 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 02",
+        alt: "",
+        place: "Rosensteinpark",
+        date: "2026",
+        image: stuttgart2026_01_02 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 03",
+        alt: "",
+        place: "Rosensteinpark",
+        date: "2026",
+        image: stuttgart2026_01_03 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 04",
+        alt: "",
+        place: "Rosensteinpark",
+        date: "2026",
+        image: stuttgart2026_01_04 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 05",
+        alt: "",
+        place: "Rosensteinpark",
+        date: "2026",
+        image: stuttgart2026_01_05 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 06",
+        alt: "",
+        place: "Rosensteinpark",
+        date: "2026",
+        image: stuttgart2026_01_06 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 07",
+        alt: "",
+        place: "U Mineralbäder",
+        date: "2026",
+        image: stuttgart2026_01_07 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 08",
+        alt: "",
+        place: "U Mineralbäder",
+        date: "2026",
+        image: stuttgart2026_01_08 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 09",
+        alt: "",
+        place: "Stuttgart",
+        date: "2026",
+        image: stuttgart2026_01_09 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 10",
+        alt: "",
+        place: "Stuttgart",
+        date: "2026",
+        image: stuttgart2026_01_10 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 11",
+        alt: "",
+        place: "Rosensteinpark",
+        date: "2026",
+        image: stuttgart2026_01_11 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 12",
+        alt: "",
+        place: "Rosensteinpark",
+        date: "2026",
+        image: stuttgart2026_01_12 as ImageMetadata | undefined,
+      },
+      {
+        caption: "Photo 13",
+        alt: "",
+        place: "Rosensteinpark",
+        date: "2026",
+        image: stuttgart2026_01_13 as ImageMetadata | undefined,
+      },
+    ],
+  },
   /*
   // Hanover 2026-01
   {
@@ -892,14 +1007,20 @@ export const privacy: LegalPage = {
         {
           heading: "Data recording on this website",
           body: [
-            { heading: "Who is the responsible party for the recording of data on this website (i.e., the “controller”)?" },
+            {
+              heading:
+                "Who is the responsible party for the recording of data on this website (i.e., the “controller”)?",
+            },
             "The data on this website is processed by the operator of the website, whose contact information is available under section “Information about the responsible party (referred to as the “controller” in the GDPR)” in this Privacy Policy.",
             { heading: "How do we record your data?" },
             "We collect your data as a result of your sharing of your data with us. This may, for instance be information you enter into our contact form.",
             "Other data shall be recorded by our IT systems automatically or after you consent to its recording during your website visit. This data comprises primarily technical information (e.g., web browser, operating system, or time the site was accessed). This information is recorded automatically when you access this website.",
             { heading: "What are the purposes we use your data for?" },
             "A portion of the information is generated to guarantee the error free provision of the website. Other data may be used to analyze your user patterns. If contracts can be concluded or initiated via the website, the transmitted data will also be processed for contract offers, orders or other order enquiries.",
-            { heading: "What rights do you have as far as your information is concerned?" },
+            {
+              heading:
+                "What rights do you have as far as your information is concerned?",
+            },
             "You have the right to receive information about the source, recipients, and purposes of your archived personal data at any time without having to pay a fee for such disclosures. You also have the right to demand that your data are rectified or eradicated. If you have consented to data processing, you have the option to revoke this consent at any time, which shall affect all future data processing. Moreover, you have the right to demand that the processing of your data be restricted under certain circumstances. Furthermore, you have the right to log a complaint with the competent supervising agency.",
             "Please do not hesitate to contact us at any time if you have questions about this or any other data protection related issues.",
           ],
@@ -908,7 +1029,9 @@ export const privacy: LegalPage = {
     },
     {
       heading: "Hosting",
-      body: ["We are hosting the content of our website at the following provider:"],
+      body: [
+        "We are hosting the content of our website at the following provider:",
+      ],
       sections: [
         {
           heading: "External Hosting",
@@ -936,7 +1059,8 @@ export const privacy: LegalPage = {
           ],
         },
         {
-          heading: "Information about the responsible party (referred to as the “controller” in the GDPR)",
+          heading:
+            "Information about the responsible party (referred to as the “controller” in the GDPR)",
           body: [
             "The data processing controller on this website is:",
             "Noah Becker\nndb.media\nPleidelsheimer Str. 47\n74321 Bietigheim-Bissingen",
@@ -951,7 +1075,8 @@ export const privacy: LegalPage = {
           ],
         },
         {
-          heading: "General information on the legal basis for the data processing on this website",
+          heading:
+            "General information on the legal basis for the data processing on this website",
           body: [
             "If you have consented to data processing, we process your personal data on the basis of Art. 6(1)(a) GDPR or Art. 9 (2)(a) GDPR, if special categories of data are processed according to Art. 9 (1) DSGVO. In the case of explicit consent to the transfer of personal data to third countries, the data processing is also based on Art. 49 (1)(a) GDPR. If you have consented to the storage of cookies or to the access to information in your end device (e.g., via device fingerprinting), the data processing is additionally based on § 25 (1) TDDDG. The consent can be revoked at any time. If your data is required for the fulfillment of a contract or for the implementation of pre-contractual measures, we process your data on the basis of Art. 6(1)(b) GDPR. Furthermore, if your data is required for the fulfillment of a legal obligation, we process it on the basis of Art. 6(1)(c) GDPR. Furthermore, the data processing may be carried out on the basis of our legitimate interest according to Art. 6(1)(f) GDPR. Information on the relevant legal basis in each individual case is provided in the following paragraphs of this privacy policy.",
           ],
@@ -969,14 +1094,16 @@ export const privacy: LegalPage = {
           ],
         },
         {
-          heading: "Right to object to the collection of data in special cases; right to object to direct advertising (Art. 21 GDPR)",
+          heading:
+            "Right to object to the collection of data in special cases; right to object to direct advertising (Art. 21 GDPR)",
           body: [
             "IN THE EVENT THAT DATA ARE PROCESSED ON THE BASIS OF ART. 6(1)(E) OR (F) GDPR, YOU HAVE THE RIGHT TO AT ANY TIME OBJECT TO THE PROCESSING OF YOUR PERSONAL DATA BASED ON GROUNDS ARISING FROM YOUR UNIQUE SITUATION. THIS ALSO APPLIES TO ANY PROFILING BASED ON THESE PROVISIONS. TO DETERMINE THE LEGAL BASIS, ON WHICH ANY PROCESSING OF DATA IS BASED, PLEASE CONSULT THIS DATA PROTECTION DECLARATION. IF YOU LOG AN OBJECTION, WE WILL NO LONGER PROCESS YOUR AFFECTED PERSONAL DATA, UNLESS WE ARE IN A POSITION TO PRESENT COMPELLING PROTECTION WORTHY GROUNDS FOR THE PROCESSING OF YOUR DATA, THAT OUTWEIGH YOUR INTERESTS, RIGHTS AND FREEDOMS OR IF THE PURPOSE OF THE PROCESSING IS THE CLAIMING, EXERCISING OR DEFENCE OF LEGAL ENTITLEMENTS (OBJECTION PURSUANT TO ART. 21(1) GDPR).",
             "IF YOUR PERSONAL DATA IS BEING PROCESSED IN ORDER TO ENGAGE IN DIRECT ADVERTISING, YOU HAVE THE RIGHT TO OBJECT TO THE PROCESSING OF YOUR AFFECTED PERSONAL DATA FOR THE PURPOSES OF SUCH ADVERTISING AT ANY TIME. THIS ALSO APPLIES TO PROFILING TO THE EXTENT THAT IT IS AFFILIATED WITH SUCH DIRECT ADVERTISING. IF YOU OBJECT, YOUR PERSONAL DATA WILL SUBSEQUENTLY NO LONGER BE USED FOR DIRECT ADVERTISING PURPOSES (OBJECTION PURSUANT TO ART. 21(2) GDPR).",
           ],
         },
         {
-          heading: "Right to log a complaint with the competent supervisory agency",
+          heading:
+            "Right to log a complaint with the competent supervisory agency",
           body: [
             "In the event of violations of the GDPR, data subjects are entitled to log a complaint with a supervisory agency, in particular in the member state where they usually maintain their domicile, place of work or at the place where the alleged violation occurred. The right to log a complaint is in effect regardless of any other administrative or court proceedings available as legal recourses.",
           ],
