@@ -8,7 +8,7 @@
 import type { ImageMetadata } from "astro";
 import type { SvgComponent } from "astro/types";
 // Portrait
-import portraitImage from "../assets/noah_portrait_big.jpg";
+import portraitImage from "../assets/Stuttgart_2026-10-27_JPG80-21.jpg";
 // Logos for skills and technologies
 import typescriptLogo from "../assets/logos/typescript.svg";
 import pythonLogo from "../assets/logos/python.svg";
@@ -127,9 +127,9 @@ export const profile = {
   portrait: {
     image: portraitImage as ImageMetadata | undefined,
     alt: "Portrait of Noah Becker",
-    // Tighter framing: zoom in, anchored at the bottom-right so the top/left
-    // background drops out. Re-tune when the photo changes.
-    crop: { zoom: 1.22, origin: "100% 100%" } as
+    // Tighter framing: zoom in around the face (centred, ~40% from the top) so
+    // the leaves above and the legs below drop out. Re-tune when the photo changes.
+    crop: { zoom: 1.35, origin: "50% 40%" } as
       | { zoom: number; origin: string }
       | undefined,
   },
@@ -150,7 +150,9 @@ export const profile = {
     status: "2024 – 2027",
   },
   links: {
-    email: "mailto:hey@noah-becker.de",
+    // Plain address, never rendered as-is: links are built with mailLink()
+    // (src/lib/mail.ts) so the HTML holds no scrapable mailto:.
+    email: "hey@noah-becker.de",
     github: "https://github.com/noahdbecker",
     linkedin: "https://linkedin.com/in/noah-david-becker",
   },
@@ -856,7 +858,7 @@ export const imprint: LegalPage = {
     },
     {
       heading: "Contact",
-      body: ["Phone: +49 (0)178 1188295\nEmail: hey@noah-becker.de"],
+      body: ["Phone: +49 (0)178 1188295\nEmail: hey [at] noah-becker.de"],
     },
     {
       heading: "Business identification number",
@@ -938,7 +940,7 @@ export const privacy: LegalPage = {
           body: [
             "The data processing controller on this website is:",
             "Noah Becker\nndb.media\nPleidelsheimer Str. 47\n74321 Bietigheim-Bissingen",
-            "Phone: +49 (0)178 11 88 295\nE-mail: hey@noah-becker.de",
+            "Phone: +49 (0)178 11 88 295\nE-mail: hey [at] noah-becker.de",
             "The controller is the natural person or legal entity that single-handedly or jointly with others makes decisions as to the purposes of and resources for the processing of personal data (e.g., names, e-mail addresses, etc.).",
           ],
         },

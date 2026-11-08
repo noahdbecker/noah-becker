@@ -175,3 +175,17 @@ blocks. `LegalText` renders a chapter as its own row (`§ 01`, bigger h2, hatch 
 no intro) followed by one heading | text row per sub-section (`§ 01.1`), so the existing two-column
 rhythm stays and long chapters don't leave a near-empty left column. The imprint keeps its flat
 sections and looks as before.
+
+### 2026-11-08 — Email link obfuscation
+
+Noah didn't want a plain `mailto:` on the header "Contact" button (and the footer "Email" link),
+since harvesters pick it straight out of the HTML. `profile.links.email` now holds the bare address
+and every email link is rendered through `mailLink()` (`src/lib/mail.ts`): the address is reversed
+and base64-encoded into `data-mail`, and `href` points at `/imprint/`. `scripts/mail.ts` decodes it
+into a real `mailto:` on the first `pointerover` / `focusin` / `touchstart`, i.e. before the click,
+so hover status bar, right-click "copy address" and keyboard use all behave normally. Without JS the
+link opens the imprint, which lists the address — the site still works without scripts. A contact
+form was rejected: it needs a backend the static Plesk host doesn't run and would extend the privacy
+policy. The imprint and privacy texts must show the address (§ 5 DDG, controller details), so
+there it is written as `hey [at] noah-becker.de`: still readable and usable by people, but no
+longer a match for simple `name@domain` harvesters. The no-JS fallback still lands there.

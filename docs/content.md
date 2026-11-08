@@ -68,8 +68,9 @@ Astro then generates responsive, optimised versions. Don't use `public/` for the
 `profile.portrait.crop = { zoom, origin }` tightens the framing in CSS (no file edits):
 the image is cropped with `object-fit: cover` (~0.7 ratio on desktop, square on phones),
 then scaled by `zoom` around `origin` (a CSS `transform-origin`, e.g. `"100% 100%"`
-keeps the bottom-right fixed so the top/left background drops out). Current photo:
-`zoom: 1.22, origin: "100% 100%"`. Check both desktop and a 390px viewport after changing it.
+keeps the bottom-right fixed so the top/left background drops out). Current photo
+(`Stuttgart_2026-10-27_JPG80-21.jpg`, autumn leaves, standing):
+`zoom: 1.35, origin: "50% 40%"` — zooms around the face, cutting the leaves above and the legs below. Check both desktop and a 390px viewport after changing it.
 
 ## Placeholders still to replace
 
@@ -78,12 +79,12 @@ Everything marked `// TODO` in `profile.ts`:
 - intro sentence, city
 - current role, company, start year
 - degree, university, years
-- email (`mailto:`), LinkedIn URL; confirm GitHub handle
+- LinkedIn URL; confirm GitHub handle
 - all six languages
 - technologies: Azure, PowerShell, Linux were filled in as suggestions — confirm or swap
 - both work projects; university projects 04–06 are placeholders
 - work case-study text (role, context, contributions, outcome)
-- (done) imprint (e-Recht24) and privacy (text supplied by Noah, kept word for word) — update both if address, contact, hosting or business details change, and update privacy if the site starts collecting anything new (contact form, analytics, embeds)
+- (done) imprint (e-Recht24) and privacy (text supplied by Noah, kept word for word) — update both if address, contact, hosting or business details change, and update privacy if the site starts collecting anything new (contact form, analytics, embeds). Write the email as `hey [at] noah-becker.de` in both, never as a plain address
 - albums (title, note, period) + photos with captions, alt text, place/date (3 placeholder albums × 3 photos; the first photo of each of the first 4 albums appears on the landing page)
 
 ## Writing guidelines

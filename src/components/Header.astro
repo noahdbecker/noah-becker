@@ -2,6 +2,7 @@
 import Row from "./Row.astro";
 import SeasonToggle from "./SeasonToggle.astro";
 import { profile } from "../data/profile";
+import { mailLink } from "../lib/mail";
 
 // Links point at landing-page sections; `page` marks the matching subpage as current.
 const nav = [
@@ -27,7 +28,7 @@ const path = Astro.url.pathname.replace(/\/$/, "");
         ))
       }
       <div class="fill hatch" aria-hidden="true"></div>
-      <a class="cta label" href={profile.links.email}>Contact <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="cta label" {...mailLink(profile.links.email)}>Contact <span class="arrow" aria-hidden="true">→</span></a>
       <SeasonToggle />
     </nav>
   </Row>
